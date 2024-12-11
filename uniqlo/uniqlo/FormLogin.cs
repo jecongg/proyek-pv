@@ -16,5 +16,37 @@ namespace uniqlo
         {
             InitializeComponent();
         }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            //Method buat login, ada pengecekan inputan kosong, user yang bisa masuk hanya admin dan cashier
+            if(textUsername.Text=="" || textPassword.Text == "")
+            {
+                MessageBox.Show("Masih kosong!");
+            }
+            else
+            {
+                if(textUsername.Text=="admin" && textPassword.Text == "admin")
+                {
+                    this.Hide();
+                    FormAdmin f = new FormAdmin();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else if(textUsername.Text=="cashier" && textPassword.Text == "cashier")
+                {
+                    this.Hide();
+                    FormCashier f = new FormCashier();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Username atau password salah!");
+                    textUsername.Text = "";
+                    textPassword.Text = "";
+                }
+            }
+        }
     }
 }

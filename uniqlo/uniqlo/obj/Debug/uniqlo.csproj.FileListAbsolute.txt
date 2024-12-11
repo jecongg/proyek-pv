@@ -7,3 +7,5 @@ C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniq
 C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.CoreCompileInputs.cache
 C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe
 C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.pdb
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormLogin.resources
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCashier.resources
