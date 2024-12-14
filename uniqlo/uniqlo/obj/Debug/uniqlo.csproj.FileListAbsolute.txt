@@ -9,3 +9,14 @@ C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniq
 C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.pdb
 C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormLogin.resources
 C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCashier.resources
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\uniqlo.exe.config
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\uniqlo.exe
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\uniqlo.pdb
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.AssemblyReference.cache
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCashier.resources
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormLogin.resources
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.Properties.Resources.resources
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.GenerateResource.cache
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.CoreCompileInputs.cache
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.pdb

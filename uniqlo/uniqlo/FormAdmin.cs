@@ -16,5 +16,10 @@ namespace uniqlo
         {
             InitializeComponent();
         }
+
+        private void btnAddBrg_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
