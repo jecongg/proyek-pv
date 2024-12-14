@@ -19,6 +19,17 @@ namespace uniqlo
 
         private void btnAddBrg_Click(object sender, EventArgs e)
         {
+            FormAddBarang fa = new FormAddBarang();
+            fa.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void addBrg()
+        {
 
         }
     }
