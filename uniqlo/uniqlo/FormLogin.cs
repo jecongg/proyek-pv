@@ -21,7 +21,6 @@ namespace uniqlo
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            //Method buat login, ada pengecekan inputan kosong, user yang bisa masuk hanya admin dan cashier
             if(textUsername.Text=="" || textPassword.Text == "")
             {
                 MessageBox.Show("Masih kosong!");
@@ -57,12 +56,10 @@ namespace uniqlo
 
             try
             {
-                // Menggunakan WebClient untuk mengunduh gambar
                 using (WebClient client = new WebClient())
                 {
                     byte[] imageData = client.DownloadData(imageUrl);
 
-                    // Konversi byte[] ke Image
                     using (var stream = new System.IO.MemoryStream(imageData))
                     {
                         pictureBox1.Image = Image.FromStream(stream);
