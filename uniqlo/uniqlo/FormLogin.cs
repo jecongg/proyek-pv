@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Net;
 
 namespace uniqlo
 {
@@ -46,6 +48,31 @@ namespace uniqlo
                     textUsername.Text = "";
                     textPassword.Text = "";
                 }
+            }
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            string imageUrl = "https://brandslogos.com/wp-content/uploads/images/large/uniqlo-logo.png";
+
+            try
+            {
+                // Menggunakan WebClient untuk mengunduh gambar
+                using (WebClient client = new WebClient())
+                {
+                    byte[] imageData = client.DownloadData(imageUrl);
+
+                    // Konversi byte[] ke Image
+                    using (var stream = new System.IO.MemoryStream(imageData))
+                    {
+                        pictureBox1.Image = Image.FromStream(stream);
+                        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading image: " + ex.Message);
             }
         }
     }
