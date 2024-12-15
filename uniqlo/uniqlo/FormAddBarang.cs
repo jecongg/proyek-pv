@@ -55,5 +55,101 @@ namespace uniqlo
         {
             fa.addBrg();
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                numDiskon.Enabled = true;
+            }
+            if (!radioButton1.Checked)
+            {
+                numDiskon.Enabled = false;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (xs.Checked)
+            {
+                numStokXS.Enabled = true;
+            }
+            else
+            {
+                numStokXS.Enabled = false;
+            }
+        }
+
+        private void s_CheckedChanged(object sender, EventArgs e)
+        {
+            if (s.Checked)
+            {
+                numStokS.Enabled = true;
+            }
+            else
+            {
+                numStokS.Enabled = false;
+            }
+        }
+
+        private void m_CheckedChanged(object sender, EventArgs e)
+        {
+            if (m.Checked)
+            {
+                numStokM.Enabled = true;
+            }
+            else
+            {
+                numStokM.Enabled = false;
+            }
+        }
+
+        private void l_CheckedChanged(object sender, EventArgs e)
+        {
+            if (l.Checked)
+            {
+                numStokL.Enabled = true;
+            }
+            else
+            {
+                numStokL.Enabled = false;
+            }
+        }
+
+        private void xl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (xl.Checked)
+            {
+                numStokXL.Enabled = true;
+            }
+            else
+            {
+                numStokXL.Enabled = false;
+            }
+        }
+
+        private void xxl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (xxl.Checked)
+            {
+                numStokXXL.Enabled = true;
+            }
+            else
+            {
+                numStokXXL.Enabled = false;
+            }
+        }
+
+        private void xxxl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (xxxl.Checked)
+            {
+                numStokXXXL.Enabled = true;
+            }
+            else
+            {
+                numStokXXXL.Enabled = false;
+            }
+        }
     }
 }

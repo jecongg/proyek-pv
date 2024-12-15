@@ -42,10 +42,9 @@ namespace uniqlo
             // btnAddBrg
             // 
             this.btnAddBrg.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBrg.Location = new System.Drawing.Point(819, 29);
-            this.btnAddBrg.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnAddBrg.Location = new System.Drawing.Point(307, 12);
             this.btnAddBrg.Name = "btnAddBrg";
-            this.btnAddBrg.Size = new System.Drawing.Size(309, 88);
+            this.btnAddBrg.Size = new System.Drawing.Size(116, 37);
             this.btnAddBrg.TabIndex = 0;
             this.btnAddBrg.Text = "Add Barang";
             this.btnAddBrg.UseVisualStyleBackColor = true;
@@ -54,10 +53,9 @@ namespace uniqlo
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(1469, 29);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnDelete.Location = new System.Drawing.Point(551, 12);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(309, 88);
+            this.btnDelete.Size = new System.Drawing.Size(116, 37);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete Barang";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -66,10 +64,9 @@ namespace uniqlo
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(2120, 41);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnLogout.Location = new System.Drawing.Point(795, 17);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(237, 76);
+            this.btnLogout.Size = new System.Drawing.Size(89, 32);
             this.btnLogout.TabIndex = 3;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -77,19 +74,17 @@ namespace uniqlo
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(-3, 169);
-            this.panel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panel1.Location = new System.Drawing.Point(-1, 71);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2393, 1257);
+            this.panel1.Size = new System.Drawing.Size(897, 527);
             this.panel1.TabIndex = 4;
             // 
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(1144, 29);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnUpdate.Location = new System.Drawing.Point(429, 12);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(309, 88);
+            this.btnUpdate.Size = new System.Drawing.Size(116, 37);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Update Barang";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -98,25 +93,27 @@ namespace uniqlo
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(136, 48);
+            this.label1.Location = new System.Drawing.Point(51, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(228, 69);
+            this.label1.Size = new System.Drawing.Size(94, 29);
             this.label1.TabIndex = 5;
             this.label1.Text = "ADMIN";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(30, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(38, 42);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // FormAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2389, 1421);
+            this.ClientSize = new System.Drawing.Size(917, 619);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -124,7 +121,6 @@ namespace uniqlo
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAddBrg);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "FormAdmin";
             this.Text = "FormAdmin";
             this.Load += new System.EventHandler(this.FormAdmin_Load);
