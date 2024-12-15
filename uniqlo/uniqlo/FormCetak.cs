@@ -10,27 +10,14 @@ using System.Windows.Forms;
 
 namespace uniqlo
 {
-    public partial class FormCart : Form
+    public partial class FormCetak : Form
     {
-        public FormCart()
+        public FormCetak()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormCetak f = new FormCetak();
-            f.ShowDialog();
-            this.Show();
-        }
-
         private void button1_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }

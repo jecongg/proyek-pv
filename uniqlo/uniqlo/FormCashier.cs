@@ -17,6 +17,8 @@ namespace uniqlo
         public FormCashier()
         {
             InitializeComponent();
+            label8.Text = "Rp639.000";
+            label8.Font = new Font("Arial", 8, FontStyle.Strikeout | FontStyle.Bold);
         }
         
         private void load()
@@ -98,6 +100,38 @@ namespace uniqlo
         {
             this.Hide();
             FormCart f = new FormCart();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Hide();
+            FormDetailBarang f = new FormDetailBarang();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormDetailBarang f = new FormDetailBarang();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormDetailBarang f = new FormDetailBarang();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormDetailBarang f = new FormDetailBarang();
             f.ShowDialog();
             this.Show();
         }
