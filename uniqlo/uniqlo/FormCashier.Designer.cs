@@ -31,6 +31,23 @@ namespace uniqlo
         {
             this.buttonLogout = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -44,23 +61,6 @@ namespace uniqlo
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -108,6 +108,160 @@ namespace uniqlo
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2427, 1026);
             this.panel1.TabIndex = 1;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(1963, 731);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(155, 32);
+            this.label21.TabIndex = 35;
+            this.label21.Text = "Rp699.000";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(1963, 643);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(405, 32);
+            this.label20.TabIndex = 34;
+            this.label20.Text = "Windproof Outer Fleece Jacket";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(2269, 550);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(129, 32);
+            this.label19.TabIndex = 33;
+            this.label19.Text = "2XS-3XL";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(1963, 550);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(66, 32);
+            this.label18.TabIndex = 32;
+            this.label18.Text = "Pria";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(1326, 731);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(139, 32);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "Rp90.000";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1326, 643);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(338, 64);
+            this.label16.TabIndex = 30;
+            this.label16.Text = "Mofusand Fruits Paradise\r\nUT Graphic T-Shirt";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1581, 550);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(208, 32);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "110cm - 130cm";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1326, 550);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(80, 32);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Anak";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(684, 731);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(155, 32);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Rp149.000";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(684, 611);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(365, 64);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "U AIRism Cotton Oversized \r\nCrew Neck T-Shirt";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(990, 550);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(143, 32);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "2XS - 2XL";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(684, 550);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(104, 32);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Wanita";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(44, 819);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(155, 32);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Rp499.000";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(44, 731);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 32);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "label8";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(44, 643);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(341, 32);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Oxford Slim Shirt | Striped";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(366, 550);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(127, 32);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "XS - 3XL";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(44, 550);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 32);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Pria";
             // 
             // pictureBox5
             // 
@@ -246,160 +400,6 @@ namespace uniqlo
             this.button1.Text = "CART";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(44, 550);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 32);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Pria";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(366, 550);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 32);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "XS - 3XL";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(44, 643);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(341, 32);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Oxford Slim Shirt | Striped";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(44, 731);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 32);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "label8";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(44, 819);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(155, 32);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Rp499.000";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(684, 550);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(104, 32);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "Wanita";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(990, 550);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(143, 32);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "2XS - 2XL";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(684, 611);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(365, 64);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "U AIRism Cotton Oversized \r\nCrew Neck T-Shirt";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(684, 731);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(155, 32);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "Rp149.000";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1326, 550);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(80, 32);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "Anak";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(1581, 550);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(208, 32);
-            this.label15.TabIndex = 29;
-            this.label15.Text = "110cm - 130cm";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(1326, 643);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(338, 64);
-            this.label16.TabIndex = 30;
-            this.label16.Text = "Mofusand Fruits Paradise\r\nUT Graphic T-Shirt";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(1326, 731);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(139, 32);
-            this.label17.TabIndex = 31;
-            this.label17.Text = "Rp90.000";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(1963, 550);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(66, 32);
-            this.label18.TabIndex = 32;
-            this.label18.Text = "Pria";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(2269, 550);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(129, 32);
-            this.label19.TabIndex = 33;
-            this.label19.Text = "2XS-3XL";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(1963, 643);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(405, 32);
-            this.label20.TabIndex = 34;
-            this.label20.Text = "Windproof Outer Fleece Jacket";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(1963, 731);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(155, 32);
-            this.label21.TabIndex = 35;
-            this.label21.Text = "Rp699.000";
             // 
             // FormCashier
             // 
