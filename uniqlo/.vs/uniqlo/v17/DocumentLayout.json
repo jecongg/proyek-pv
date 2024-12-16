@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formaddbarang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|d:\\univ\\sms 3\\pad\\proyek pv\\proyekpv\\uniqlo\\uniqlo\\formaddbarang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formaddbarang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -38,8 +42,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormAddBarang.cs",
+              "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAddBarang.cs",
+              "RelativeDocumentMoniker": "uniqlo\\FormAddBarang.cs",
+              "ToolTip": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAddBarang.cs",
+              "RelativeToolTip": "uniqlo\\FormAddBarang.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAlwJIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T15:52:54.827Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
@@ -50,15 +67,15 @@
               "Title": "FormAddBarang.cs [Design]",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAddBarang.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormAddBarang.cs",
-              "ToolTip": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAddBarang.cs [Design]*",
-              "RelativeToolTip": "uniqlo\\FormAddBarang.cs [Design]*",
+              "ToolTip": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAddBarang.cs [Design]",
+              "RelativeToolTip": "uniqlo\\FormAddBarang.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-15T15:18:59.549Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "FormCashier.cs",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormCashier.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormCashier.cs",
@@ -71,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "FormAdmin.cs",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAdmin.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormAdmin.cs",
@@ -84,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FormLogin.cs",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormLogin.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormLogin.cs",
@@ -97,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "FormLogin.cs [Design]",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormLogin.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormLogin.cs",
@@ -109,7 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "FormCashier.cs [Design]",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormCashier.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormCashier.cs",
@@ -121,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FormAdmin.cs [Design]",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAdmin.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormAdmin.cs",
