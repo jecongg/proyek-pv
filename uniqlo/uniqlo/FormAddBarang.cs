@@ -53,6 +53,9 @@ namespace uniqlo
 
         private void btnAddBarang_Click(object sender, EventArgs e)
         {
+            Image gambar = pictureBox1.Image;
+            string nama = textNama.Text;
+            
             fa.addBrg();
         }
 
