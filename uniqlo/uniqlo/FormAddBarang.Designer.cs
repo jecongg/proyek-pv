@@ -119,6 +119,7 @@ namespace uniqlo
             // 
             // numStokXS
             // 
+            this.numStokXS.Enabled = false;
             this.numStokXS.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numStokXS.Location = new System.Drawing.Point(96, 150);
             this.numStokXS.Name = "numStokXS";
@@ -270,6 +271,7 @@ namespace uniqlo
             // 
             // numStokS
             // 
+            this.numStokS.Enabled = false;
             this.numStokS.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numStokS.Location = new System.Drawing.Point(96, 179);
             this.numStokS.Name = "numStokS";
@@ -288,6 +290,7 @@ namespace uniqlo
             // 
             // numStokM
             // 
+            this.numStokM.Enabled = false;
             this.numStokM.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numStokM.Location = new System.Drawing.Point(180, 150);
             this.numStokM.Name = "numStokM";
@@ -306,6 +309,7 @@ namespace uniqlo
             // 
             // numStokL
             // 
+            this.numStokL.Enabled = false;
             this.numStokL.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numStokL.Location = new System.Drawing.Point(180, 178);
             this.numStokL.Name = "numStokL";
@@ -324,6 +328,7 @@ namespace uniqlo
             // 
             // numStokXL
             // 
+            this.numStokXL.Enabled = false;
             this.numStokXL.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numStokXL.Location = new System.Drawing.Point(261, 150);
             this.numStokXL.Maximum = new decimal(new int[] {
@@ -347,6 +352,7 @@ namespace uniqlo
             // 
             // numStokXXL
             // 
+            this.numStokXXL.Enabled = false;
             this.numStokXXL.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numStokXXL.Location = new System.Drawing.Point(261, 178);
             this.numStokXXL.Name = "numStokXXL";
@@ -466,6 +472,7 @@ namespace uniqlo
             // 
             // numStokXXXL
             // 
+            this.numStokXXXL.Enabled = false;
             this.numStokXXXL.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numStokXXXL.Location = new System.Drawing.Point(339, 150);
             this.numStokXXXL.Maximum = new decimal(new int[] {
