@@ -30,12 +30,11 @@ namespace uniqlo
         private void InitializeComponent()
         {
             this.btnAddBrg = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnKategori = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,17 +48,6 @@ namespace uniqlo
             this.btnAddBrg.Text = "Add Barang";
             this.btnAddBrg.UseVisualStyleBackColor = true;
             this.btnAddBrg.Click += new System.EventHandler(this.btnAddBrg_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(551, 12);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(116, 37);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete Barang";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnLogout
             // 
@@ -79,16 +67,6 @@ namespace uniqlo
             this.panel1.Size = new System.Drawing.Size(897, 527);
             this.panel1.TabIndex = 4;
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(429, 12);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(116, 37);
-            this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "Update Barang";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -103,11 +81,22 @@ namespace uniqlo
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(11, 12);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 42);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnKategori
+            // 
+            this.btnKategori.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKategori.Location = new System.Drawing.Point(443, 12);
+            this.btnKategori.Name = "btnKategori";
+            this.btnKategori.Size = new System.Drawing.Size(116, 37);
+            this.btnKategori.TabIndex = 1;
+            this.btnKategori.Text = "Kategori";
+            this.btnKategori.UseVisualStyleBackColor = true;
+            this.btnKategori.Click += new System.EventHandler(this.btnKategori_Click);
             // 
             // FormAdmin
             // 
@@ -118,8 +107,7 @@ namespace uniqlo
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnKategori);
             this.Controls.Add(this.btnAddBrg);
             this.Name = "FormAdmin";
             this.Text = "FormAdmin";
@@ -133,11 +121,10 @@ namespace uniqlo
         #endregion
 
         private System.Windows.Forms.Button btnAddBrg;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnKategori;
     }
 }

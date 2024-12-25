@@ -77,3 +77,28 @@ D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCart.res
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCetak.resources
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormDetailBarang.resources
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.CopyComplete
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\MySql.Data.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\bin\Debug\stdole.dll
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormAddBarang.resources
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormAdmin.resources
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCart.resources
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCetak.resources
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormDetailBarang.resources
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.CopyComplete
+C:\Users\jason\OneDrive\Desktop\Kuliah\Semester 3\PV\proyek\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormKategori.resources

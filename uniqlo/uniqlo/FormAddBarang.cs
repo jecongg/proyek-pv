@@ -7,33 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace uniqlo
 {
     public partial class FormAddBarang : Form
     {
-        private FormAdmin fa = new FormAdmin();
+        string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
+        List<CheckBox> listCheck;
+        List<NumericUpDown> listSize;
         public FormAddBarang()
         {
             InitializeComponent();
+            listCheck = new List<CheckBox>() { xs, s, m, l, xl, xxl, xxxl };
+            listSize = new List<NumericUpDown>() { numStokXS, numStokS, numStokM, numStokL, numStokXL, numStokXXL, numStokXXXL };
+            load();
         }
 
-        private void btnAddImg_Click(object sender, EventArgs e)
+        private void load()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp", // Filter hanya untuk file gambar
-                Title = "Pilih Gambar Barang"
-            };
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Mendapatkan path file yang dipilih
-                string selectedImagePath = openFileDialog.FileName;
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("select * from pengguna", conn);
 
-                // Menampilkan gambar di PictureBox
-                pictureBox1.Image = Image.FromFile(selectedImagePath);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
 
-            }
+            comboBox2.DataSource = dt;
+            comboBox2.DisplayMember = "nama";
+            comboBox2.ValueMember = "id";
+            comboBox2.SelectedIndex = -1;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -51,24 +53,110 @@ namespace uniqlo
             this.Close();
         }
 
-        private void btnAddBarang_Click(object sender, EventArgs e)
+        private bool cekBarangValid()
         {
-            Image gambar = pictureBox1.Image;
-            string nama = textNama.Text;
-            
-            fa.addBrg();
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("select count(*) from barang where nama = @a and id_kategori = @b", conn);
+            cmd.Parameters.AddWithValue("@a", textNama.Text);
+            cmd.Parameters.AddWithValue("@b", comboBox1.SelectedValue);
+            int ada = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+            if (ada != 0)
+            {
+                return false;
+            }
+            return true;
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void insertBarang()
         {
-            if (radioButton1.Checked)
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("insert into barang (nama, harga, diskon, url_gambar, stok_nosize, id_kategori) VALUES (@a , @b , @c , @d , @e , @f )", conn);
+            cmd.Parameters.AddWithValue("@a", textNama.Text);
+            cmd.Parameters.AddWithValue("@b", numHarga.Value);
+            if (checkBoxDiskon.Checked)
             {
-                numDiskon.Enabled = true;
+                cmd.Parameters.AddWithValue("@c", numDiskon.Value);
             }
-            if (!radioButton1.Checked)
+            else
             {
-                numDiskon.Enabled = false;
+                cmd.Parameters.AddWithValue("@c", 0);
             }
+            cmd.Parameters.AddWithValue("@d", textGambar.Text);
+            if (radioNoSize.Checked)
+            {
+                cmd.Parameters.AddWithValue("@e", numStokNoSize.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@e", -1);
+            }
+            cmd.Parameters.AddWithValue("@f", comboBox1.SelectedValue);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand("select max(id) from barang", conn);
+            int id = Convert.ToInt32(cmd.ExecuteScalar());
+            if (radioSize.Checked)
+            {
+                for (int i = 0; i < listCheck.Count; i++)
+                {
+                    if (listCheck[i].Checked)
+                    {
+                        cmd = new MySqlCommand("insert into stok (id_barang, size, stok) values (@a , @b , @c)", conn);
+                        cmd.Parameters.AddWithValue("@a", id);
+                        cmd.Parameters.AddWithValue("@b", listCheck[i].Text);
+                        cmd.Parameters.AddWithValue("@c", listSize[i].Value);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            
+            conn.Close();
+            MessageBox.Show("Barang berhasil ditambahkan");
+        }
+
+        private void btnAddBarang_Click(object sender, EventArgs e)
+        {
+            if(textNama.Text=="" || numHarga.Value==0 || textGambar.Text=="" || comboBox1.SelectedIndex==-1 || comboBox2.SelectedIndex == -1)
+            {
+                MessageBox.Show("Masih ada yang kosong!");
+            }
+            else if (checkBoxDiskon.Checked && numDiskon.Value > numHarga.Value)
+            {
+                MessageBox.Show("Diskon tidak boleh lebih dari harga!");
+            }
+            else if (!cekBarangValid())
+            {
+                MessageBox.Show("Barang sudah ada!");
+            }
+            else
+            {
+                if (radioSize.Checked)
+                {
+                    bool valid = false;
+                    foreach (var item in listCheck)
+                    {
+                        if (item.Checked)
+                        {
+                            valid = true;
+                        }
+                    }
+                    if (!valid)
+                    {
+                        MessageBox.Show("Pilih size yang tersedia!");
+                    }
+                    else
+                    {
+                        insertBarang();
+                    }
+                }
+                else
+                {
+                    insertBarang();
+                }
+            }
+            
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -153,6 +241,53 @@ namespace uniqlo
             {
                 numStokXXXL.Enabled = false;
             }
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Load(textGambar.Text);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
+        private void checkBoxDiskon_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxDiskon.Checked)
+            {
+                numDiskon.Enabled = true;
+            }
+            else
+            {
+                numDiskon.Enabled = false;
+            }
+        }
+
+        private void radioSize_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioSize.Checked)
+            {
+                panel1.Visible = false;
+            }
+            else
+            {
+                panel1.Visible = true;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.DataSource = null;
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlCommand cmd = new MySqlCommand("select * from kategori where id_pengguna= @a", conn);
+            cmd.Parameters.AddWithValue("@a", comboBox2.SelectedValue);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            comboBox1.DataSource = dt;
+            comboBox1.DisplayMember = "nama";
+            comboBox1.ValueMember = "id";
+            comboBox1.SelectedIndex = -1;
         }
     }
 }

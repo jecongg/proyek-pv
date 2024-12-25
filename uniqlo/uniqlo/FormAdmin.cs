@@ -30,10 +30,6 @@ namespace uniqlo
 
         }
 
-        public void addBrg()
-        {
-
-        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -61,6 +57,12 @@ namespace uniqlo
             {
                 MessageBox.Show("Error loading image: " + ex.Message);
             }
+        }
+
+        private void btnKategori_Click(object sender, EventArgs e)
+        {
+            FormKategori f = new FormKategori();
+            f.ShowDialog();
         }
     }
 }
