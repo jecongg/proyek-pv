@@ -133,3 +133,38 @@ C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\
 C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.CopyComplete
 C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe
 C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.pdb
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\uniqlo.exe.config
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\uniqlo.exe
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\uniqlo.pdb
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\System.Memory.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\System.Buffers.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\bin\Debug\stdole.dll
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.AssemblyReference.cache
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormAddBarang.resources
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormKategori.resources
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormAdmin.resources
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCart.resources
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCashier.resources
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCetak.resources
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormDetailBarang.resources
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormLogin.resources
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.Properties.Resources.resources
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.GenerateResource.cache
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.CoreCompileInputs.cache
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.Up2Date
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.pdb
