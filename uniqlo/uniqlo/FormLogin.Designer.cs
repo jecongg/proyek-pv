@@ -41,28 +41,28 @@ namespace uniqlo
             // 
             // textUsername
             // 
-            this.textUsername.Location = new System.Drawing.Point(880, 377);
-            this.textUsername.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.textUsername.Location = new System.Drawing.Point(495, 243);
+            this.textUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textUsername.Name = "textUsername";
-            this.textUsername.Size = new System.Drawing.Size(321, 38);
+            this.textUsername.Size = new System.Drawing.Size(182, 26);
             this.textUsername.TabIndex = 0;
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(880, 529);
-            this.textPassword.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.textPassword.Location = new System.Drawing.Point(495, 341);
+            this.textPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(321, 38);
+            this.textPassword.Size = new System.Drawing.Size(182, 26);
             this.textPassword.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(549, 370);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Location = new System.Drawing.Point(309, 239);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(273, 55);
+            this.label1.Size = new System.Drawing.Size(166, 33);
             this.label1.TabIndex = 2;
             this.label1.Text = "Username :";
             // 
@@ -70,19 +70,19 @@ namespace uniqlo
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(563, 520);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Location = new System.Drawing.Point(317, 335);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(262, 55);
+            this.label2.Size = new System.Drawing.Size(159, 33);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password :";
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(803, 706);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.buttonLogin.Location = new System.Drawing.Point(452, 455);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(240, 88);
+            this.buttonLogin.Size = new System.Drawing.Size(135, 57);
             this.buttonLogin.TabIndex = 4;
             this.buttonLogin.Text = "LOGIN";
             this.buttonLogin.UseVisualStyleBackColor = true;
@@ -90,9 +90,10 @@ namespace uniqlo
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(573, 161);
+            this.pictureBox1.Location = new System.Drawing.Point(322, 104);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 175);
+            this.pictureBox1.Size = new System.Drawing.Size(98, 113);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -100,18 +101,18 @@ namespace uniqlo
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(874, 227);
+            this.label3.Location = new System.Drawing.Point(492, 146);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(228, 55);
+            this.label3.Size = new System.Drawing.Size(142, 33);
             this.label3.TabIndex = 6;
             this.label3.Text = "UNIQLO ";
             // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1883, 951);
+            this.ClientSize = new System.Drawing.Size(1059, 614);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonLogin);
@@ -119,7 +120,7 @@ namespace uniqlo
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textPassword);
             this.Controls.Add(this.textUsername);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
