@@ -168,3 +168,7 @@ C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo
 C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.Up2Date
 C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe
 C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.pdb
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Memory.dll
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Numerics.Vectors.dll
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Buffers.dll
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormKategori.resources

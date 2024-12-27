@@ -41,6 +41,7 @@ namespace uniqlo
             // btnAddBrg
             // 
             this.btnAddBrg.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBrg.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAddBrg.Location = new System.Drawing.Point(307, 12);
             this.btnAddBrg.Name = "btnAddBrg";
             this.btnAddBrg.Size = new System.Drawing.Size(116, 37);
@@ -62,7 +63,7 @@ namespace uniqlo
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(-1, 71);
+            this.panel1.Location = new System.Drawing.Point(8, 71);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(897, 527);
             this.panel1.TabIndex = 4;

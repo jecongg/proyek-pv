@@ -19,6 +19,12 @@ namespace uniqlo
             InitializeComponent();
         }
 
+        private void clear()
+        {
+            textUsername.Text = "";
+            textPassword.Text = "";
+        }
+
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             if(textUsername.Text=="" || textPassword.Text == "")
@@ -33,6 +39,7 @@ namespace uniqlo
                     FormAdmin f = new FormAdmin();
                     f.ShowDialog();
                     this.Show();
+                    clear();
                 }
                 else if(textUsername.Text=="cashier" && textPassword.Text == "cashier")
                 {
@@ -40,6 +47,7 @@ namespace uniqlo
                     FormCashier f = new FormCashier();
                     f.ShowDialog();
                     this.Show();
+                    clear();
                 }
                 else
                 {
