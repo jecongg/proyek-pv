@@ -26,7 +26,7 @@ namespace uniqlo
         {
             MySqlConnection conn = new MySqlConnection(connectionString);
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand("select *, p.nama 'pengguna' from barang b join kategori k on b.id_kategori=k.id join pengguna p on k.id_pengguna=p.id", conn);
+            MySqlCommand cmd = new MySqlCommand("select *, p.nama 'pengguna' from barang b join kategori k on b.id_kategori=k.id join pengguna p on k.id_pengguna=p.id where b.deleted_at is null", conn);
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
@@ -180,7 +180,7 @@ namespace uniqlo
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    MySqlCommand cmd = new MySqlCommand("DELETE FROM barang WHERE id = @id", conn);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE barang SET deleted_at = NOW() WHERE id = @id", conn);
                     cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                 }
