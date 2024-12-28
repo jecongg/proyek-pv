@@ -71,6 +71,7 @@ namespace uniqlo
                     Size = new System.Drawing.Size(55, 13),
                     TabIndex = 37,
                     Text = "2XS - 2XL"
+                    //size text belum sesuai data
                 };
                 Label nama = new Label()
                 {

@@ -14,9 +14,17 @@ namespace uniqlo
     public partial class FormUpdateBarang : Form
     {
         string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
+        List<CheckBox> listCheck;
+        List<NumericUpDown> listSize;
+        public int id;
         public FormUpdateBarang(int id)
         {
             InitializeComponent();
+            this.id = id;
+            listCheck = new List<CheckBox>() { xs, s, m, l, xl, xxl, xxxl };
+            listSize = new List<NumericUpDown>() { numStokXS, numStokS, numStokM, numStokL, numStokXL, numStokXXL, numStokXXXL };
+            loadCheckBox();
+            loadBarang(id);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -26,79 +34,134 @@ namespace uniqlo
 
         private void loadBarang(int id)
         {
-            int idbrg=0, harga=0, diskon=0, stok_nosize=0, stok_xs = 0, stok_s = 0, stok_m = 0, stok_l = 0, stok_xl = 0, stok_xxl = 0, stok_3xl = 0, id_kategori =0;
-            string nama = "", url_gambar = "";
+            int idbrg = 0, id_pengguna = 0, harga = 0, diskon = 0, stok_nosize = 0, id_kategori = 0;
+            string nama = "", url_gambar = "", namaKategori = "", namaPengguna = "";
+
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
 
-                string query = "SELECT b.id, b.nama, b.harga, b.diskon, b.url_gambar, b.stok_nosize FROM barang b WHERE b.id = @id";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                cmd.Parameters.AddWithValue("@id", id);
-                using (MySqlDataReader reader = cmd.ExecuteReader())
+                string query = "SELECT b.id, b.nama, b.harga, b.diskon, b.url_gambar, b.stok_nosize, k.nama as nama_kategori, k.id as id_kategori, p.nama as nama_pengguna, p.id as id_pengguna FROM barang b join kategori k ON b.id_kategori = k.id join pengguna p ON k.id_pengguna = p.id WHERE b.id = @id";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    if (reader.Read())
-                    {
-                        idbrg = reader.GetInt32("id");
-                        nama = reader.GetString("nama");
-                        harga = reader.GetInt32("harga");
-                        diskon = reader.GetInt32("diskon");
-                        url_gambar = reader.GetString("url_gambar");
-                        id_kategori = reader.GetInt32("id_kategori");
-                        if (reader.GetInt32("stok_nosize") == -1)
-                        {
-                            radioSize.Checked = true;
-                            query = "select size, stok from stok where id_barang = @id_barang";
-                            cmd = new MySqlCommand(query, conn);
-                            cmd.Parameters.AddWithValue("@id_barang", id);
-                            using (MySqlDataReader reader1 = cmd.ExecuteReader())
-                            {
-                                while (reader1.Read())
-                                {
-                                    string size = reader1["size"].ToString();
-                                    int stok = Convert.ToInt32(reader1["stok"]);
+                    cmd.Parameters.AddWithValue("@id", id);
 
-                                    switch (size)
-                                    {
-                                        case "XS":
-                                            numStokXS.Value = (decimal)stok;
-                                            break;
-                                        case "S":
-                                            numStokS.Value = stok;
-                                            break;
-                                        case "M":
-                                            numStokM.Value = stok;
-                                            break;
-                                        case "L":
-                                            numStokL.Value = stok;
-                                            break;
-                                        case "XL":
-                                            numStokL.Value = stok;
-                                            break;
-                                        case "XXL":
-                                            numStokXXL.Value = stok;
-                                            break;
-                                        case "3XL":
-                                            numStokXXXL.Value = stok;
-                                            break;
-                                    }
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            idbrg = reader.GetInt32("id");
+                            id = idbrg;
+                            nama = reader.GetString("nama");
+                            harga = reader.GetInt32("harga");
+                            diskon = reader.GetInt32("diskon");
+                            url_gambar = reader.GetString("url_gambar");
+                            stok_nosize = reader.GetInt32("stok_nosize");
+                            namaKategori = reader.GetString("nama_kategori");
+                            namaPengguna = reader.GetString("nama_pengguna");
+                            id_kategori = reader.GetInt32("id_kategori");
+                            id_pengguna = reader.GetInt32("id_pengguna");
+                        }
+                    }
+                }
+
+                if (stok_nosize == -1)
+                {
+                    radioSize.Checked = true;
+
+                    query = "SELECT size, stok FROM stok WHERE id_barang = @id_barang";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id_barang", id);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string size = reader.GetString("size");
+                                int stok = reader.GetInt32("stok");
+
+                                switch (size)
+                                {
+                                    case "XS":
+                                        if(stok != 0)
+                                        {
+                                            xs.Checked = true;
+                                        }
+                                        numStokXS.Value = (decimal)stok;
+                                        break;
+                                    case "S":
+                                        if (stok != 0)
+                                        {
+                                            s.Checked = true;
+                                        }
+                                        numStokS.Value = (decimal)stok;
+                                        break;
+                                    case "M":
+                                        if (stok != 0)
+                                        {
+                                            m.Checked = true;
+                                        }
+                                        numStokM.Value = (decimal)stok;
+                                        break;
+                                    case "L":
+                                        if (stok != 0)
+                                        {
+                                            l.Checked = true;
+                                        }
+                                        numStokL.Value = (decimal)stok;
+                                        break;
+                                    case "XL":
+                                        if (stok != 0)
+                                        {
+                                            xl.Checked = true;
+                                        }
+                                        numStokXL.Value = (decimal)stok;
+                                        break;
+                                    case "XXL":
+                                        if (stok != 0)
+                                        {
+                                            xxl.Checked = true;
+                                        }
+                                        numStokXXL.Value = (decimal)stok;
+                                        break;
+                                    case "3XL":
+                                        if (stok != 0)
+                                        {
+                                            xxxl.Checked = true;
+                                        }
+                                        numStokXXXL.Value = (decimal)stok;
+                                        break;
                                 }
                             }
                         }
-                        else
-                        {
-                            radioNoSize.Checked = true;
-                            numStokNoSize.Value = reader.GetInt32("stok_nosize");
-                        }
-                        
                     }
+                }
+                else
+                {
+                    radioNoSize.Checked = true;
+                    numStokNoSize.Value = stok_nosize;
                 }
             }
 
             textNama.Text = nama;
+            numHarga.Value = (decimal)harga;
+            numDiskon.Value = (decimal)diskon;
+            textGambar.Text = url_gambar;
+            if(diskon == 0)
+            {
+                checkBoxDiskon.Checked = false;
+            }
             
+            pictureBox1.Load(url_gambar);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            comboBox2.Text = namaPengguna;
+            comboBox2.SelectedValue = id_pengguna;
+            comboBox1.Text = namaKategori;
+            comboBox1.SelectedValue = id_kategori;
+
         }
+
 
         private void loadCheckBox()
         {
@@ -137,7 +200,24 @@ namespace uniqlo
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void radioNoSize_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioSize_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioSize.Checked)
+            {
+                panel1.Visible = false;
+            }
+            else
+            {
+                panel1.Visible = true;
+            }
+        }
+
+        private void xs_CheckedChanged(object sender, EventArgs e)
         {
             if (xs.Checked)
             {
@@ -221,12 +301,6 @@ namespace uniqlo
             }
         }
 
-        private void buttonSearch_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Load(textGambar.Text);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-        }
-
         private void checkBoxDiskon_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxDiskon.Checked)
@@ -239,16 +313,91 @@ namespace uniqlo
             }
         }
 
-        private void radioSize_CheckedChanged(object sender, EventArgs e)
+        private void buttonSearch_Click(object sender, EventArgs e)
         {
-            if (radioSize.Checked)
+            pictureBox1.Load(textGambar.Text);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
+        private void btnAddBarang_Click(object sender, EventArgs e)
+        {
+            if (textNama.Text == "" || numHarga.Value == 0 || textGambar.Text == "" || comboBox1.SelectedIndex == -1 || comboBox2.SelectedIndex == -1)
             {
-                panel1.Visible = false;
+                MessageBox.Show("Masih ada yang kosong!");
+            }
+            else if (checkBoxDiskon.Checked && numDiskon.Value > numHarga.Value)
+            {
+                MessageBox.Show("Diskon tidak boleh lebih dari harga!");
             }
             else
             {
-                panel1.Visible = true;
+                updateBarang();
             }
+        }
+
+        private void updateBarang()
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            conn.Open();
+            
+                MySqlCommand cmd = new MySqlCommand("update barang set nama = @nama, harga = @harga, diskon = @diskon, url_gambar = @url_gambar, stok_nosize = @stok, id_kategori = @id_kategori where id = @id", conn);
+                cmd.Parameters.AddWithValue("@nama", textNama.Text);
+                cmd.Parameters.AddWithValue("@harga", numHarga.Value);
+                cmd.Parameters.AddWithValue("@url_gambar", textGambar.Text);
+                if (checkBoxDiskon.Checked)
+                {
+                    cmd.Parameters.AddWithValue("@diskon", numDiskon.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@diskon", 0);
+                }
+                if (radioNoSize.Checked)
+                {
+                    cmd.Parameters.AddWithValue("@stok", numStokNoSize.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@stok", -1);
+                }
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@id_kategori", comboBox1.SelectedValue);
+                cmd.ExecuteNonQuery();
+                if (radioSize.Checked)
+                {
+                    for (int i = 0; i < listCheck.Count; i++)
+                    {
+                        if (listCheck[i].Checked)
+                        {
+                            cmd = new MySqlCommand("update stok set stok = @stok where id_barang = @id AND size = @size", conn);
+                            cmd.Parameters.AddWithValue("@id", id);
+                            cmd.Parameters.AddWithValue("@size", listCheck[i].Text);
+                            cmd.Parameters.AddWithValue("@stok", listSize[i].Value);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+
+                conn.Close();
+                MessageBox.Show("Berhasil Update Barang");
+            
+            
+        }
+
+        private bool cekBarangValid()
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("select count(*) from barang where nama = @a and id_kategori = @b", conn);
+            cmd.Parameters.AddWithValue("@a", textNama.Text);
+            cmd.Parameters.AddWithValue("@b", comboBox1.SelectedValue);
+            int ada = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+            if (ada != 0)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

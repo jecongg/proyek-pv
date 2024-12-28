@@ -103,6 +103,7 @@ namespace uniqlo
                 {
                     if (listCheck[i].Checked)
                     {
+                        //disini mending entah dicheck ato gk size tetep dimasukkan ke stok meskipun stok = 0 biar gampang update
                         cmd = new MySqlCommand("insert into stok (id_barang, size, stok) values (@a , @b , @c)", conn);
                         cmd.Parameters.AddWithValue("@a", id);
                         cmd.Parameters.AddWithValue("@b", listCheck[i].Text);

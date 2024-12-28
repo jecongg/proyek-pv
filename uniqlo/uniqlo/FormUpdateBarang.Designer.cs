@@ -127,9 +127,9 @@ namespace uniqlo
             // 
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.numStokNoSize);
-            this.panel1.Location = new System.Drawing.Point(1, 108);
+            this.panel1.Location = new System.Drawing.Point(1, 94);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(386, 123);
+            this.panel1.Size = new System.Drawing.Size(386, 137);
             this.panel1.TabIndex = 95;
             this.panel1.Visible = false;
             // 
@@ -164,6 +164,7 @@ namespace uniqlo
             this.radioNoSize.TabIndex = 94;
             this.radioNoSize.Text = "No Size";
             this.radioNoSize.UseVisualStyleBackColor = true;
+            this.radioNoSize.CheckedChanged += new System.EventHandler(this.radioNoSize_CheckedChanged);
             // 
             // radioSize
             // 
@@ -176,6 +177,7 @@ namespace uniqlo
             this.radioSize.TabStop = true;
             this.radioSize.Text = "Size";
             this.radioSize.UseVisualStyleBackColor = true;
+            this.radioSize.CheckedChanged += new System.EventHandler(this.radioSize_CheckedChanged);
             // 
             // checkBoxDiskon
             // 
@@ -187,6 +189,7 @@ namespace uniqlo
             this.checkBoxDiskon.TabIndex = 92;
             this.checkBoxDiskon.Text = "Potongan";
             this.checkBoxDiskon.UseVisualStyleBackColor = true;
+            this.checkBoxDiskon.CheckedChanged += new System.EventHandler(this.checkBoxDiskon_CheckedChanged);
             // 
             // buttonSearch
             // 
@@ -196,6 +199,7 @@ namespace uniqlo
             this.buttonSearch.TabIndex = 91;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // textGambar
             // 
@@ -237,6 +241,7 @@ namespace uniqlo
             this.xxxl.TabIndex = 87;
             this.xxxl.Text = "3XL";
             this.xxxl.UseVisualStyleBackColor = true;
+            this.xxxl.CheckedChanged += new System.EventHandler(this.xxxl_CheckedChanged);
             // 
             // xxl
             // 
@@ -247,6 +252,7 @@ namespace uniqlo
             this.xxl.TabIndex = 86;
             this.xxl.Text = "XXL";
             this.xxl.UseVisualStyleBackColor = true;
+            this.xxl.CheckedChanged += new System.EventHandler(this.xxl_CheckedChanged);
             // 
             // xl
             // 
@@ -257,6 +263,7 @@ namespace uniqlo
             this.xl.TabIndex = 85;
             this.xl.Text = "XL";
             this.xl.UseVisualStyleBackColor = true;
+            this.xl.CheckedChanged += new System.EventHandler(this.xl_CheckedChanged);
             // 
             // l
             // 
@@ -267,6 +274,7 @@ namespace uniqlo
             this.l.TabIndex = 84;
             this.l.Text = "L";
             this.l.UseVisualStyleBackColor = true;
+            this.l.CheckedChanged += new System.EventHandler(this.l_CheckedChanged);
             // 
             // m
             // 
@@ -277,6 +285,7 @@ namespace uniqlo
             this.m.TabIndex = 83;
             this.m.Text = "M";
             this.m.UseVisualStyleBackColor = true;
+            this.m.CheckedChanged += new System.EventHandler(this.m_CheckedChanged);
             // 
             // s
             // 
@@ -287,6 +296,7 @@ namespace uniqlo
             this.s.TabIndex = 82;
             this.s.Text = "S";
             this.s.UseVisualStyleBackColor = true;
+            this.s.CheckedChanged += new System.EventHandler(this.s_CheckedChanged);
             // 
             // xs
             // 
@@ -297,6 +307,7 @@ namespace uniqlo
             this.xs.TabIndex = 81;
             this.xs.Text = "XS";
             this.xs.UseVisualStyleBackColor = true;
+            this.xs.CheckedChanged += new System.EventHandler(this.xs_CheckedChanged);
             // 
             // label16
             // 
@@ -519,8 +530,9 @@ namespace uniqlo
             this.btnAddBarang.Name = "btnAddBarang";
             this.btnAddBarang.Size = new System.Drawing.Size(126, 47);
             this.btnAddBarang.TabIndex = 61;
-            this.btnAddBarang.Text = "Tambah Barang";
+            this.btnAddBarang.Text = "Update Barang";
             this.btnAddBarang.UseVisualStyleBackColor = true;
+            this.btnAddBarang.Click += new System.EventHandler(this.btnAddBarang_Click);
             // 
             // label4
             // 
