@@ -3,27 +3,7 @@
   "WorkspaceRootPath": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\",
   "Documents": [
     {
-<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|d:\\univ\\sms 3\\pad\\proyek pv\\proyekpv\\uniqlo\\uniqlo\\formaddbarang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-=======
-      "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|c:\\users\\puk4s\\onedrive\\documents\\github\\proyekpv\\uniqlo\\uniqlo\\formregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|c:\\users\\puk4s\\onedrive\\documents\\github\\proyekpv\\uniqlo\\uniqlo\\formregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|C:\\Users\\Puk4s\\OneDrive\\Documents\\GitHub\\proyekpv\\uniqlo\\uniqlo\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|C:\\Users\\Puk4s\\OneDrive\\Documents\\GitHub\\proyekpv\\uniqlo\\uniqlo\\formcashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formcashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|c:\\users\\puk4s\\onedrive\\documents\\github\\proyekpv\\uniqlo\\uniqlo\\formaddbarang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
->>>>>>> Stashed changes
       "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formaddbarang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -31,17 +11,12 @@
       "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formaddbarang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\formcashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formcashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-=======
-      "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|C:\\Users\\Puk4s\\OneDrive\\Documents\\GitHub\\proyekpv\\uniqlo\\uniqlo\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> Stashed changes
     },
     {
       "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,13 +29,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\formcashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formcashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-<<<<<<< Updated upstream
     },
     {
       "AbsoluteMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{168F4F99-7CB8-4E52-866B-965151F2F264}|uniqlo\\uniqlo.csproj|solutionrelative:uniqlo\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
->>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -70,11 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< Updated upstream
           "SelectedChildIndex": 2,
-=======
-          "SelectedChildIndex": 0,
->>>>>>> Stashed changes
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,45 +50,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FormRegister.cs",
-              "DocumentMoniker": "C:\\Users\\Puk4s\\OneDrive\\Documents\\GitHub\\proyekpv\\uniqlo\\uniqlo\\FormRegister.cs",
-              "RelativeDocumentMoniker": "uniqlo\\FormRegister.cs",
-              "ToolTip": "C:\\Users\\Puk4s\\OneDrive\\Documents\\GitHub\\proyekpv\\uniqlo\\uniqlo\\FormRegister.cs*",
-              "RelativeToolTip": "uniqlo\\FormRegister.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T07:28:21.42Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FormRegister.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Puk4s\\OneDrive\\Documents\\GitHub\\proyekpv\\uniqlo\\uniqlo\\FormRegister.cs",
-              "RelativeDocumentMoniker": "uniqlo\\FormRegister.cs",
-              "ToolTip": "C:\\Users\\Puk4s\\OneDrive\\Documents\\GitHub\\proyekpv\\uniqlo\\uniqlo\\FormRegister.cs [Design]*",
-              "RelativeToolTip": "uniqlo\\FormRegister.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T06:33:11.607Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "FormAddBarang.cs",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAddBarang.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormAddBarang.cs",
               "ToolTip": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAddBarang.cs",
               "RelativeToolTip": "uniqlo\\FormAddBarang.cs",
-              "ViewState": "AgIAAPYAAAAAAAAAAAD4v/0AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAPUAAAAAAAAAAIAywP0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-15T15:52:54.827Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "FormAddBarang.cs [Design]",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAddBarang.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormAddBarang.cs",
@@ -132,44 +75,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "FormCashier.cs",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormCashier.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormCashier.cs",
               "ToolTip": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormCashier.cs",
               "RelativeToolTip": "uniqlo\\FormCashier.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAADwvxwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-15T15:13:57.155Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "FormAdmin.cs",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAdmin.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormAdmin.cs",
               "ToolTip": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAdmin.cs",
               "RelativeToolTip": "uniqlo\\FormAdmin.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwBUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T11:52:22.522Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-14T11:52:22.522Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "FormLogin.cs",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormLogin.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormLogin.cs",
               "ToolTip": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormLogin.cs",
               "RelativeToolTip": "uniqlo\\FormLogin.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACgAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwCgAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-14T11:39:14.766Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FormLogin.cs [Design]",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormLogin.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormLogin.cs",
@@ -179,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
               "Title": "FormCashier.cs [Design]",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormCashier.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormCashier.cs",
@@ -189,19 +131,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "FormAdmin.cs [Design]",
               "DocumentMoniker": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAdmin.cs",
               "RelativeDocumentMoniker": "uniqlo\\FormAdmin.cs",
-<<<<<<< Updated upstream
               "ToolTip": "D:\\Univ\\SMS 3\\PAD\\Proyek PV\\proyekpv\\uniqlo\\uniqlo\\FormAdmin.cs [Design]",
-=======
-              "ToolTip": "C:\\Users\\Puk4s\\OneDrive\\Documents\\GitHub\\proyekpv\\uniqlo\\uniqlo\\FormAdmin.cs [Design]",
->>>>>>> Stashed changes
               "RelativeToolTip": "uniqlo\\FormAdmin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T11:38:48.719Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-14T11:38:48.719Z"
             }
           ]
         }

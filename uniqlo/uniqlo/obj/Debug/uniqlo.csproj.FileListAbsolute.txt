@@ -172,13 +172,9 @@ D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Memory.dll
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Numerics.Vectors.dll
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Buffers.dll
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormKategori.resources
-<<<<<<< Updated upstream
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormUpdateBarang.resources
 C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Memory.dll
 C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Buffers.dll
 C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormUpdateBarang.resources
-=======
-C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRegister.resources
->>>>>>> Stashed changes
