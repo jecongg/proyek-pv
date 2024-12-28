@@ -172,3 +172,4 @@ D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Memory.dll
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Numerics.Vectors.dll
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Buffers.dll
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormKategori.resources
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormUpdateBarang.resources
