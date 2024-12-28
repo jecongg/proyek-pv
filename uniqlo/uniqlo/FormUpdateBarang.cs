@@ -26,13 +26,13 @@ namespace uniqlo
 
         private void loadBarang(int id)
         {
-            int idbrg=0, harga=0, diskon=0, stok_nosize=0, stok_xs = 0, stok_s = 0, stok_m = 0, stok_l = 0, stok_xl = 0, stok_xxl = 0, stok_3xl = 0, id_kategori =0;
+            int idbrg=0, harga=0, diskon=0, stok=0, id_kategori=0;
             string nama = "", url_gambar = "";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
 
-                string query = "SELECT b.id, b.nama, b.harga, b.diskon, b.url_gambar, b.stok_nosize FROM barang b WHERE b.id = @id";
+                string query = "SELECT b.id, b.nama, b.harga, b.diskon, b.url_gambar, CASE WHEN b.stok_nosize = -1 THEN s.stok ELSE b.stok_nosize END AS total_stok FROM barang b LEFT JOIN stok s ON b.id = s.id_barang AND b.stok_nosize = -1 WHERE id = @id";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@id", id);
@@ -45,53 +45,8 @@ namespace uniqlo
                         harga = reader.GetInt32("harga");
                         diskon = reader.GetInt32("diskon");
                         url_gambar = reader.GetString("url_gambar");
+                        stok = reader.GetInt32("total_stok");
                         id_kategori = reader.GetInt32("id_kategori");
-                        if (reader.GetInt32("stok_nosize") == -1)
-                        {
-                            radioSize.Checked = true;
-                            query = "select size, stok from stok where id_barang = @id_barang";
-                            cmd = new MySqlCommand(query, conn);
-                            cmd.Parameters.AddWithValue("@id_barang", id);
-                            using (MySqlDataReader reader1 = cmd.ExecuteReader())
-                            {
-                                while (reader1.Read())
-                                {
-                                    string size = reader1["size"].ToString();
-                                    int stok = Convert.ToInt32(reader1["stok"]);
-
-                                    switch (size)
-                                    {
-                                        case "XS":
-                                            numStokXS.Value = (decimal)stok;
-                                            break;
-                                        case "S":
-                                            numStokS.Value = stok;
-                                            break;
-                                        case "M":
-                                            numStokM.Value = stok;
-                                            break;
-                                        case "L":
-                                            numStokL.Value = stok;
-                                            break;
-                                        case "XL":
-                                            numStokL.Value = stok;
-                                            break;
-                                        case "XXL":
-                                            numStokXXL.Value = stok;
-                                            break;
-                                        case "3XL":
-                                            numStokXXXL.Value = stok;
-                                            break;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            radioNoSize.Checked = true;
-                            numStokNoSize.Value = reader.GetInt32("stok_nosize");
-                        }
-                        
                     }
                 }
             }
@@ -135,120 +90,6 @@ namespace uniqlo
         private void FormUpdateBarang_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (xs.Checked)
-            {
-                numStokXS.Enabled = true;
-            }
-            else
-            {
-                numStokXS.Enabled = false;
-            }
-        }
-
-        private void s_CheckedChanged(object sender, EventArgs e)
-        {
-            if (s.Checked)
-            {
-                numStokS.Enabled = true;
-            }
-            else
-            {
-                numStokS.Enabled = false;
-            }
-        }
-
-        private void m_CheckedChanged(object sender, EventArgs e)
-        {
-            if (m.Checked)
-            {
-                numStokM.Enabled = true;
-            }
-            else
-            {
-                numStokM.Enabled = false;
-            }
-        }
-
-        private void l_CheckedChanged(object sender, EventArgs e)
-        {
-            if (l.Checked)
-            {
-                numStokL.Enabled = true;
-            }
-            else
-            {
-                numStokL.Enabled = false;
-            }
-        }
-
-        private void xl_CheckedChanged(object sender, EventArgs e)
-        {
-            if (xl.Checked)
-            {
-                numStokXL.Enabled = true;
-            }
-            else
-            {
-                numStokXL.Enabled = false;
-            }
-        }
-
-        private void xxl_CheckedChanged(object sender, EventArgs e)
-        {
-            if (xxl.Checked)
-            {
-                numStokXXL.Enabled = true;
-            }
-            else
-            {
-                numStokXXL.Enabled = false;
-            }
-        }
-
-        private void xxxl_CheckedChanged(object sender, EventArgs e)
-        {
-            if (xxxl.Checked)
-            {
-                numStokXXXL.Enabled = true;
-            }
-            else
-            {
-                numStokXXXL.Enabled = false;
-            }
-        }
-
-        private void buttonSearch_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Load(textGambar.Text);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-        }
-
-        private void checkBoxDiskon_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxDiskon.Checked)
-            {
-                numDiskon.Enabled = true;
-            }
-            else
-            {
-                numDiskon.Enabled = false;
-            }
-        }
-
-        private void radioSize_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioSize.Checked)
-            {
-                panel1.Visible = false;
-            }
-            else
-            {
-                panel1.Visible = true;
-            }
         }
     }
 }
