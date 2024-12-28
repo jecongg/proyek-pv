@@ -183,5 +183,4 @@ C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\
 =======
 C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRegister.resources
 >>>>>>> Stashed changes
-=======
 >>>>>>> parent of 14b8076 (.)
