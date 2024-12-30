@@ -80,11 +80,11 @@
     <Compile Include="FormCart.Designer.cs">
       <DependentUpon>FormCart.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCashier.cs">
+    <Compile Include="FormCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCashier.Designer.cs">
-      <DependentUpon>FormCashier.cs</DependentUpon>
+    <Compile Include="FormCustomer.Designer.cs">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCetak.cs">
       <SubType>Form</SubType>
@@ -130,8 +130,8 @@
     <EmbeddedResource Include="FormCart.resx">
       <DependentUpon>FormCart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCashier.resx">
-      <DependentUpon>FormCashier.cs</DependentUpon>
+    <EmbeddedResource Include="FormCustomer.resx">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCetak.resx">
       <DependentUpon>FormCetak.cs</DependentUpon>

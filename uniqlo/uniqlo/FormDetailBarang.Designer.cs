@@ -97,7 +97,7 @@ namespace uniqlo
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(71, 672);
+            this.label2.Location = new System.Drawing.Point(70, 685);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(167, 39);
             this.label2.TabIndex = 17;
@@ -131,10 +131,8 @@ namespace uniqlo
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(75, 988);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(453, 320);
+            this.label5.Size = new System.Drawing.Size(0, 32);
             this.label5.TabIndex = 20;
-            this.label5.Text = "Material / Petunjuk Perawatan :\r\n100% Katun\r\nImpor\r\nPetunjuk pencucian\r\nCuci deng" +
-    "an mesin menggunakan \r\nair dingin, Cuci kering\r\n\r\n\r\n\r\n\r\n";
             // 
             // label7
             // 
@@ -294,7 +292,7 @@ namespace uniqlo
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1403, 1191);
+            this.ClientSize = new System.Drawing.Size(1403, 1006);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);

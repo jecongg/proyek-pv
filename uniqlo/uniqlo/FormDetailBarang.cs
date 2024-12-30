@@ -9,44 +9,48 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Net;
+using MySql.Data.MySqlClient;
 
 namespace uniqlo
 {
     public partial class FormDetailBarang : Form
     {
-        public FormDetailBarang()
+        private string idBarang;
+        public FormDetailBarang(string id)
         {
             InitializeComponent();
+            this.idBarang = id;
         }
 
         private void FormDetailBarang_Load(object sender, EventArgs e)
         {
-            string imageUrl = "https://brandslogos.com/wp-content/uploads/images/large/uniqlo-logo.png";
-            string imageItem1 = "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/462369/item/usgoods_15_462369.jpg";
-            try
+            LoadDetailBarang();
+        }
+
+        private void LoadDetailBarang()
+        {
+            // Contoh: Ambil data barang dari database
+            string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                using (WebClient client = new WebClient())
+                conn.Open();
+                string query = "SELECT * FROM barang WHERE id = @id";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", idBarang);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
-                    byte[] imageData = client.DownloadData(imageUrl);
-                    byte[] imageData2 = client.DownloadData(imageItem1);
-
-                    using (var stream = new System.IO.MemoryStream(imageData))
+                    if (reader.Read())
                     {
-                        pictureBox1.Image = Image.FromStream(stream);
-                        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                    }
-
-                    using (var stream = new System.IO.MemoryStream(imageData2))
-                    {
-                        pictureBox2.Image = Image.FromStream(stream);
+                        // Contoh: Tampilkan data barang di kontrol
+                        label7.Text = reader["nama"].ToString();
+                        label6.Text = $"Harga : Rp{int.Parse(reader["harga"].ToString()):N0}";
+                        pictureBox2.Load(reader["url_gambar"].ToString());
                         pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+                        label3.Text = "Kode Produk: " + reader["kode_barang"].ToString();
+                        label4.Text = "Detail : " + reader["deskripsi"].ToString();
                     }
-
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading image: " + ex.Message);
             }
         }
 

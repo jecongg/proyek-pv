@@ -44,7 +44,7 @@ namespace uniqlo
                 else if(textUsername.Text=="cashier" && textPassword.Text == "cashier")
                 {
                     this.Hide();
-                    FormCashier f = new FormCashier();
+                    FormCustomer f = new FormCustomer();
                     f.ShowDialog();
                     this.Show();
                     clear();
