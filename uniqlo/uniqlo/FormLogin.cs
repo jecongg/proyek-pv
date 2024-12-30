@@ -80,5 +80,11 @@ namespace uniqlo
                 MessageBox.Show("Error loading image: " + ex.Message);
             }
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            FormRegister fr = new FormRegister();
+            fr.ShowDialog();
+        }
     }
 }
