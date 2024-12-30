@@ -46,7 +46,7 @@ namespace uniqlo
                 {
                     while (reader.Read())
                     {
-                        role = reader["role"].ToString();  // Menyimpan role dari database
+                        role = reader["role"].ToString();  
                     }
                 }
             }

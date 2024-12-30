@@ -41,16 +41,16 @@ namespace uniqlo
             this.label6 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.labelStock = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.sb1 = new System.Windows.Forms.Button();
+            this.sb2 = new System.Windows.Forms.Button();
+            this.sb3 = new System.Windows.Forms.Button();
+            this.sb4 = new System.Windows.Forms.Button();
+            this.sb5 = new System.Windows.Forms.Button();
+            this.sb6 = new System.Windows.Forms.Button();
+            this.sb7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -171,15 +171,15 @@ namespace uniqlo
             this.label8.TabIndex = 33;
             this.label8.Text = "Qty: ";
             // 
-            // label9
+            // labelStock
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(615, 583);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(116, 32);
-            this.label9.TabIndex = 34;
-            this.label9.Text = "In Stock";
+            this.labelStock.AutoSize = true;
+            this.labelStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStock.Location = new System.Drawing.Point(615, 583);
+            this.labelStock.Name = "labelStock";
+            this.labelStock.Size = new System.Drawing.Size(116, 32);
+            this.labelStock.TabIndex = 34;
+            this.labelStock.Text = "In Stock";
             // 
             // button2
             // 
@@ -196,100 +196,100 @@ namespace uniqlo
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button9);
-            this.groupBox1.Controls.Add(this.button8);
-            this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.sb7);
+            this.groupBox1.Controls.Add(this.sb6);
+            this.groupBox1.Controls.Add(this.sb5);
+            this.groupBox1.Controls.Add(this.sb4);
+            this.groupBox1.Controls.Add(this.sb3);
+            this.groupBox1.Controls.Add(this.sb2);
+            this.groupBox1.Controls.Add(this.sb1);
             this.groupBox1.Location = new System.Drawing.Point(611, 271);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(782, 121);
+            this.groupBox1.Size = new System.Drawing.Size(912, 121);
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Size";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter_1);
+            this.groupBox1.Enter += new System.EventHandler(this.FormDetailBarang_Load);
             // 
-            // button3
+            // sb1
             // 
-            this.button3.Location = new System.Drawing.Point(31, 37);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(77, 63);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "XS";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.sb1.Location = new System.Drawing.Point(31, 37);
+            this.sb1.Name = "sb1";
+            this.sb1.Size = new System.Drawing.Size(106, 63);
+            this.sb1.TabIndex = 0;
+            this.sb1.Text = "XS";
+            this.sb1.UseVisualStyleBackColor = true;
+            this.sb1.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // sb2
             // 
-            this.button4.Location = new System.Drawing.Point(143, 37);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(77, 63);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "S";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.sb2.Location = new System.Drawing.Point(154, 37);
+            this.sb2.Name = "sb2";
+            this.sb2.Size = new System.Drawing.Size(106, 63);
+            this.sb2.TabIndex = 1;
+            this.sb2.Text = "S";
+            this.sb2.UseVisualStyleBackColor = true;
+            this.sb2.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // sb3
             // 
-            this.button5.Location = new System.Drawing.Point(252, 37);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(77, 63);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "M";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.sb3.Location = new System.Drawing.Point(280, 37);
+            this.sb3.Name = "sb3";
+            this.sb3.Size = new System.Drawing.Size(106, 63);
+            this.sb3.TabIndex = 2;
+            this.sb3.Text = "M";
+            this.sb3.UseVisualStyleBackColor = true;
+            this.sb3.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // sb4
             // 
-            this.button6.Location = new System.Drawing.Point(359, 37);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(77, 63);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "L";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.sb4.Location = new System.Drawing.Point(410, 37);
+            this.sb4.Name = "sb4";
+            this.sb4.Size = new System.Drawing.Size(106, 63);
+            this.sb4.TabIndex = 3;
+            this.sb4.Text = "L";
+            this.sb4.UseVisualStyleBackColor = true;
+            this.sb4.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button7
+            // sb5
             // 
-            this.button7.Location = new System.Drawing.Point(466, 37);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(77, 63);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "XL";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.sb5.Location = new System.Drawing.Point(536, 37);
+            this.sb5.Name = "sb5";
+            this.sb5.Size = new System.Drawing.Size(106, 63);
+            this.sb5.TabIndex = 4;
+            this.sb5.Text = "XL";
+            this.sb5.UseVisualStyleBackColor = true;
+            this.sb5.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button8
+            // sb6
             // 
-            this.button8.Location = new System.Drawing.Point(574, 36);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(77, 63);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "2XL";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.sb6.Location = new System.Drawing.Point(662, 37);
+            this.sb6.Name = "sb6";
+            this.sb6.Size = new System.Drawing.Size(106, 63);
+            this.sb6.TabIndex = 5;
+            this.sb6.Text = "2XL";
+            this.sb6.UseVisualStyleBackColor = true;
+            this.sb6.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button9
+            // sb7
             // 
-            this.button9.Location = new System.Drawing.Point(682, 37);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(77, 63);
-            this.button9.TabIndex = 6;
-            this.button9.Text = "3XL";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.sb7.Location = new System.Drawing.Point(791, 37);
+            this.sb7.Name = "sb7";
+            this.sb7.Size = new System.Drawing.Size(106, 63);
+            this.sb7.TabIndex = 6;
+            this.sb7.Text = "3XL";
+            this.sb7.UseVisualStyleBackColor = true;
+            this.sb7.Click += new System.EventHandler(this.button9_Click);
             // 
             // FormDetailBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1403, 1006);
+            this.ClientSize = new System.Drawing.Size(1660, 1065);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.labelStock);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label6);
@@ -328,15 +328,15 @@ namespace uniqlo
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelStock;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button sb7;
+        private System.Windows.Forms.Button sb6;
+        private System.Windows.Forms.Button sb5;
+        private System.Windows.Forms.Button sb4;
+        private System.Windows.Forms.Button sb3;
+        private System.Windows.Forms.Button sb2;
+        private System.Windows.Forms.Button sb1;
     }
 }
