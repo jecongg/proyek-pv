@@ -24,7 +24,6 @@ namespace uniqlo
             LoadComboBoxPengguna();
             comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
             comboBox2.SelectedIndexChanged += ComboBox2_SelectedIndexChanged;
-            textBox1.TextChanged += textBox1_TextChanged;
         }
 
         private DataTable ambilData(string kategoriPengguna = null, string idKategori = null, string searchText = null)
@@ -92,7 +91,7 @@ namespace uniqlo
             if (comboBox1.SelectedItem != null)
             {
                 var selectedItem = comboBox1.SelectedItem as DataRowView;
-                kategoriPengguna = selectedItem["id"].ToString();  // Ambil id_pengguna dari ComboBox1
+                kategoriPengguna = selectedItem["nama"].ToString();  // Ambil id_pengguna dari ComboBox1
             }
 
             // Jika ComboBox2 dipilih, ambil id kategori dari ComboBox2
@@ -300,9 +299,9 @@ namespace uniqlo
             load();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            load();  // Panggil load saat teks berubah
+            load();
         }
     }
 }
