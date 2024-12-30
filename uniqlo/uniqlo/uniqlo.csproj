@@ -62,6 +62,12 @@
     <Compile Include="FormAddBarang.Designer.cs">
       <DependentUpon>FormAddBarang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCashier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCashier.Designer.cs">
+      <DependentUpon>FormCashier.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormKategori.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </Compile>
     <EmbeddedResource Include="FormAddBarang.resx">
       <DependentUpon>FormAddBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCashier.resx">
+      <DependentUpon>FormCashier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormKategori.resx">
       <DependentUpon>FormKategori.cs</DependentUpon>
