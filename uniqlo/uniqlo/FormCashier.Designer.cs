@@ -62,6 +62,7 @@ namespace uniqlo
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormCashier";
             this.Text = "FormCashier";
+            this.Load += new System.EventHandler(this.FormCashier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

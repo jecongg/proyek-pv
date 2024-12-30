@@ -15,6 +15,7 @@ namespace uniqlo
 {
     public partial class FormLogin : Form
     {
+        string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
         public FormLogin()
         {
             InitializeComponent();
@@ -26,36 +27,69 @@ namespace uniqlo
             textPassword.Text = "";
         }
 
+        public string CekLogin(string username, string password)
+        {
+            string role = null;
+
+            // Cek login ke database
+            string query = "SELECT * FROM user WHERE username = @username AND password = @password";
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
+
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        role = reader["role"].ToString();  // Menyimpan role dari database
+                    }
+                }
+            }
+
+            return role;  // Mengembalikan role
+        }
+
+
+        // Event buttonClick untuk login
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if(textUsername.Text=="" || textPassword.Text == "")
+            string username = textUsername.Text;
+            string password = textPassword.Text;
+
+            // Memanggil CekLogin
+            string role = CekLogin(username, password);
+            if (role != null)
             {
-                MessageBox.Show("Masih kosong!");
-            }
-            else
-            {
-                if(textUsername.Text=="admin" && textPassword.Text == "admin")
+                if (role == "Admin")
                 {
                     this.Hide();
                     FormAdmin f = new FormAdmin();
                     f.ShowDialog();
                     this.Show();
-                    clear();
                 }
-                else if(textUsername.Text=="cashier" && textPassword.Text == "cashier")
+                else if (role == "Cashier")
+                {
+                    this.Hide();
+                    FormCashier f = new FormCashier();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else if (role == "Customer")
                 {
                     this.Hide();
                     FormCustomer f = new FormCustomer();
                     f.ShowDialog();
                     this.Show();
-                    clear();
                 }
-                else
-                {
-                    MessageBox.Show("Username atau password salah!");
-                    textUsername.Text = "";
-                    textPassword.Text = "";
-                }
+            }
+            else
+            {
+                MessageBox.Show("Username atau password salah!");
             }
         }
 
