@@ -193,3 +193,5 @@ C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\o
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCustomer.resources
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRegister.resources
 C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRegister.resources
+C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCustomer.resources
+C:\Users\LATITUDE\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRegister.resources
