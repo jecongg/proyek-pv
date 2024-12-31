@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 using System.Net;
 using MySql.Data.MySqlClient;
 
@@ -16,15 +15,20 @@ namespace uniqlo
     public partial class FormCustomer : Form
     {
         string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
-
-        public FormCustomer()
+        private int idUser;
+        private string namaUser;
+        public FormCustomer(int idUser, string namaUser)
         {
             InitializeComponent();
             load();
             LoadComboBoxPengguna();
             comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
             comboBox2.SelectedIndexChanged += ComboBox2_SelectedIndexChanged;
+            this.idUser = idUser;
+            this.namaUser = namaUser;
+            label1.Text = "Hi, " + namaUser;
         }
+
 
         private DataTable ambilData(string kategoriPengguna = null, string idKategori = null, string searchText = null)
         {
@@ -180,7 +184,7 @@ namespace uniqlo
                 p.Click += (sender, e) =>
                 {
                     this.Hide();
-                    FormDetailBarang f = new FormDetailBarang(id);
+                    FormDetailBarang f = new FormDetailBarang(id, idUser);
                     f.ShowDialog();
                     this.Show();
                 };
@@ -188,7 +192,7 @@ namespace uniqlo
                 pengguna.Click += (sender, e) =>
                 {
                     this.Hide();
-                    FormDetailBarang f = new FormDetailBarang(id);
+                    FormDetailBarang f = new FormDetailBarang(id, idUser);
                     f.ShowDialog();
                     this.Show();
                 };
@@ -196,7 +200,7 @@ namespace uniqlo
                 harga.Click += (sender, e) =>
                 {
                     this.Hide();
-                    FormDetailBarang f = new FormDetailBarang(id);
+                    FormDetailBarang f = new FormDetailBarang(id, idUser);
                     f.ShowDialog();
                     this.Show();
                 };
@@ -204,7 +208,7 @@ namespace uniqlo
                 nama.Click += (sender, e) =>
                 {
                     this.Hide();
-                    FormDetailBarang f = new FormDetailBarang(id);
+                    FormDetailBarang f = new FormDetailBarang(id, idUser);
                     f.ShowDialog();
                     this.Show();
                 };

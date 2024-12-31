@@ -16,6 +16,8 @@ namespace uniqlo
     public partial class FormLogin : Form
     {
         string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
+        private int idUser;
+        private string namaUser;
         public FormLogin()
         {
             InitializeComponent();
@@ -46,7 +48,9 @@ namespace uniqlo
                 {
                     while (reader.Read())
                     {
-                        role = reader["role"].ToString();  
+                        role = reader["role"].ToString();
+                        idUser = Convert.ToInt32(reader["id"].ToString());
+                        namaUser = reader["nama"].ToString();
                     }
                 }
             }
@@ -82,7 +86,7 @@ namespace uniqlo
                 else if (role == "Customer")
                 {
                     this.Hide();
-                    FormCustomer f = new FormCustomer();
+                    FormCustomer f = new FormCustomer(idUser, namaUser);
                     f.ShowDialog();
                     this.Show();
                 }

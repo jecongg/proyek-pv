@@ -16,10 +16,13 @@ namespace uniqlo
     public partial class FormDetailBarang : Form
     {
         private string idBarang;
-        public FormDetailBarang(string id)
+        private int idUser;
+        string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
+        public FormDetailBarang(string id, int idUser)
         {
             InitializeComponent();
             this.idBarang = id;
+            this.idUser = idUser;
         }
 
         private void FormDetailBarang_Load(object sender, EventArgs e)
@@ -32,7 +35,6 @@ namespace uniqlo
         private void LoadDetailBarang()
         {
             // Contoh: Ambil data barang dari database
-            string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
@@ -66,12 +68,16 @@ namespace uniqlo
             }
         }
 
-
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            FormCart formCart = new FormCart();
-            formCart.ShowDialog();
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("select id from cart where id_user = @a", conn);
+            cmd.Parameters.AddWithValue("@a", idUser);
+            if (cmd.ExecuteScalar() == null)
+            {
+                MessageBox.Show("kosong brok");
+            }
         }
 
 
@@ -111,60 +117,57 @@ namespace uniqlo
             }
         }
 
+        private void aturTampilan(Button btn)
+        {
+            int stock = GetStockBySize(btn.Text);
+            if (stock == 0)
+            {
+                labelStock.Text = "Out of stock";
+                button2.Enabled = false;
+            }
+            else
+            {
+                labelStock.Text = $"In Stock: {stock}";
+                button2.Enabled = true;
+            }
+            numericUpDown1.Maximum = stock;
+            SetActiveButton(btn);
+            selectedSize = btn.Text;
+        }
+
         private void button9_Click(object sender, EventArgs e)
         {
-            int stock = GetStockBySize("3XL");
-            labelStock.Text = $"In Stock: {stock}";
-            SetActiveButton(sb7);
-            selectedSize = "3XL";
+            aturTampilan((Button)sender);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            int stock = GetStockBySize("XXL");
-            labelStock.Text = $"In Stock: {stock}";
-            SetActiveButton(sb6);
-            selectedSize = "XXL";
+            aturTampilan((Button)sender);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            int stock = GetStockBySize("XL");
-            labelStock.Text = $"In Stock: {stock}";
-            SetActiveButton(sb5);
-            selectedSize = "XL";
+            aturTampilan((Button)sender);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            int stock = GetStockBySize("L");
-            labelStock.Text = $"In Stock: {stock}";
-            SetActiveButton(sb4);
-            selectedSize = "L";
+            aturTampilan((Button)sender);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            int stock = GetStockBySize("M");
-            labelStock.Text = $"In Stock: {stock}";
-            SetActiveButton(sb3);
-            selectedSize = "M";
+            aturTampilan((Button)sender);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int stock = GetStockBySize("S");
-            labelStock.Text = $"In Stock: {stock}";
-            SetActiveButton(sb2);
-            selectedSize = "S";
+            aturTampilan((Button)sender);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int stock = GetStockBySize("XS");
-            labelStock.Text = $"In Stock: {stock}";
-            SetActiveButton(sb1);
-            selectedSize = "XS";
+            aturTampilan((Button)sender);
         }
 
         private int GetStockBySize(string size)
@@ -182,8 +185,5 @@ namespace uniqlo
                 return result != null ? Convert.ToInt32(result) : 0;
             }
         }
-
-
-
     }
 }
