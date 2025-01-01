@@ -135,6 +135,7 @@ namespace uniqlo
                     Text = dt.Rows[i]["pengguna"].ToString()
                 };
 
+                
                 Label ukuran = new Label()
                 {
                     AutoSize = true,
@@ -143,8 +144,16 @@ namespace uniqlo
                     Name = "labelUkuran",
                     Size = new System.Drawing.Size(55, 13),
                     TabIndex = 37,
-                    Text = "2XS - 2XL"  // Change based on actual size data
                 };
+
+                if (dt.Rows[i]["stok_nosize"].ToString() == "-1")
+                {
+                    ukuran.Text = "XS - 2XL";
+                }
+                else
+                {
+                    ukuran.Text = "No Size";
+                }
 
                 Label nama = new Label()
                 {
@@ -162,6 +171,7 @@ namespace uniqlo
                 {
                     AutoSize = true,
                     Location = new System.Drawing.Point(16, 283),
+                    Font = new System.Drawing.Font("Microsoft Sans Serif", 10F),
                     Margin = new System.Windows.Forms.Padding(1, 0, 1, 0),
                     Name = "labelHarga",
                     Size = new System.Drawing.Size(60, 13),
@@ -177,8 +187,33 @@ namespace uniqlo
                     Size = new System.Drawing.Size(200, 327),
                     TabIndex = 36
                 };
-
                 string id = dt.Rows[i]["id"].ToString();
+                int diskon = int.Parse(dt.Rows[i]["diskon"].ToString());
+                if (diskon != 0)
+                {
+                    Label hargaAkhir = new Label()
+                    {
+                        AutoSize = true,
+                        Location = new System.Drawing.Point(100, 283),
+                        Margin = new System.Windows.Forms.Padding(1, 0, 1, 0),
+                        Font = new System.Drawing.Font("Microsoft Sans Serif", 10F),
+                        Name = "labelHargaAkhir",
+                        Size = new System.Drawing.Size(65, 13),
+                        TabIndex = 37,
+                        ForeColor = Color.Red,
+                        Text = $"Rp{angka - diskon:N0}"  // Format price as Indonesian currency
+                    };
+                    harga.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, (byte)0);
+                    p.Controls.Add(hargaAkhir);
+                    hargaAkhir.Click += (sender, e) =>
+                    {
+                        this.Hide();
+                        FormDetailBarang f = new FormDetailBarang(id, idUser);
+                        f.ShowDialog();
+                        this.Show();
+                    };
+                }
+                
                 p.MouseEnter += (sender, e) => { p.Cursor = Cursors.Hand; };
                 p.MouseLeave += (sender, e) => { p.Cursor = Cursors.Default; };
                 p.Click += (sender, e) =>

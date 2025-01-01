@@ -51,16 +51,20 @@ namespace uniqlo
             this.sb3 = new System.Windows.Forms.Button();
             this.sb2 = new System.Windows.Forms.Button();
             this.sb1 = new System.Windows.Forms.Button();
+            this.labelHarga = new System.Windows.Forms.Label();
+            this.labelHargaAkhir = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(7, 8);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(56, 65);
             this.pictureBox1.TabIndex = 8;
@@ -80,7 +84,7 @@ namespace uniqlo
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(820, 21);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 42);
             this.button1.TabIndex = 10;
@@ -91,7 +95,7 @@ namespace uniqlo
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(46, 81);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(289, 350);
             this.pictureBox2.TabIndex = 16;
@@ -156,26 +160,27 @@ namespace uniqlo
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(345, 270);
+            this.label6.Location = new System.Drawing.Point(4, 7);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(193, 25);
+            this.label6.Size = new System.Drawing.Size(83, 25);
             this.label6.TabIndex = 31;
-            this.label6.Text = "Harga : Rp499.000";
+            this.label6.Text = "Harga :";
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(349, 343);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown1.Location = new System.Drawing.Point(64, 45);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(122, 26);
             this.numericUpDown1.TabIndex = 32;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(346, 309);
+            this.label8.Location = new System.Drawing.Point(5, 47);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 20);
@@ -186,7 +191,7 @@ namespace uniqlo
             // 
             this.labelStock.AutoSize = true;
             this.labelStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStock.Location = new System.Drawing.Point(346, 376);
+            this.labelStock.Location = new System.Drawing.Point(5, 86);
             this.labelStock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelStock.Name = "labelStock";
             this.labelStock.Size = new System.Drawing.Size(69, 20);
@@ -197,15 +202,17 @@ namespace uniqlo
             // 
             this.button2.AutoSize = true;
             this.button2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(430, 426);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(9, 120);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(274, 41);
+            this.button2.Size = new System.Drawing.Size(312, 53);
             this.button2.TabIndex = 35;
             this.button2.Text = "Add to Cart";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Paint += new System.Windows.Forms.PaintEventHandler(this.button2_Paint);
             // 
             // groupBox1
             // 
@@ -217,9 +224,9 @@ namespace uniqlo
             this.groupBox1.Controls.Add(this.sb2);
             this.groupBox1.Controls.Add(this.sb1);
             this.groupBox1.Location = new System.Drawing.Point(344, 175);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(513, 78);
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
@@ -229,7 +236,7 @@ namespace uniqlo
             // sb7
             // 
             this.sb7.Location = new System.Drawing.Point(445, 24);
-            this.sb7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sb7.Margin = new System.Windows.Forms.Padding(2);
             this.sb7.Name = "sb7";
             this.sb7.Size = new System.Drawing.Size(60, 41);
             this.sb7.TabIndex = 6;
@@ -240,7 +247,7 @@ namespace uniqlo
             // sb6
             // 
             this.sb6.Location = new System.Drawing.Point(372, 24);
-            this.sb6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sb6.Margin = new System.Windows.Forms.Padding(2);
             this.sb6.Name = "sb6";
             this.sb6.Size = new System.Drawing.Size(60, 41);
             this.sb6.TabIndex = 5;
@@ -251,7 +258,7 @@ namespace uniqlo
             // sb5
             // 
             this.sb5.Location = new System.Drawing.Point(302, 24);
-            this.sb5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sb5.Margin = new System.Windows.Forms.Padding(2);
             this.sb5.Name = "sb5";
             this.sb5.Size = new System.Drawing.Size(60, 41);
             this.sb5.TabIndex = 4;
@@ -262,7 +269,7 @@ namespace uniqlo
             // sb4
             // 
             this.sb4.Location = new System.Drawing.Point(231, 24);
-            this.sb4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sb4.Margin = new System.Windows.Forms.Padding(2);
             this.sb4.Name = "sb4";
             this.sb4.Size = new System.Drawing.Size(60, 41);
             this.sb4.TabIndex = 3;
@@ -273,7 +280,7 @@ namespace uniqlo
             // sb3
             // 
             this.sb3.Location = new System.Drawing.Point(158, 24);
-            this.sb3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sb3.Margin = new System.Windows.Forms.Padding(2);
             this.sb3.Name = "sb3";
             this.sb3.Size = new System.Drawing.Size(60, 41);
             this.sb3.TabIndex = 2;
@@ -284,7 +291,7 @@ namespace uniqlo
             // sb2
             // 
             this.sb2.Location = new System.Drawing.Point(87, 24);
-            this.sb2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sb2.Margin = new System.Windows.Forms.Padding(2);
             this.sb2.Name = "sb2";
             this.sb2.Size = new System.Drawing.Size(60, 41);
             this.sb2.TabIndex = 1;
@@ -295,7 +302,7 @@ namespace uniqlo
             // sb1
             // 
             this.sb1.Location = new System.Drawing.Point(17, 24);
-            this.sb1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sb1.Margin = new System.Windows.Forms.Padding(2);
             this.sb1.Name = "sb1";
             this.sb1.Size = new System.Drawing.Size(60, 41);
             this.sb1.TabIndex = 0;
@@ -303,18 +310,51 @@ namespace uniqlo
             this.sb1.UseVisualStyleBackColor = true;
             this.sb1.Click += new System.EventHandler(this.button3_Click);
             // 
+            // labelHarga
+            // 
+            this.labelHarga.AutoSize = true;
+            this.labelHarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHarga.Location = new System.Drawing.Point(91, 7);
+            this.labelHarga.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelHarga.Name = "labelHarga";
+            this.labelHarga.Size = new System.Drawing.Size(116, 25);
+            this.labelHarga.TabIndex = 37;
+            this.labelHarga.Text = "Rp499.000";
+            // 
+            // labelHargaAkhir
+            // 
+            this.labelHargaAkhir.AutoSize = true;
+            this.labelHargaAkhir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHargaAkhir.ForeColor = System.Drawing.Color.Red;
+            this.labelHargaAkhir.Location = new System.Drawing.Point(228, 7);
+            this.labelHargaAkhir.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelHargaAkhir.Name = "labelHargaAkhir";
+            this.labelHargaAkhir.Size = new System.Drawing.Size(116, 25);
+            this.labelHargaAkhir.TabIndex = 38;
+            this.labelHargaAkhir.Text = "Rp499.000";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.labelHarga);
+            this.panel1.Controls.Add(this.labelHargaAkhir);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.labelStock);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.numericUpDown1);
+            this.panel1.Location = new System.Drawing.Point(345, 258);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(578, 182);
+            this.panel1.TabIndex = 39;
+            // 
             // FormDetailBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(934, 687);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.labelStock);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -324,7 +364,7 @@ namespace uniqlo
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDetailBarang";
             this.Text = "FormDetailBarang";
             this.Load += new System.EventHandler(this.FormDetailBarang_Load);
@@ -332,6 +372,8 @@ namespace uniqlo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,5 +403,8 @@ namespace uniqlo
         private System.Windows.Forms.Button sb3;
         private System.Windows.Forms.Button sb2;
         private System.Windows.Forms.Button sb1;
+        private System.Windows.Forms.Label labelHarga;
+        private System.Windows.Forms.Label labelHargaAkhir;
+        private System.Windows.Forms.Panel panel1;
     }
 }
