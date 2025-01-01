@@ -278,7 +278,7 @@ namespace uniqlo
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            FormCart f = new FormCart();
+            FormCart f = new FormCart(idUser);
             f.ShowDialog();
             this.Show();
         }
