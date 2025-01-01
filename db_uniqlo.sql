@@ -63,7 +63,7 @@ insert  into `barang`(`id`,`nama`,`harga`,`diskon`,`url_gambar`,`stok_nosize`,`i
 (24,'Extra Fine Merino Crew Neck Long Sleeve Sweater',599000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/450535/sub/goods_450535_sub14_3x4.jpg?width=369',-1,7,NULL,308243,'Sweater crew neck dengan bahan Extra Fine Merino, menawarkan kehangatan dan gaya premium.'),
 (25,'3D Knit Crew Neck Sweater',599000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475296/item/idgoods_05_475296_3x4.jpg?width=369',-1,7,NULL,492425,'Sweater 3D knit dengan detail desain yang rapi dan nyaman dipakai sehari-hari.'),
 (26,'KAWS + Warhol 2WAY Tote Bag',299000,150000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473556/item/goods_01_473556_3x4.jpg?width=369',0,11,NULL,443423,'Tote bag kolaborasi KAWS + Warhol, menampilkan desain artistik yang eksklusif.'),
-(27,'Crossbody Bag',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476641/item/goods_02_476641_3x4.jpg?width=369',50,11,NULL,87643,'Tas selempang kecil yang praktis untuk membawa kebutuhan harian.'),
+(27,'Crossbody Bag',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476641/item/goods_02_476641_3x4.jpg?width=369',49,11,NULL,87643,'Tas selempang kecil yang praktis untuk membawa kebutuhan harian.'),
 (28,'Round Mini Shoulder Bag (Water-Repellent)',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461053/item/goods_30_461053_3x4.jpg?width=369',50,11,NULL,434314,'Tas selempang mini dengan bahan tahan air, cocok untuk gaya aktif.'),
 (30,'HEATTECH Souffle Yarn Beanie',149000,50000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/471144/item/goods_08_471144_3x4.jpg?width=369',50,11,NULL,395432,'Beanie berbahan HEATTECH yang memberikan kehangatan optimal selama musim dingin.'),
 (32,'Italian Leather Garrison Belt',399000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476853/item/goods_09_476853_3x4.jpg?width=369',50,11,NULL,423533,'Ikat pinggang kulit Italia dengan desain elegan, cocok untuk acara formal.'),
@@ -95,11 +95,16 @@ DROP TABLE IF EXISTS `cart`;
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) DEFAULT NULL,
-  `total` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `created_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `foreign_cart_user` (`id_user`),
+  CONSTRAINT `foreign_cart_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `cart` */
+
+insert  into `cart`(`id`,`id_user`,`created_at`) values 
+(2,1,'2025-01-01 00:21:02');
 
 /*Table structure for table `d_cart` */
 
@@ -111,12 +116,21 @@ CREATE TABLE `d_cart` (
   `id_barang` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   `harga` int(11) DEFAULT NULL,
+  `diskon` int(11) DEFAULT NULL,
   `subtotal` int(11) DEFAULT NULL,
   `size` varchar(5) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`id`),
+  KEY `foreign_dcart_card` (`id_cart`),
+  KEY `foreign_dcart_barang` (`id_barang`),
+  CONSTRAINT `foreign_dcart_barang` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`),
+  CONSTRAINT `foreign_dcart_card` FOREIGN KEY (`id_cart`) REFERENCES `cart` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `d_cart` */
+
+insert  into `d_cart`(`id`,`id_cart`,`id_barang`,`quantity`,`harga`,`diskon`,`subtotal`,`size`) values 
+(1,2,3,3,249000,50000,597000,'S'),
+(3,2,27,1,299000,0,299000,'NO');
 
 /*Table structure for table `kategori` */
 
@@ -195,7 +209,7 @@ CREATE TABLE `stok` (
 
 insert  into `stok`(`id`,`id_barang`,`size`,`stok`) values 
 (1,3,'XS',4),
-(2,3,'S',3),
+(2,3,'S',0),
 (3,3,'M',6),
 (4,3,'L',1),
 (5,3,'XL',3),
@@ -471,11 +485,15 @@ CREATE TABLE `user` (
   `nama` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `role` enum('Admin','User','Cashier') DEFAULT NULL,
+  `role` enum('Admin','Customer','Cashier') DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
+
+insert  into `user`(`id`,`nama`,`username`,`password`,`role`) values 
+(1,'Jason','123','123','Customer'),
+(2,'Jason','321','321','Customer');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
