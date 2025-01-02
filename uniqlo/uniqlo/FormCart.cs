@@ -23,10 +23,84 @@ namespace uniqlo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormCetak f = new FormCetak();
-            f.ShowDialog();
-            this.Show();
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Validasi jika cart kosong
+                    MySqlCommand checkCart = new MySqlCommand("SELECT COUNT(*) FROM d_cart WHERE id_cart = @idCart", conn);
+                    checkCart.Parameters.AddWithValue("@idCart", idCart);
+                    int itemCount = Convert.ToInt32(checkCart.ExecuteScalar());
+                    if (itemCount == 0)
+                    {
+                        MessageBox.Show("Cart kosong! Tambahkan item terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Konfirmasi pembayaran
+                    DialogResult result = MessageBox.Show("Apakah Anda yakin ingin melanjutkan pembayaran dan mencetak nota?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.No) return;
+
+                    // Tampilkan FormCetak untuk mencetak nota
+                    this.Hide();
+                    FormCetak cetakNota = new FormCetak();
+                    cetakNota.ShowDialog();
+                    this.Show();
+
+                    // Update status cart menjadi "paid"
+                    MySqlCommand updateCartStatus = new MySqlCommand("UPDATE cart SET status = 'paid', created_at = NOW() WHERE id = @idCart", conn);
+                    updateCartStatus.Parameters.AddWithValue("@idCart", idCart);
+                    updateCartStatus.ExecuteNonQuery();
+
+                    // Kurangi stok barang berdasarkan isi cart
+                    MySqlCommand getCartItems = new MySqlCommand("SELECT id_barang, size, quantity FROM d_cart WHERE id_cart = @idCart", conn);
+                    getCartItems.Parameters.AddWithValue("@idCart", idCart);
+                    using (MySqlDataReader reader = getCartItems.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int idBarang = reader.GetInt32("id_barang");
+                            string size = reader.GetString("size");
+                            int quantity = reader.GetInt32("quantity");
+
+                            if (size == "NO")
+                            {
+                                // Update stok di tabel barang (tanpa ukuran)
+                                MySqlCommand updateStock = new MySqlCommand("UPDATE barang SET stok_nosize = stok_nosize - @quantity WHERE id = @idBarang", conn);
+                                updateStock.Parameters.AddWithValue("@quantity", quantity);
+                                updateStock.Parameters.AddWithValue("@idBarang", idBarang);
+                                updateStock.ExecuteNonQuery();
+                            }
+                            else
+                            {
+                                // Update stok di tabel stok (dengan ukuran)
+                                MySqlCommand updateStock = new MySqlCommand("UPDATE stok SET stok = stok - @quantity WHERE id_barang = @idBarang AND size = @size", conn);
+                                updateStock.Parameters.AddWithValue("@quantity", quantity);
+                                updateStock.Parameters.AddWithValue("@idBarang", idBarang);
+                                updateStock.Parameters.AddWithValue("@size", size);
+                                updateStock.ExecuteNonQuery();
+                            }
+                        }
+                    }
+
+                    // Kosongkan tabel d_cart untuk idCart ini
+                    MySqlCommand clearCart = new MySqlCommand("DELETE FROM d_cart WHERE id_cart = @idCart", conn);
+                    clearCart.Parameters.AddWithValue("@idCart", idCart);
+                    clearCart.ExecuteNonQuery();
+
+                    // Beri feedback ke pengguna
+                    MessageBox.Show("Pembayaran berhasil! Nota telah dicetak, stok barang diperbarui, dan cart dikosongkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Refresh data grid
+                    FormCart_Load(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
