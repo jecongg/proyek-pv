@@ -59,6 +59,7 @@ namespace uniqlo
             dataGridView1.Columns["Harga Akhir"].ReadOnly = true;
             dataGridView1.Columns["Ukuran"].ReadOnly = true;
             dataGridView1.Columns["Subtotal"].ReadOnly = true;
+            UpdateSummary();
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -171,6 +172,34 @@ namespace uniqlo
             {
                 int rowIndex = e.RowIndex;
                 previousQuantity = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["Quantity"].Value);
+            }
+        }
+
+        private void UpdateSummary()
+        {
+            try
+            {
+                int totalItems = 0;
+                int subtotal = 0;
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+                    int rowSubtotal = Convert.ToInt32(row.Cells["Subtotal"].Value);
+                    totalItems += quantity;
+                    subtotal += rowSubtotal;
+                }
+
+                double ppn = subtotal * 0.12; // PPN 12%
+                label10.Text = $"Total Item(s): {totalItems}";
+                label11.Text = $"Subtotal Produk: Rp{subtotal:n0}";
+                label12.Text = $"Subtotal : Rp{subtotal:n0}";
+                label13.Text = $"Termasuk PPN (12%) : Rp{ppn:n0}";
+                label14.Text = $"Total Pesanan : Rp{subtotal:n0}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan saat menghitung ringkasan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
