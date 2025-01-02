@@ -233,3 +233,44 @@ C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\o
 C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.CopyComplete
 C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe
 C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.pdb
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\uniqlo.exe.config
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\uniqlo.exe
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\uniqlo.pdb
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.Shared.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.Windows.Forms.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\System.Memory.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\System.Numerics.Vectors.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\System.Buffers.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\bin\Debug\stdole.dll
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.AssemblyReference.cache
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormAddBarang.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCashier.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormKategori.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormAdmin.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCart.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCustomer.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCetak.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormDetailBarang.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormLogin.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRegister.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormUpdateBarang.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.Properties.Resources.resources
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.GenerateResource.cache
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.CoreCompileInputs.cache
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.CopyComplete
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe
+D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.pdb

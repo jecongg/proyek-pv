@@ -49,8 +49,8 @@ insert  into `barang`(`id`,`nama`,`harga`,`diskon`,`url_gambar`,`stok_nosize`,`i
 (10,'Sesame Street Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/474422/sub/goods_474422_sub14_3x4.jpg?width=369',-1,1,NULL,208473,'T-shirt dengan tema Sesame Street, cocok untuk gaya kasual dan penggemar karakter klasik.'),
 (11,'Sesame Street Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/478101/sub/goods_478101_sub14_3x4.jpg?width=369',-1,3,NULL,102832,'T-shirt Sesame Street lainnya dengan sentuhan desain yang berbeda.'),
 (12,'Ukiyo-E Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477298/sub/idgoods_477298_sub1_3x4.jpg?width=369',-1,3,NULL,422311,'T-shirt Ukiyo-E dengan cetakan khas seni tradisional Jepang.'),
-(13,'Ukiyo-E Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477295/sub/idgoods_477295_sub7_3x4.jpg?width=369',-1,1,NULL,25876,'T-shirt Ukiyo-E lainnya, menampilkan seni Jepang yang menarik dan unik.'),
-(14,'Zip Up Blouson',699000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475681/item/idgoods_08_475681_3x4.jpg?width=369',-1,5,NULL,18345,'Blouson dengan resleting depan, memberikan gaya casual dan praktis untuk musim dingin.'),
+(13,'Ukiyo-E Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477295/sub/idgoods_477295_sub7_3x4.jpg?width=369',-1,1,NULL,124456,'T-shirt Ukiyo-E lainnya, menampilkan seni Jepang yang menarik dan unik.'),
+(14,'Zip Up Blouson',699000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475681/item/idgoods_08_475681_3x4.jpg?width=369',-1,5,NULL,314123,'Blouson dengan resleting depan, memberikan gaya casual dan praktis untuk musim dingin.'),
 (15,'KAWS + Warhol Coach Jacket',699000,200000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476316/sub/goods_476316_sub14_3x4.jpg?width=369',-1,5,NULL,394365,'Jaket Coach kolaborasi KAWS + Warhol, dengan desain artistik dan stylish.'),
 (16,'Hoodie SpongeBob Sweat Hoodie',699000,200000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476551/sub/goods_476551_sub14_3x4.jpg?width=369',-1,5,NULL,927189,'Sweat hoodie kolaborasi SpongeBob, menampilkan desain karakter ikonik.'),
 (17,'Windproof Stand Blouson (Water-Repellent)',899000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464918/sub/goods_464918_sub13_3x4.jpg?width=369',-1,5,NULL,103247,'Blouson tahan angin dan tahan air, cocok untuk musim dingin atau cuaca ekstrem.'),
@@ -63,7 +63,7 @@ insert  into `barang`(`id`,`nama`,`harga`,`diskon`,`url_gambar`,`stok_nosize`,`i
 (24,'Extra Fine Merino Crew Neck Long Sleeve Sweater',599000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/450535/sub/goods_450535_sub14_3x4.jpg?width=369',-1,7,NULL,308243,'Sweater crew neck dengan bahan Extra Fine Merino, menawarkan kehangatan dan gaya premium.'),
 (25,'3D Knit Crew Neck Sweater',599000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475296/item/idgoods_05_475296_3x4.jpg?width=369',-1,7,NULL,492425,'Sweater 3D knit dengan detail desain yang rapi dan nyaman dipakai sehari-hari.'),
 (26,'KAWS + Warhol 2WAY Tote Bag',299000,150000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473556/item/goods_01_473556_3x4.jpg?width=369',0,11,NULL,443423,'Tote bag kolaborasi KAWS + Warhol, menampilkan desain artistik yang eksklusif.'),
-(27,'Crossbody Bag',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476641/item/goods_02_476641_3x4.jpg?width=369',49,11,NULL,87643,'Tas selempang kecil yang praktis untuk membawa kebutuhan harian.'),
+(27,'Crossbody Bag',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476641/item/goods_02_476641_3x4.jpg?width=369',49,11,NULL,234244,'Tas selempang kecil yang praktis untuk membawa kebutuhan harian.'),
 (28,'Round Mini Shoulder Bag (Water-Repellent)',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461053/item/goods_30_461053_3x4.jpg?width=369',50,11,NULL,434314,'Tas selempang mini dengan bahan tahan air, cocok untuk gaya aktif.'),
 (30,'HEATTECH Souffle Yarn Beanie',149000,50000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/471144/item/goods_08_471144_3x4.jpg?width=369',50,11,NULL,395432,'Beanie berbahan HEATTECH yang memberikan kehangatan optimal selama musim dingin.'),
 (32,'Italian Leather Garrison Belt',399000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476853/item/goods_09_476853_3x4.jpg?width=369',50,11,NULL,423533,'Ikat pinggang kulit Italia dengan desain elegan, cocok untuk acara formal.'),
@@ -86,7 +86,7 @@ insert  into `barang`(`id`,`nama`,`harga`,`diskon`,`url_gambar`,`stok_nosize`,`i
 (49,'HEATTECH Ultra Warm Leggings',399000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/469844/item/idgoods_03_469844_3x4.jpg?width=369',-1,19,NULL,134243,'Legging ultra hangat berbahan HEATTECH, ideal untuk musim dingin.'),
 (50,'Ultra Stretch Maternity Leggings Pants | Denim',599000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/464153/item/idgoods_68_464153_3x4.jpg?width=369',-1,19,NULL,213130,'Legging maternity ultra stretch berbahan denim, mendukung kenyamanan selama kehamilan.'),
 (51,'AIRism Cotton Relaxed Long T-Shirt | Long Sleeve',249000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477686/item/idgoods_52_477686_3x4.jpg?width=369',-1,21,NULL,121213,'T-shirt katun longgar dengan lengan panjang, cocok untuk gaya santai.'),
-(52,'Rayon Gathered Tunic | Long Sleeve',399000,100000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/473356/item/idgoods_18_473356_3x4.jpg?width=369',-1,21,NULL,NULL,'Tunik berbahan rayon dengan detail gathered, memberikan tampilan yang anggun.');
+(52,'Rayon Gathered Tunic | Long Sleeve',399000,100000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/473356/item/idgoods_18_473356_3x4.jpg?width=369',-1,21,NULL,132133,'Tunik berbahan rayon dengan detail gathered, memberikan tampilan yang anggun.');
 
 /*Table structure for table `cart` */
 
@@ -96,15 +96,17 @@ CREATE TABLE `cart` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
+  `status` enum('pending','paid') DEFAULT 'pending',
   PRIMARY KEY (`id`),
   KEY `foreign_cart_user` (`id_user`),
   CONSTRAINT `foreign_cart_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `cart` */
 
-insert  into `cart`(`id`,`id_user`,`created_at`) values 
-(2,1,'2025-01-01 00:21:02');
+insert  into `cart`(`id`,`id_user`,`created_at`,`status`) values 
+(2,1,'2025-01-01 00:21:02','pending'),
+(3,2,'2025-01-02 19:06:38','pending');
 
 /*Table structure for table `d_cart` */
 
@@ -124,13 +126,14 @@ CREATE TABLE `d_cart` (
   KEY `foreign_dcart_barang` (`id_barang`),
   CONSTRAINT `foreign_dcart_barang` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`),
   CONSTRAINT `foreign_dcart_card` FOREIGN KEY (`id_cart`) REFERENCES `cart` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `d_cart` */
 
 insert  into `d_cart`(`id`,`id_cart`,`id_barang`,`quantity`,`harga`,`diskon`,`subtotal`,`size`) values 
 (1,2,3,3,249000,50000,597000,'S'),
-(3,2,27,1,299000,0,299000,'NO');
+(3,2,27,1,299000,0,299000,'NO'),
+(4,3,5,1,249000,0,249000,'S');
 
 /*Table structure for table `kategori` */
 
@@ -223,7 +226,7 @@ insert  into `stok`(`id`,`id_barang`,`size`,`stok`) values
 (13,4,'XXL',0),
 (14,4,'3XL',0),
 (15,5,'XS',50),
-(16,5,'S',50),
+(16,5,'S',49),
 (17,5,'M',50),
 (18,5,'L',50),
 (19,5,'XL',50),

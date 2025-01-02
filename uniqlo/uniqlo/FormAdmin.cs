@@ -84,6 +84,7 @@ namespace uniqlo
                     Text = dt.Rows[i]["nama"].ToString()
                 };
                 int angka = int.Parse(dt.Rows[i]["harga"].ToString());
+                int diskon = int.Parse(dt.Rows[i]["diskon"].ToString());
                 Label harga = new Label()
                 {
                     AutoSize = true,
@@ -94,6 +95,18 @@ namespace uniqlo
                     TabIndex = 37,
                     //ini buat format rupiah
                     Text = $"Rp{angka:N0}"
+                };
+                Label sale = new Label()
+                {
+                    AutoSize = true,
+                    ForeColor = Color.Red,
+                    Location = new System.Drawing.Point(16, 310),
+                    Margin = new System.Windows.Forms.Padding(1, 0, 1, 0),
+                    Name = "labelSale",
+                    Size = new System.Drawing.Size(60, 13),
+                    TabIndex = 37,
+                    //ini buat format rupiah
+                    Text = $"Sale: Rp{diskon:N0}"
                 };
                 Panel p = new Panel()
                 {
@@ -135,6 +148,7 @@ namespace uniqlo
                 //    control.MouseEnter += (sender, e) => { p.Cursor = Cursors.Hand; };
                 //    control.MouseLeave += (sender, e) => { p.Cursor = Cursors.Default; };
                 //}
+                p.Click += P_Click;
                 p.MouseEnter += (sender, e) => { p.Cursor = Cursors.Hand; };
                 p.MouseLeave += (sender, e) => { p.Cursor = Cursors.Default; };
                 delete.Click += Delete_Click;
@@ -151,10 +165,16 @@ namespace uniqlo
                 p.Controls.Add(pb);
                 p.Controls.Add(delete);
                 p.Controls.Add(update);
+                p.Controls.Add(sale);
                 panel1.Controls.Add(p);
                 panel1.AutoScroll = true;
             }
 
+        }
+
+        private void P_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void Update_Click(object sender, EventArgs e)

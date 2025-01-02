@@ -22,7 +22,7 @@ namespace uniqlo
             cmbRole.Items.Add("Admin");
            
             cmbRole.Items.Add("Cashier");
-            cmbRole.Items.Add("User");
+            cmbRole.Items.Add("Customer");
         }
 
        

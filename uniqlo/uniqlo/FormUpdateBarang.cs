@@ -35,13 +35,13 @@ namespace uniqlo
         private void loadBarang(int id)
         {
             int idbrg = 0, id_pengguna = 0, harga = 0, diskon = 0, stok_nosize = 0, id_kategori = 0;
-            string nama = "", url_gambar = "", namaKategori = "", namaPengguna = "";
+            string nama = "", url_gambar = "", namaKategori = "", namaPengguna = "", deskripsi = "";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
 
-                string query = "SELECT b.id, b.nama, b.harga, b.diskon, b.url_gambar, b.stok_nosize, k.nama as nama_kategori, k.id as id_kategori, p.nama as nama_pengguna, p.id as id_pengguna FROM barang b join kategori k ON b.id_kategori = k.id join pengguna p ON k.id_pengguna = p.id WHERE b.id = @id";
+                string query = "SELECT b.id, b.nama, b.harga, b.diskon, b.url_gambar, b.stok_nosize, k.nama as nama_kategori, k.id as id_kategori, p.nama as nama_pengguna, p.id as id_pengguna, b.deskripsi FROM barang b join kategori k ON b.id_kategori = k.id join pengguna p ON k.id_pengguna = p.id WHERE b.id = @id";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
@@ -61,6 +61,7 @@ namespace uniqlo
                             namaPengguna = reader.GetString("nama_pengguna");
                             id_kategori = reader.GetInt32("id_kategori");
                             id_pengguna = reader.GetInt32("id_pengguna");
+                            deskripsi = reader.GetString("deskripsi");
                         }
                     }
                 }
@@ -147,6 +148,7 @@ namespace uniqlo
             textNama.Text = nama;
             numHarga.Value = (decimal)harga;
             numDiskon.Value = (decimal)diskon;
+            textBox1.Text = deskripsi;
             textGambar.Text = url_gambar;
             if(diskon == 0)
             {
@@ -340,10 +342,11 @@ namespace uniqlo
             MySqlConnection conn = new MySqlConnection(connectionString);
             conn.Open();
             
-                MySqlCommand cmd = new MySqlCommand("update barang set nama = @nama, harga = @harga, diskon = @diskon, url_gambar = @url_gambar, stok_nosize = @stok, id_kategori = @id_kategori where id = @id", conn);
+                MySqlCommand cmd = new MySqlCommand("update barang set nama = @nama, harga = @harga, diskon = @diskon, url_gambar = @url_gambar, stok_nosize = @stok, id_kategori = @id_kategori, deskripsi = @deskripsi where id = @id", conn);
                 cmd.Parameters.AddWithValue("@nama", textNama.Text);
                 cmd.Parameters.AddWithValue("@harga", numHarga.Value);
                 cmd.Parameters.AddWithValue("@url_gambar", textGambar.Text);
+            cmd.Parameters.AddWithValue("@deskripsi", textBox1.Text);
                 if (checkBoxDiskon.Checked)
                 {
                     cmd.Parameters.AddWithValue("@diskon", numDiskon.Value);

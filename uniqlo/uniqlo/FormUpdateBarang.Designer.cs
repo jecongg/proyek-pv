@@ -76,6 +76,8 @@ namespace uniqlo
             this.label2 = new System.Windows.Forms.Label();
             this.textNama = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numStokNoSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStokXXXL)).BeginInit();
@@ -526,7 +528,7 @@ namespace uniqlo
             // btnAddBarang
             // 
             this.btnAddBarang.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBarang.Location = new System.Drawing.Point(130, 641);
+            this.btnAddBarang.Location = new System.Drawing.Point(129, 787);
             this.btnAddBarang.Name = "btnAddBarang";
             this.btnAddBarang.Size = new System.Drawing.Size(126, 47);
             this.btnAddBarang.TabIndex = 61;
@@ -614,12 +616,33 @@ namespace uniqlo
             this.label1.TabIndex = 54;
             this.label1.Text = "Nama :";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(135, 634);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(1);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(233, 128);
+            this.textBox1.TabIndex = 100;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(58, 634);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(73, 19);
+            this.label19.TabIndex = 99;
+            this.label19.Text = "Deskripsi :";
+            // 
             // FormUpdateBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(386, 682);
+            this.ClientSize = new System.Drawing.Size(386, 841);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label15);
@@ -735,5 +758,7 @@ namespace uniqlo
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textNama;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label19;
     }
 }
