@@ -125,7 +125,7 @@ CREATE TABLE `d_cart` (
   KEY `foreign_dcart_card` (`id_cart`),
   KEY `foreign_dcart_barang` (`id_barang`),
   CONSTRAINT `foreign_dcart_barang` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`),
-  CONSTRAINT `foreign_dcart_card` FOREIGN KEY (`id_cart`) REFERENCES `cart` (`id`)
+  CONSTRAINT `foreign_dcart_cart` FOREIGN KEY (`id_cart`) REFERENCES `cart` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `d_cart` */
@@ -134,6 +134,42 @@ insert  into `d_cart`(`id`,`id_cart`,`id_barang`,`quantity`,`harga`,`diskon`,`su
 (1,2,3,3,249000,50000,597000,'S'),
 (3,2,27,1,299000,0,299000,'NO'),
 (4,3,5,1,249000,0,249000,'S');
+
+/*Table structure for table `d_trans` */
+
+DROP TABLE IF EXISTS `d_trans`;
+
+CREATE TABLE `d_trans` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_htrans` int(11) DEFAULT NULL,
+  `id_barang` int(11) DEFAULT NULL,
+  `nama_barang` varchar(255) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `harga` int(11) DEFAULT NULL,
+  `diskon` int(11) DEFAULT NULL,
+  `subtotal` int(11) DEFAULT NULL,
+  `size` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `foreign_dtrans_barang` (`id_barang`),
+  KEY `foreign_dtrans_htrans` (`id_htrans`),
+  CONSTRAINT `foreign_dtrans_barang` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`),
+  CONSTRAINT `foreign_dtrans_htrans` FOREIGN KEY (`id_htrans`) REFERENCES `h_trans` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `d_trans` */
+
+/*Table structure for table `h_trans` */
+
+DROP TABLE IF EXISTS `h_trans`;
+
+CREATE TABLE `h_trans` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `h_trans` */
 
 /*Table structure for table `kategori` */
 

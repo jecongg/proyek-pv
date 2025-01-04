@@ -133,6 +133,17 @@ namespace uniqlo
             dataGridView1.Columns["Harga Akhir"].ReadOnly = true;
             dataGridView1.Columns["Ukuran"].ReadOnly = true;
             dataGridView1.Columns["Subtotal"].ReadOnly = true;
+            if (!dataGridView1.Columns.Contains("Delete"))
+            {
+                DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn
+                {
+                    HeaderText = "Delete",
+                    Name = "Delete",
+                    Text = "Delete",
+                    UseColumnTextForButtonValue = true
+                };
+                dataGridView1.Columns.Add(deleteButton);
+            }
             UpdateSummary();
         }
 
@@ -148,6 +159,12 @@ namespace uniqlo
             {
                 int rowIndex = e.RowIndex;
                 int newQuantity = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["Quantity"].Value);
+                if (newQuantity < 0)
+                {
+                    MessageBox.Show("Quantity tidak boleh bernilai negatif!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dataGridView1.Rows[rowIndex].Cells["Quantity"].Value = previousQuantity; 
+                    return;
+                }
                 int difference = newQuantity - previousQuantity; // Hitung selisih
 
                 try
@@ -194,7 +211,7 @@ namespace uniqlo
                             }
                             else
                             {
-                                MySqlCommand cmdUpdateStock = new MySqlCommand("UPDATE stok SET stok = stok - @difference WHERE id = @idBarang and size = @size", conn);
+                                MySqlCommand cmdUpdateStock = new MySqlCommand("UPDATE stok SET stok = stok - @difference WHERE id_barang = @idBarang and size = @size", conn);
                                 cmdUpdateStock.Parameters.AddWithValue("@difference", difference);
                                 cmdUpdateStock.Parameters.AddWithValue("@idBarang", idBarang);
                                 cmdUpdateStock.Parameters.AddWithValue("@size", size);
@@ -213,7 +230,7 @@ namespace uniqlo
                             }
                             else
                             {
-                                MySqlCommand cmdUpdateStock = new MySqlCommand("UPDATE stok SET stok = stok + @difference WHERE id = @idBarang and size = @size", conn);
+                                MySqlCommand cmdUpdateStock = new MySqlCommand("UPDATE stok SET stok = stok + @difference WHERE id_barang = @idBarang and size = @size", conn);
                                 cmdUpdateStock.Parameters.AddWithValue("@difference", Math.Abs(difference));
                                 cmdUpdateStock.Parameters.AddWithValue("@idBarang", idBarang);
                                 cmdUpdateStock.Parameters.AddWithValue("@size", size);
@@ -231,6 +248,58 @@ namespace uniqlo
                         dataGridView1.Rows[rowIndex].Cells["Subtotal"].Value = subtotal;
                         // Beri informasi ke user
                         MessageBox.Show("Quantity dan stok berhasil diperbarui.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["Delete"].Index && e.RowIndex >= 0)
+            {
+                int idBarang = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value);
+                string namaBarang = dataGridView1.Rows[e.RowIndex].Cells["Nama Barang"].Value.ToString();
+                string size = dataGridView1.Rows[e.RowIndex].Cells["Ukuran"].Value.ToString();
+                int quantity = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Quantity"].Value);
+
+                try
+                {
+                    using (MySqlConnection conn = new MySqlConnection(connectionString))
+                    {
+                        conn.Open();
+
+                        // Hapus item dari tabel d_cart
+                        MySqlCommand deleteCmd = new MySqlCommand("DELETE FROM d_cart WHERE id_cart = @idCart AND id_barang = @idBarang AND size = @size", conn);
+                        deleteCmd.Parameters.AddWithValue("@idCart", idCart);
+                        deleteCmd.Parameters.AddWithValue("@idBarang", idBarang);
+                        deleteCmd.Parameters.AddWithValue("@size", size);
+                        deleteCmd.ExecuteNonQuery();
+
+                        // Kembalikan stok barang
+                        if (size == "NO")
+                        {
+                            MySqlCommand updateStockCmd = new MySqlCommand("UPDATE barang SET stok_nosize = stok_nosize + @quantity WHERE id = @idBarang", conn);
+                            updateStockCmd.Parameters.AddWithValue("@quantity", quantity);
+                            updateStockCmd.Parameters.AddWithValue("@idBarang", idBarang);
+                            updateStockCmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            MySqlCommand updateStockCmd = new MySqlCommand("UPDATE stok SET stok = stok + @quantity WHERE id_barang = @idBarang AND size = @size", conn);
+                            updateStockCmd.Parameters.AddWithValue("@quantity", quantity);
+                            updateStockCmd.Parameters.AddWithValue("@idBarang", idBarang);
+                            updateStockCmd.Parameters.AddWithValue("@size", size);
+                            updateStockCmd.ExecuteNonQuery();
+                        }
+
+                        // Hapus baris dari DataGridView
+                        dataGridView1.Rows.RemoveAt(e.RowIndex);
+
+                        MessageBox.Show($"Barang '{namaBarang}' dengan ukuran '{size}' telah dihapus dan stok diperbarui.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)

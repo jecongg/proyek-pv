@@ -51,6 +51,7 @@ namespace uniqlo
             // 
             this.textPassword.Location = new System.Drawing.Point(330, 222);
             this.textPassword.Name = "textPassword";
+            this.textPassword.PasswordChar = '*';
             this.textPassword.Size = new System.Drawing.Size(123, 20);
             this.textPassword.TabIndex = 1;
             // 
@@ -87,7 +88,7 @@ namespace uniqlo
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(215, 68);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(65, 73);
             this.pictureBox1.TabIndex = 5;
