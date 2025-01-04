@@ -38,62 +38,18 @@ namespace uniqlo
                         MessageBox.Show("Cart kosong! Tambahkan item terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
+                    DialogResult result = MessageBox.Show("Apakah Anda yakin ingin melanjutkan ke pembayaran?",
+                                          "Konfirmasi",
+                                          MessageBoxButtons.YesNo,
+                                          MessageBoxIcon.Question);
 
-                    // Konfirmasi pembayaran
-                    DialogResult result = MessageBox.Show("Apakah Anda yakin ingin melanjutkan pembayaran dan mencetak nota?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.No) return;
-
-                    // Tampilkan FormCetak untuk mencetak nota
-                    this.Hide();
-                    FormCetak cetakNota = new FormCetak();
-                    cetakNota.ShowDialog();
-                    this.Show();
-
-                    // Update status cart menjadi "paid"
-                    MySqlCommand updateCartStatus = new MySqlCommand("UPDATE cart SET status = 'paid', created_at = NOW() WHERE id = @idCart", conn);
-                    updateCartStatus.Parameters.AddWithValue("@idCart", idCart);
-                    updateCartStatus.ExecuteNonQuery();
-
-                    // Kurangi stok barang berdasarkan isi cart
-                    MySqlCommand getCartItems = new MySqlCommand("SELECT id_barang, size, quantity FROM d_cart WHERE id_cart = @idCart", conn);
-                    getCartItems.Parameters.AddWithValue("@idCart", idCart);
-                    using (MySqlDataReader reader = getCartItems.ExecuteReader())
+                    // Jika pengguna memilih 'Yes'
+                    if (result == DialogResult.Yes)
                     {
-                        while (reader.Read())
-                        {
-                            int idBarang = reader.GetInt32("id_barang");
-                            string size = reader.GetString("size");
-                            int quantity = reader.GetInt32("quantity");
-
-                            if (size == "NO")
-                            {
-                                // Update stok di tabel barang (tanpa ukuran)
-                                MySqlCommand updateStock = new MySqlCommand("UPDATE barang SET stok_nosize = stok_nosize - @quantity WHERE id = @idBarang", conn);
-                                updateStock.Parameters.AddWithValue("@quantity", quantity);
-                                updateStock.Parameters.AddWithValue("@idBarang", idBarang);
-                                updateStock.ExecuteNonQuery();
-                            }
-                            else
-                            {
-                                // Update stok di tabel stok (dengan ukuran)
-                                MySqlCommand updateStock = new MySqlCommand("UPDATE stok SET stok = stok - @quantity WHERE id_barang = @idBarang AND size = @size", conn);
-                                updateStock.Parameters.AddWithValue("@quantity", quantity);
-                                updateStock.Parameters.AddWithValue("@idBarang", idBarang);
-                                updateStock.Parameters.AddWithValue("@size", size);
-                                updateStock.ExecuteNonQuery();
-                            }
-                        }
+                        MySqlCommand updateCartStatus = new MySqlCommand("UPDATE cart SET status = 'done' WHERE id = @idCart", conn);
+                        updateCartStatus.Parameters.AddWithValue("@idCart", idCart);
+                        updateCartStatus.ExecuteNonQuery();
                     }
-
-                    // Kosongkan tabel d_cart untuk idCart ini
-                    MySqlCommand clearCart = new MySqlCommand("DELETE FROM d_cart WHERE id_cart = @idCart", conn);
-                    clearCart.Parameters.AddWithValue("@idCart", idCart);
-                    clearCart.ExecuteNonQuery();
-
-                    // Beri feedback ke pengguna
-                    MessageBox.Show("Pembayaran berhasil! Nota telah dicetak, stok barang diperbarui, dan cart dikosongkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Refresh data grid
                     FormCart_Load(sender, e);
                 }
             }
@@ -117,34 +73,53 @@ namespace uniqlo
         {
             MySqlConnection conn = new MySqlConnection(connectionString);
             conn.Open();
+
             MySqlCommand selectIdCart = new MySqlCommand("select id from cart where id_user= @a", conn);
             selectIdCart.Parameters.AddWithValue("@a", idUser);
             idCart = Convert.ToInt32(selectIdCart.ExecuteScalar());
-            MySqlCommand selectData = new MySqlCommand("SELECT d.id_barang 'ID', b.nama 'Nama Barang', d.size 'Ukuran', d.harga 'Harga Awal', d.harga-d.diskon 'Harga Akhir', d.quantity 'Quantity', subtotal 'Subtotal' FROM d_cart d JOIN barang b ON b.id=d.id_barang WHERE id_cart = @a", conn);
-            selectData.Parameters.AddWithValue("@a", idCart);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(selectData);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-            dataGridView1.Columns["Quantity"].ReadOnly = false; // Izinkan edit hanya di kolom Quantity
-            dataGridView1.Columns["ID"].ReadOnly = true; // Kolom lainnya read-only
-            dataGridView1.Columns["Nama Barang"].ReadOnly = true;
-            dataGridView1.Columns["Harga Awal"].ReadOnly = true;
-            dataGridView1.Columns["Harga Akhir"].ReadOnly = true;
-            dataGridView1.Columns["Ukuran"].ReadOnly = true;
-            dataGridView1.Columns["Subtotal"].ReadOnly = true;
-            if (!dataGridView1.Columns.Contains("Delete"))
+
+            MySqlCommand cekStatus = new MySqlCommand("SELECT status FROM cart WHERE id = @a", conn);
+            cekStatus.Parameters.AddWithValue("@a", idCart);
+            object result = cekStatus.ExecuteScalar();
+            string status = "";
+            if (result != null)
             {
-                DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn
-                {
-                    HeaderText = "Delete",
-                    Name = "Delete",
-                    Text = "Delete",
-                    UseColumnTextForButtonValue = true
-                };
-                dataGridView1.Columns.Add(deleteButton);
+                status = result.ToString();
             }
-            UpdateSummary();
+
+            if (status == "pending")
+            {
+                panel1.Visible = false;
+                MySqlCommand selectData = new MySqlCommand("SELECT d.id_barang 'ID', b.nama 'Nama Barang', d.size 'Ukuran', d.harga 'Harga Awal', d.harga-d.diskon 'Harga Akhir', d.quantity 'Quantity', subtotal 'Subtotal' FROM d_cart d JOIN barang b ON b.id=d.id_barang WHERE id_cart = @a", conn);
+                selectData.Parameters.AddWithValue("@a", idCart);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(selectData);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.Columns["Quantity"].ReadOnly = false; // Izinkan edit hanya di kolom Quantity
+                dataGridView1.Columns["ID"].ReadOnly = true; // Kolom lainnya read-only
+                dataGridView1.Columns["Nama Barang"].ReadOnly = true;
+                dataGridView1.Columns["Harga Awal"].ReadOnly = true;
+                dataGridView1.Columns["Harga Akhir"].ReadOnly = true;
+                dataGridView1.Columns["Ukuran"].ReadOnly = true;
+                dataGridView1.Columns["Subtotal"].ReadOnly = true;
+                if (!dataGridView1.Columns.Contains("Delete"))
+                {
+                    DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn
+                    {
+                        HeaderText = "Delete",
+                        Name = "Delete",
+                        Text = "Delete",
+                        UseColumnTextForButtonValue = true
+                    };
+                    dataGridView1.Columns.Add(deleteButton);
+                }
+                UpdateSummary();
+            }
+            else
+            {
+                panel1.Visible = true;
+            }
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -306,6 +281,25 @@ namespace uniqlo
                 {
                     MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Apakah Anda yakin ingin membatalkan pesanan",
+                                          "Konfirmasi Pembatalan",
+                                          MessageBoxButtons.YesNo,
+                                          MessageBoxIcon.Question);
+
+            // Jika pengguna memilih 'Yes'
+            if (result == DialogResult.Yes)
+            {
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                conn.Open();
+                MySqlCommand updateCartStatus = new MySqlCommand("UPDATE cart SET status = 'pending' WHERE id = @idCart", conn);
+                updateCartStatus.Parameters.AddWithValue("@idCart", idCart);
+                updateCartStatus.ExecuteNonQuery();
+                FormCart_Load(sender, e);
             }
         }
 
