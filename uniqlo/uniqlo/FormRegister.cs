@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Drawing;
@@ -25,53 +26,17 @@ namespace uniqlo
             cmbRole.Items.Add("Customer");
         }
 
-       
-        private void btnRegister_Click(object sender, EventArgs e)
+        private string HashPassword(string password)
         {
-            string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
-            string username = textUsername.Text;
-            string password = textPassword.Text;
-            string nama = textNama.Text;
-            string role = cmbRole.SelectedItem?.ToString();
-
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(role))
+            using (SHA256 sha256 = SHA256.Create())
             {
-                MessageBox.Show("Harap isi semua field.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
                 {
-                    connection.Open();
-                    string query = "INSERT INTO user (nama, username, password, role) VALUES (@nama ,@Username, @Password, @Role)";
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@nama", nama);
-                        command.Parameters.AddWithValue("@Username", username);
-                        command.Parameters.AddWithValue("@Password", password);
-                        command.Parameters.AddWithValue("@Role", role);
-
-                        command.ExecuteNonQuery();
-                        //if (result > 0)
-                        //{
-                            MessageBox.Show("Registrasi berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            textUsername.Clear();
-                            textNama.Clear();
-                            textPassword.Clear();
-                            cmbRole.SelectedIndex = -1;
-                            cmbRole.Text = "";
-                            //FormLogin FormLogin = new FormLogin();
-                            //FormLogin.Show();
-                            this.Hide();
-                        
-                    }
+                    builder.Append(b.ToString("x2"));
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return builder.ToString();
             }
         }
 
@@ -88,6 +53,8 @@ namespace uniqlo
                 MessageBox.Show("Harap isi semua field.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            string hashedPassword = HashPassword(password);
 
             try
             {
@@ -119,7 +86,7 @@ namespace uniqlo
                     {
                         command.Parameters.AddWithValue("@Nama", nama);
                         command.Parameters.AddWithValue("@Username", username);
-                        command.Parameters.AddWithValue("@Password", password);
+                        command.Parameters.AddWithValue("@Password", hashedPassword);
                         command.Parameters.AddWithValue("@Role", role);
 
                         command.ExecuteNonQuery();

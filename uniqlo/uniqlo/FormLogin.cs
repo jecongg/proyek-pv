@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Security.Cryptography;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -29,9 +30,24 @@ namespace uniqlo
             textPassword.Text = "";
         }
 
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
         public string CekLogin(string username, string password)
         {
             string role = null;
+            string hashedPassword = HashPassword(password);
 
             // Cek login ke database
             string query = "SELECT * FROM user WHERE username = @username AND password = @password";
@@ -39,7 +55,7 @@ namespace uniqlo
             {
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@password", hashedPassword);
 
                 conn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();

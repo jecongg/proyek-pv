@@ -274,3 +274,5 @@ D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniq
 D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.csproj.CopyComplete
 D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe
 D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.pdb
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCustomer.resources
+C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormUpdateBarang.resources
