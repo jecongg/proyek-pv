@@ -24,6 +24,7 @@ namespace uniqlo
            
             cmbRole.Items.Add("Cashier");
             cmbRole.Items.Add("Customer");
+            clear();
         }
 
         private string HashPassword(string password)
@@ -132,6 +133,13 @@ namespace uniqlo
             {
                 MessageBox.Show("Error loading image: " + ex.Message);
             }
+        }
+
+        private void clear()
+        {
+            textNama.Text = "";
+            textPassword.Text = "";
+            textUsername.Text = "";
         }
     }
 }

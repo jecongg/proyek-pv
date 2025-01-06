@@ -22,6 +22,7 @@ namespace uniqlo
         public FormLogin()
         {
             InitializeComponent();
+            clear();
         }
 
         private void clear()

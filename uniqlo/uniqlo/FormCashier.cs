@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using MySql.Data.MySqlClient;
+using System.Data;
+using System.Data.SqlClient;
+
 
 namespace uniqlo
 {
@@ -17,10 +20,67 @@ namespace uniqlo
         string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
         int previousQuantity;
         int idCart;
+        DataUniqlo dataUniqlo;
         public FormCashier()
         {
             InitializeComponent();
+            LoadData();
         }
+
+        private void LoadData()
+        {
+            // Koneksi ke database
+            string connectionString = "Data Source=SERVER_NAME;Initial Catalog=DATABASE_NAME;Integrated Security=True";
+
+            // Daftar nama tabel SQL yang sesuai dengan DataTable di DataSet
+            string[] tableNames = { "barang", "cart", "d_cart", "d_trans", "h_trans", "kategori", "pengguna", "stok", "user" };
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open(); // Membuka koneksi
+
+                    foreach (string tableName in tableNames)
+                    {
+                        // Pastikan DataTable dengan nama tabel ada di dalam DataSet
+                        if (dataUniqlo.Tables.Contains(tableName))
+                        {
+                            // Kosongkan DataTable agar data lama tidak tercampur
+                            dataUniqlo.Tables[tableName].Clear();
+
+                            // Query untuk mengambil data dari tabel SQL
+                            string query = $"SELECT * FROM {tableName}";
+
+                            // Gunakan SqlDataAdapter untuk mengisi data
+                            using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                            {
+                                // Isi DataTable dengan data dari database
+                                adapter.Fill(dataUniqlo.Tables[tableName]);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show($"DataTable '{tableName}' tidak ditemukan di dalam DataSet.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+
+                // Pesan sukses
+                MessageBox.Show("Data dari SQL berhasil dipindahkan ke DataSet!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException sqlEx)
+            {
+                // Menangani error SQL
+                MessageBox.Show($"SQL Error: {sqlEx.Message}", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                // Menangani error umum
+                MessageBox.Show($"Error: {ex.Message}", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void UpdateSummary()
         {
@@ -94,7 +154,7 @@ namespace uniqlo
                 return;
             }
 
-            if (status == "done")
+            if (status == "process")
             {
                 groupBox2.Visible = true;
                 MySqlCommand selectData = new MySqlCommand("SELECT d.id_barang 'ID', b.nama 'Nama Barang', d.size 'Ukuran', d.harga 'Harga Awal', d.harga-d.diskon 'Harga Akhir', d.quantity 'Quantity', subtotal 'Subtotal' FROM d_cart d JOIN barang b ON b.id=d.id_barang WHERE id_cart = @a", conn);
@@ -319,6 +379,11 @@ namespace uniqlo
                     MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

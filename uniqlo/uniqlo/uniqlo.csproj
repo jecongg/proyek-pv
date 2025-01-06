@@ -57,6 +57,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataUniqlo.cs">
+      <DependentUpon>DataUniqlo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataUniqlo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataUniqlo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Nota.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Nota.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FormAddBarang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +139,10 @@
     <Compile Include="FormRegister.Designer.cs">
       <DependentUpon>FormRegister.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Nota.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Nota.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddBarang.resx">
       <DependentUpon>FormAddBarang.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +185,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DataUniqlo.xsc">
+      <DependentUpon>DataUniqlo.xsd</DependentUpon>
+    </None>
+    <None Include="DataUniqlo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataUniqlo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataUniqlo.xss">
+      <DependentUpon>DataUniqlo.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -179,6 +208,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

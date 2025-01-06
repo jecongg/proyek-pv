@@ -46,7 +46,7 @@ namespace uniqlo
                     // Jika pengguna memilih 'Yes'
                     if (result == DialogResult.Yes)
                     {
-                        MySqlCommand updateCartStatus = new MySqlCommand("UPDATE cart SET status = 'done' WHERE id = @idCart", conn);
+                        MySqlCommand updateCartStatus = new MySqlCommand("UPDATE cart SET status = 'process' WHERE id = @idCart", conn);
                         updateCartStatus.Parameters.AddWithValue("@idCart", idCart);
                         updateCartStatus.ExecuteNonQuery();
                     }
@@ -116,9 +116,14 @@ namespace uniqlo
                 }
                 UpdateSummary();
             }
+            else if (status == "process")
+            {
+                panel1.Visible = true;
+            }
             else
             {
                 panel1.Visible = true;
+                label2.Text = "Pembayaran Cart Selesai!";
             }
         }
 
