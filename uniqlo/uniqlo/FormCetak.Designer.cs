@@ -57,7 +57,7 @@ namespace uniqlo
             // button1
             // 
             this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(1182, 27);
+            this.button1.Location = new System.Drawing.Point(1995, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(187, 64);
             this.button1.TabIndex = 10;
@@ -68,18 +68,19 @@ namespace uniqlo
             // crystalReportViewer1
             // 
             this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.AutoSize = true;
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Location = new System.Drawing.Point(12, 118);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1357, 991);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(2170, 991);
             this.crystalReportViewer1.TabIndex = 11;
             // 
             // FormCetak
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1381, 1121);
+            this.ClientSize = new System.Drawing.Size(2194, 1121);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);

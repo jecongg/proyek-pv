@@ -46,8 +46,6 @@ namespace uniqlo {
         
         private global::System.Data.DataRelation relationFK_user_cart;
         
-        private global::System.Data.DataRelation relationFK_cart_d_cart;
-        
         private global::System.Data.DataRelation relationFK_barang_d_cart;
         
         private global::System.Data.DataRelation relationFK_h_trans_d_trans;
@@ -59,6 +57,8 @@ namespace uniqlo {
         private global::System.Data.DataRelation relationFK_pengguna_kategori;
         
         private global::System.Data.DataRelation relationFK_barang_stok;
+        
+        private global::System.Data.DataRelation relationcart_d_cart;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -406,13 +406,13 @@ namespace uniqlo {
             }
             this.relationFK_kategori_barang = this.Relations["FK_kategori_barang"];
             this.relationFK_user_cart = this.Relations["FK_user_cart"];
-            this.relationFK_cart_d_cart = this.Relations["FK_cart_d_cart"];
             this.relationFK_barang_d_cart = this.Relations["FK_barang_d_cart"];
             this.relationFK_h_trans_d_trans = this.Relations["FK_h_trans_d_trans"];
             this.relationFK_barang_d_trans = this.Relations["FK_barang_d_trans"];
             this.relationFK_user_h_trans = this.Relations["FK_user_h_trans"];
             this.relationFK_pengguna_kategori = this.Relations["FK_pengguna_kategori"];
             this.relationFK_barang_stok = this.Relations["FK_barang_stok"];
+            this.relationcart_d_cart = this.Relations["cart_d_cart"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -453,13 +453,6 @@ namespace uniqlo {
                         this.tableuser.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablecart.id_userColumn});
             this.tablecart.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_cart_d_cart", new global::System.Data.DataColumn[] {
-                        this.tablecart.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tabled_cart.id_cartColumn});
-            this.tabled_cart.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
@@ -513,10 +506,6 @@ namespace uniqlo {
                         this.tableuser.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablecart.id_userColumn}, false);
             this.Relations.Add(this.relationFK_user_cart);
-            this.relationFK_cart_d_cart = new global::System.Data.DataRelation("FK_cart_d_cart", new global::System.Data.DataColumn[] {
-                        this.tablecart.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tabled_cart.id_cartColumn}, false);
-            this.Relations.Add(this.relationFK_cart_d_cart);
             this.relationFK_barang_d_cart = new global::System.Data.DataRelation("FK_barang_d_cart", new global::System.Data.DataColumn[] {
                         this.tablebarang.idColumn}, new global::System.Data.DataColumn[] {
                         this.tabled_cart.id_barangColumn}, false);
@@ -541,6 +530,10 @@ namespace uniqlo {
                         this.tablebarang.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablestok.id_barangColumn}, false);
             this.Relations.Add(this.relationFK_barang_stok);
+            this.relationcart_d_cart = new global::System.Data.DataRelation("cart_d_cart", new global::System.Data.DataColumn[] {
+                        this.tablecart.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tabled_cart.id_cartColumn}, false);
+            this.Relations.Add(this.relationcart_d_cart);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -856,7 +849,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public barangRow AddbarangRow(long id, string nama, long harga, long diskon, string url_gambar, long stok_nosize, kategoriRow parentkategoriRowByFK_kategori_barang, System.DateTime deleted_at, long kode_barang, string deskripsi) {
+            public barangRow AddbarangRow(int id, string nama, int harga, int diskon, string url_gambar, int stok_nosize, kategoriRow parentkategoriRowByFK_kategori_barang, System.DateTime deleted_at, int kode_barang, string deskripsi) {
                 barangRow rowbarangRow = ((barangRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -909,23 +902,23 @@ namespace uniqlo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
                 this.columnnama = new global::System.Data.DataColumn("nama", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnama);
-                this.columnharga = new global::System.Data.DataColumn("harga", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnharga = new global::System.Data.DataColumn("harga", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnharga);
-                this.columndiskon = new global::System.Data.DataColumn("diskon", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columndiskon = new global::System.Data.DataColumn("diskon", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndiskon);
                 this.columnurl_gambar = new global::System.Data.DataColumn("url_gambar", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnurl_gambar);
-                this.columnstok_nosize = new global::System.Data.DataColumn("stok_nosize", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnstok_nosize = new global::System.Data.DataColumn("stok_nosize", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstok_nosize);
-                this.columnid_kategori = new global::System.Data.DataColumn("id_kategori", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid_kategori = new global::System.Data.DataColumn("id_kategori", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_kategori);
                 this.columndeleted_at = new global::System.Data.DataColumn("deleted_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndeleted_at);
-                this.columnkode_barang = new global::System.Data.DataColumn("kode_barang", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnkode_barang = new global::System.Data.DataColumn("kode_barang", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnkode_barang);
                 this.columndeskripsi = new global::System.Data.DataColumn("deskripsi", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndeskripsi);
@@ -1175,7 +1168,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public cartRow AddcartRow(long id, userRow parentuserRowByFK_user_cart, System.DateTime created_at, string status) {
+            public cartRow AddcartRow(int id, userRow parentuserRowByFK_user_cart, System.DateTime created_at, string status) {
                 cartRow rowcartRow = ((cartRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -1216,9 +1209,9 @@ namespace uniqlo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columnid_user = new global::System.Data.DataColumn("id_user", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid_user = new global::System.Data.DataColumn("id_user", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_user);
                 this.columncreated_at = new global::System.Data.DataColumn("created_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncreated_at);
@@ -1510,7 +1503,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public d_cartRow Addd_cartRow(long id, cartRow parentcartRowByFK_cart_d_cart, barangRow parentbarangRowByFK_barang_d_cart, long quantity, long harga, long diskon, long subtotal, string size) {
+            public d_cartRow Addd_cartRow(int id, cartRow parentcartRowBycart_d_cart, barangRow parentbarangRowByFK_barang_d_cart, int quantity, int harga, int diskon, int subtotal, string size) {
                 d_cartRow rowd_cartRow = ((d_cartRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -1521,8 +1514,8 @@ namespace uniqlo {
                         diskon,
                         subtotal,
                         size};
-                if ((parentcartRowByFK_cart_d_cart != null)) {
-                    columnValuesArray[1] = parentcartRowByFK_cart_d_cart[0];
+                if ((parentcartRowBycart_d_cart != null)) {
+                    columnValuesArray[1] = parentcartRowBycart_d_cart[0];
                 }
                 if ((parentbarangRowByFK_barang_d_cart != null)) {
                     columnValuesArray[2] = parentbarangRowByFK_barang_d_cart[0];
@@ -1534,7 +1527,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public d_cartRow FindByid(long id) {
+            public d_cartRow FindByid(int id) {
                 return ((d_cartRow)(this.Rows.Find(new object[] {
                             id})));
             }
@@ -1569,19 +1562,19 @@ namespace uniqlo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columnid_cart = new global::System.Data.DataColumn("id_cart", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid_cart = new global::System.Data.DataColumn("id_cart", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_cart);
-                this.columnid_barang = new global::System.Data.DataColumn("id_barang", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid_barang = new global::System.Data.DataColumn("id_barang", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_barang);
-                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnquantity);
-                this.columnharga = new global::System.Data.DataColumn("harga", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnharga = new global::System.Data.DataColumn("harga", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnharga);
-                this.columndiskon = new global::System.Data.DataColumn("diskon", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columndiskon = new global::System.Data.DataColumn("diskon", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndiskon);
-                this.columnsubtotal = new global::System.Data.DataColumn("subtotal", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnsubtotal = new global::System.Data.DataColumn("subtotal", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsubtotal);
                 this.columnsize = new global::System.Data.DataColumn("size", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsize);
@@ -1882,7 +1875,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public d_transRow Addd_transRow(long id, h_transRow parenth_transRowByFK_h_trans_d_trans, barangRow parentbarangRowByFK_barang_d_trans, string nama_barang, long quantity, long harga, long diskon, long subtotal, string size) {
+            public d_transRow Addd_transRow(int id, h_transRow parenth_transRowByFK_h_trans_d_trans, barangRow parentbarangRowByFK_barang_d_trans, string nama_barang, int quantity, int harga, int diskon, int subtotal, string size) {
                 d_transRow rowd_transRow = ((d_transRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -1907,7 +1900,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public d_transRow FindByid(long id) {
+            public d_transRow FindByid(int id) {
                 return ((d_transRow)(this.Rows.Find(new object[] {
                             id})));
             }
@@ -1943,21 +1936,21 @@ namespace uniqlo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columnid_htrans = new global::System.Data.DataColumn("id_htrans", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid_htrans = new global::System.Data.DataColumn("id_htrans", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_htrans);
-                this.columnid_barang = new global::System.Data.DataColumn("id_barang", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid_barang = new global::System.Data.DataColumn("id_barang", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_barang);
                 this.columnnama_barang = new global::System.Data.DataColumn("nama_barang", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnama_barang);
-                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnquantity);
-                this.columnharga = new global::System.Data.DataColumn("harga", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnharga = new global::System.Data.DataColumn("harga", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnharga);
-                this.columndiskon = new global::System.Data.DataColumn("diskon", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columndiskon = new global::System.Data.DataColumn("diskon", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndiskon);
-                this.columnsubtotal = new global::System.Data.DataColumn("subtotal", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnsubtotal = new global::System.Data.DataColumn("subtotal", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsubtotal);
                 this.columnsize = new global::System.Data.DataColumn("size", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsize);
@@ -2198,7 +2191,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public h_transRow Addh_transRow(long id, userRow parentuserRowByFK_user_h_trans, System.DateTime created_at) {
+            public h_transRow Addh_transRow(int id, userRow parentuserRowByFK_user_h_trans, System.DateTime created_at) {
                 h_transRow rowh_transRow = ((h_transRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -2237,9 +2230,9 @@ namespace uniqlo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columnid_user = new global::System.Data.DataColumn("id_user", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid_user = new global::System.Data.DataColumn("id_user", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_user);
                 this.columncreated_at = new global::System.Data.DataColumn("created_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncreated_at);
@@ -2479,7 +2472,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public kategoriRow AddkategoriRow(long id, string nama, penggunaRow parentpenggunaRowByFK_pengguna_kategori) {
+            public kategoriRow AddkategoriRow(int id, string nama, penggunaRow parentpenggunaRowByFK_pengguna_kategori) {
                 kategoriRow rowkategoriRow = ((kategoriRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -2518,11 +2511,11 @@ namespace uniqlo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
                 this.columnnama = new global::System.Data.DataColumn("nama", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnama);
-                this.columnid_pengguna = new global::System.Data.DataColumn("id_pengguna", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid_pengguna = new global::System.Data.DataColumn("id_pengguna", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_pengguna);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, false));
@@ -2750,7 +2743,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public penggunaRow AddpenggunaRow(long id, string nama) {
+            public penggunaRow AddpenggunaRow(int id, string nama) {
                 penggunaRow rowpenggunaRow = ((penggunaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -2784,7 +2777,7 @@ namespace uniqlo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
                 this.columnnama = new global::System.Data.DataColumn("nama", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnama);
@@ -3034,7 +3027,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public stokRow AddstokRow(long id, barangRow parentbarangRowByFK_barang_stok, string size, long stok) {
+            public stokRow AddstokRow(int id, barangRow parentbarangRowByFK_barang_stok, string size, int stok) {
                 stokRow rowstokRow = ((stokRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -3051,7 +3044,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public stokRow FindByid(long id) {
+            public stokRow FindByid(int id) {
                 return ((stokRow)(this.Rows.Find(new object[] {
                             id})));
             }
@@ -3082,13 +3075,13 @@ namespace uniqlo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columnid_barang = new global::System.Data.DataColumn("id_barang", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid_barang = new global::System.Data.DataColumn("id_barang", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_barang);
                 this.columnsize = new global::System.Data.DataColumn("size", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsize);
-                this.columnstok = new global::System.Data.DataColumn("stok", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnstok = new global::System.Data.DataColumn("stok", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstok);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
@@ -3337,7 +3330,7 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public userRow AdduserRow(long id, string nama, string username, string password) {
+            public userRow AdduserRow(int id, string nama, string username, string password) {
                 userRow rowuserRow = ((userRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -3375,7 +3368,7 @@ namespace uniqlo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
                 this.columnnama = new global::System.Data.DataColumn("nama", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnama);
@@ -3528,10 +3521,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id {
+            public int id {
                 get {
                     try {
-                        return ((long)(this[this.tablebarang.idColumn]));
+                        return ((int)(this[this.tablebarang.idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id\' in table \'barang\' is DBNull.", e);
@@ -3560,10 +3553,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long harga {
+            public int harga {
                 get {
                     try {
-                        return ((long)(this[this.tablebarang.hargaColumn]));
+                        return ((int)(this[this.tablebarang.hargaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'harga\' in table \'barang\' is DBNull.", e);
@@ -3576,10 +3569,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long diskon {
+            public int diskon {
                 get {
                     try {
-                        return ((long)(this[this.tablebarang.diskonColumn]));
+                        return ((int)(this[this.tablebarang.diskonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'diskon\' in table \'barang\' is DBNull.", e);
@@ -3608,10 +3601,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long stok_nosize {
+            public int stok_nosize {
                 get {
                     try {
-                        return ((long)(this[this.tablebarang.stok_nosizeColumn]));
+                        return ((int)(this[this.tablebarang.stok_nosizeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'stok_nosize\' in table \'barang\' is DBNull.", e);
@@ -3624,10 +3617,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id_kategori {
+            public int id_kategori {
                 get {
                     try {
-                        return ((long)(this[this.tablebarang.id_kategoriColumn]));
+                        return ((int)(this[this.tablebarang.id_kategoriColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id_kategori\' in table \'barang\' is DBNull.", e);
@@ -3656,10 +3649,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long kode_barang {
+            public int kode_barang {
                 get {
                     try {
-                        return ((long)(this[this.tablebarang.kode_barangColumn]));
+                        return ((int)(this[this.tablebarang.kode_barangColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'kode_barang\' in table \'barang\' is DBNull.", e);
@@ -3867,10 +3860,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id {
+            public int id {
                 get {
                     try {
-                        return ((long)(this[this.tablecart.idColumn]));
+                        return ((int)(this[this.tablecart.idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id\' in table \'cart\' is DBNull.", e);
@@ -3883,10 +3876,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id_user {
+            public int id_user {
                 get {
                     try {
-                        return ((long)(this[this.tablecart.id_userColumn]));
+                        return ((int)(this[this.tablecart.id_userColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id_user\' in table \'cart\' is DBNull.", e);
@@ -3991,11 +3984,11 @@ namespace uniqlo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public d_cartRow[] Getd_cartRows() {
-                if ((this.Table.ChildRelations["FK_cart_d_cart"] == null)) {
+                if ((this.Table.ChildRelations["cart_d_cart"] == null)) {
                     return new d_cartRow[0];
                 }
                 else {
-                    return ((d_cartRow[])(base.GetChildRows(this.Table.ChildRelations["FK_cart_d_cart"])));
+                    return ((d_cartRow[])(base.GetChildRows(this.Table.ChildRelations["cart_d_cart"])));
                 }
             }
         }
@@ -4016,9 +4009,9 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id {
+            public int id {
                 get {
-                    return ((long)(this[this.tabled_cart.idColumn]));
+                    return ((int)(this[this.tabled_cart.idColumn]));
                 }
                 set {
                     this[this.tabled_cart.idColumn] = value;
@@ -4027,10 +4020,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id_cart {
+            public int id_cart {
                 get {
                     try {
-                        return ((long)(this[this.tabled_cart.id_cartColumn]));
+                        return ((int)(this[this.tabled_cart.id_cartColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id_cart\' in table \'d_cart\' is DBNull.", e);
@@ -4043,10 +4036,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id_barang {
+            public int id_barang {
                 get {
                     try {
-                        return ((long)(this[this.tabled_cart.id_barangColumn]));
+                        return ((int)(this[this.tabled_cart.id_barangColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id_barang\' in table \'d_cart\' is DBNull.", e);
@@ -4059,10 +4052,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long quantity {
+            public int quantity {
                 get {
                     try {
-                        return ((long)(this[this.tabled_cart.quantityColumn]));
+                        return ((int)(this[this.tabled_cart.quantityColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'quantity\' in table \'d_cart\' is DBNull.", e);
@@ -4075,10 +4068,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long harga {
+            public int harga {
                 get {
                     try {
-                        return ((long)(this[this.tabled_cart.hargaColumn]));
+                        return ((int)(this[this.tabled_cart.hargaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'harga\' in table \'d_cart\' is DBNull.", e);
@@ -4091,10 +4084,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long diskon {
+            public int diskon {
                 get {
                     try {
-                        return ((long)(this[this.tabled_cart.diskonColumn]));
+                        return ((int)(this[this.tabled_cart.diskonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'diskon\' in table \'d_cart\' is DBNull.", e);
@@ -4107,10 +4100,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long subtotal {
+            public int subtotal {
                 get {
                     try {
-                        return ((long)(this[this.tabled_cart.subtotalColumn]));
+                        return ((int)(this[this.tabled_cart.subtotalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'subtotal\' in table \'d_cart\' is DBNull.", e);
@@ -4139,23 +4132,23 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public cartRow cartRow {
-                get {
-                    return ((cartRow)(this.GetParentRow(this.Table.ParentRelations["FK_cart_d_cart"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_cart_d_cart"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public barangRow barangRow {
                 get {
                     return ((barangRow)(this.GetParentRow(this.Table.ParentRelations["FK_barang_d_cart"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_barang_d_cart"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public cartRow cartRow {
+                get {
+                    return ((cartRow)(this.GetParentRow(this.Table.ParentRelations["cart_d_cart"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["cart_d_cart"]);
                 }
             }
             
@@ -4260,9 +4253,9 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id {
+            public int id {
                 get {
-                    return ((long)(this[this.tabled_trans.idColumn]));
+                    return ((int)(this[this.tabled_trans.idColumn]));
                 }
                 set {
                     this[this.tabled_trans.idColumn] = value;
@@ -4271,10 +4264,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id_htrans {
+            public int id_htrans {
                 get {
                     try {
-                        return ((long)(this[this.tabled_trans.id_htransColumn]));
+                        return ((int)(this[this.tabled_trans.id_htransColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id_htrans\' in table \'d_trans\' is DBNull.", e);
@@ -4287,10 +4280,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id_barang {
+            public int id_barang {
                 get {
                     try {
-                        return ((long)(this[this.tabled_trans.id_barangColumn]));
+                        return ((int)(this[this.tabled_trans.id_barangColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id_barang\' in table \'d_trans\' is DBNull.", e);
@@ -4319,10 +4312,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long quantity {
+            public int quantity {
                 get {
                     try {
-                        return ((long)(this[this.tabled_trans.quantityColumn]));
+                        return ((int)(this[this.tabled_trans.quantityColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'quantity\' in table \'d_trans\' is DBNull.", e);
@@ -4335,10 +4328,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long harga {
+            public int harga {
                 get {
                     try {
-                        return ((long)(this[this.tabled_trans.hargaColumn]));
+                        return ((int)(this[this.tabled_trans.hargaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'harga\' in table \'d_trans\' is DBNull.", e);
@@ -4351,10 +4344,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long diskon {
+            public int diskon {
                 get {
                     try {
-                        return ((long)(this[this.tabled_trans.diskonColumn]));
+                        return ((int)(this[this.tabled_trans.diskonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'diskon\' in table \'d_trans\' is DBNull.", e);
@@ -4367,10 +4360,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long subtotal {
+            public int subtotal {
                 get {
                     try {
-                        return ((long)(this[this.tabled_trans.subtotalColumn]));
+                        return ((int)(this[this.tabled_trans.subtotalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'subtotal\' in table \'d_trans\' is DBNull.", e);
@@ -4532,10 +4525,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id {
+            public int id {
                 get {
                     try {
-                        return ((long)(this[this.tableh_trans.idColumn]));
+                        return ((int)(this[this.tableh_trans.idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id\' in table \'h_trans\' is DBNull.", e);
@@ -4548,10 +4541,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id_user {
+            public int id_user {
                 get {
                     try {
-                        return ((long)(this[this.tableh_trans.id_userColumn]));
+                        return ((int)(this[this.tableh_trans.id_userColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id_user\' in table \'h_trans\' is DBNull.", e);
@@ -4653,10 +4646,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id {
+            public int id {
                 get {
                     try {
-                        return ((long)(this[this.tablekategori.idColumn]));
+                        return ((int)(this[this.tablekategori.idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id\' in table \'kategori\' is DBNull.", e);
@@ -4685,10 +4678,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id_pengguna {
+            public int id_pengguna {
                 get {
                     try {
-                        return ((long)(this[this.tablekategori.id_penggunaColumn]));
+                        return ((int)(this[this.tablekategori.id_penggunaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id_pengguna\' in table \'kategori\' is DBNull.", e);
@@ -4774,10 +4767,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id {
+            public int id {
                 get {
                     try {
-                        return ((long)(this[this.tablepengguna.idColumn]));
+                        return ((int)(this[this.tablepengguna.idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id\' in table \'pengguna\' is DBNull.", e);
@@ -4856,9 +4849,9 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id {
+            public int id {
                 get {
-                    return ((long)(this[this.tablestok.idColumn]));
+                    return ((int)(this[this.tablestok.idColumn]));
                 }
                 set {
                     this[this.tablestok.idColumn] = value;
@@ -4867,10 +4860,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id_barang {
+            public int id_barang {
                 get {
                     try {
-                        return ((long)(this[this.tablestok.id_barangColumn]));
+                        return ((int)(this[this.tablestok.id_barangColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id_barang\' in table \'stok\' is DBNull.", e);
@@ -4899,10 +4892,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long stok {
+            public int stok {
                 get {
                     try {
-                        return ((long)(this[this.tablestok.stokColumn]));
+                        return ((int)(this[this.tablestok.stokColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'stok\' in table \'stok\' is DBNull.", e);
@@ -4977,10 +4970,10 @@ namespace uniqlo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long id {
+            public int id {
                 get {
                     try {
-                        return ((long)(this[this.tableuser.idColumn]));
+                        return ((int)(this[this.tableuser.idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'id\' in table \'user\' is DBNull.", e);

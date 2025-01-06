@@ -12,14 +12,30 @@ namespace uniqlo
 {
     public partial class FormCetak : Form
     {
-        public FormCetak()
+        public FormCetak(int id_htrans)
         {
             InitializeComponent();
+            loadNota(id_htrans);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void loadNota(int id_htrans)
+        {
+            try
+            {
+                Nota nota = new Nota(); // class nota dari Nota.rpt
+                nota.SetParameterValue("id_htrans", id_htrans); // parameter nya dari file Nota.rpt
+                crystalReportViewer1.ReportSource = nota;
+                crystalReportViewer1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}\n{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

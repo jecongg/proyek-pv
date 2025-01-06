@@ -425,7 +425,7 @@ namespace uniqlo
                         cmdInsertHTrans.ExecuteNonQuery();
 
                         // Ambil id_htrans terakhir
-                        long idHTrans = cmdInsertHTrans.LastInsertedId;
+                        int idHTrans = (int)cmdInsertHTrans.LastInsertedId;
 
                         // Ambil data dari d_cart
                         MySqlCommand cmdGetDCart = new MySqlCommand(
@@ -489,6 +489,8 @@ namespace uniqlo
                         // Beri informasi ke user
                         MessageBox.Show("Data berhasil diproses!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reset();
+                        FormCetak form = new FormCetak(idHTrans);
+                        form.ShowDialog();
                     }
                     catch (Exception ex)
                     {
