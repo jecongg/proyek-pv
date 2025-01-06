@@ -76,7 +76,7 @@ namespace uniqlo
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(44, 158);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
@@ -100,7 +100,7 @@ namespace uniqlo
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(1659, 586);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(235, 38);
             this.textBox1.TabIndex = 12;
@@ -108,7 +108,7 @@ namespace uniqlo
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(1456, 663);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(213, 99);
             this.button1.TabIndex = 13;
@@ -119,7 +119,7 @@ namespace uniqlo
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(1691, 663);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(213, 99);
             this.button2.TabIndex = 14;
@@ -205,6 +205,7 @@ namespace uniqlo
             this.button3.TabIndex = 16;
             this.button3.Text = "Cetak Nota";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // buttonLogout
             // 

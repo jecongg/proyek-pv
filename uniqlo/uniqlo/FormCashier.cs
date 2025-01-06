@@ -385,5 +385,119 @@ namespace uniqlo
         {
             this.Dispose();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                MessageBox.Show("Harap masukkan ID Cart!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int idCart = Convert.ToInt32(textBox1.Text);
+            string idUser = ""; // Ambil ID user yang terkait dengan cart
+            string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (MySqlTransaction transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // Ambil ID user dari tabel cart
+                        MySqlCommand cmdGetUser = new MySqlCommand("SELECT id_user FROM cart WHERE id = @idCart", conn, transaction);
+                        cmdGetUser.Parameters.AddWithValue("@idCart", idCart);
+                        object result = cmdGetUser.ExecuteScalar();
+
+                        if (result == null)
+                        {
+                            MessageBox.Show("Cart tidak ditemukan!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        idUser = result.ToString();
+
+                        // Insert ke h_trans
+                        MySqlCommand cmdInsertHTrans = new MySqlCommand(
+                            "INSERT INTO h_trans (id_user, created_at) VALUES (@idUser, NOW())", conn, transaction);
+                        cmdInsertHTrans.Parameters.AddWithValue("@idUser", idUser);
+                        cmdInsertHTrans.ExecuteNonQuery();
+
+                        // Ambil id_htrans terakhir
+                        long idHTrans = cmdInsertHTrans.LastInsertedId;
+
+                        // Ambil data dari d_cart
+                        MySqlCommand cmdGetDCart = new MySqlCommand(
+                            "SELECT id_barang, quantity, harga, diskon, subtotal, size " +
+                            "FROM d_cart WHERE id_cart = @idCart", conn, transaction);
+                        cmdGetDCart.Parameters.AddWithValue("@idCart", idCart);
+
+                        using (MySqlDataReader reader = cmdGetDCart.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int idBarang = reader.GetInt32("id_barang");
+                                int quantity = reader.GetInt32("quantity");
+                                int harga = reader.GetInt32("harga");
+                                int diskon = reader.GetInt32("diskon");
+                                int subtotal = reader.GetInt32("subtotal");
+                                string size = reader.GetString("size");
+
+                                // Dapatkan nama barang dari tabel barang
+                                string namaBarang = "";
+                                MySqlCommand cmdGetBarang = new MySqlCommand(
+                                    "SELECT nama FROM barang WHERE id = @idBarang", conn, transaction);
+                                cmdGetBarang.Parameters.AddWithValue("@idBarang", idBarang);
+                                object namaResult = cmdGetBarang.ExecuteScalar();
+                                if (namaResult != null)
+                                {
+                                    namaBarang = namaResult.ToString();
+                                }
+
+                                // Insert ke d_trans
+                                MySqlCommand cmdInsertDTrans = new MySqlCommand(
+                                    "INSERT INTO d_trans (id_htrans, id_barang, nama_barang, quantity, harga, diskon, subtotal, size) " +
+                                    "VALUES (@idHTrans, @idBarang, @namaBarang, @quantity, @harga, @diskon, @subtotal, @size)", conn, transaction);
+                                cmdInsertDTrans.Parameters.AddWithValue("@idHTrans", idHTrans);
+                                cmdInsertDTrans.Parameters.AddWithValue("@idBarang", idBarang);
+                                cmdInsertDTrans.Parameters.AddWithValue("@namaBarang", namaBarang);
+                                cmdInsertDTrans.Parameters.AddWithValue("@quantity", quantity);
+                                cmdInsertDTrans.Parameters.AddWithValue("@harga", harga);
+                                cmdInsertDTrans.Parameters.AddWithValue("@diskon", diskon);
+                                cmdInsertDTrans.Parameters.AddWithValue("@subtotal", subtotal);
+                                cmdInsertDTrans.Parameters.AddWithValue("@size", size);
+                                cmdInsertDTrans.ExecuteNonQuery();
+                            }
+                        }
+
+                        // Hapus data dari d_cart
+                        MySqlCommand cmdDeleteDCart = new MySqlCommand(
+                            "DELETE FROM d_cart WHERE id_cart = @idCart", conn, transaction);
+                        cmdDeleteDCart.Parameters.AddWithValue("@idCart", idCart);
+                        cmdDeleteDCart.ExecuteNonQuery();
+
+                        // Hapus data dari cart
+                        MySqlCommand cmdDeleteCart = new MySqlCommand(
+                            "DELETE FROM cart WHERE id = @idCart", conn, transaction);
+                        cmdDeleteCart.Parameters.AddWithValue("@idCart", idCart);
+                        cmdDeleteCart.ExecuteNonQuery();
+
+                        // Commit transaksi
+                        transaction.Commit();
+
+                        // Beri informasi ke user
+                        MessageBox.Show("Data berhasil diproses!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        reset();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Rollback transaksi jika terjadi error
+                        transaction.Rollback();
+                        MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
