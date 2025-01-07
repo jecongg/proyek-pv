@@ -80,6 +80,7 @@ namespace uniqlo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(2194, 1121);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.button1);

@@ -16,7 +16,7 @@ namespace uniqlo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCetak(9));
+            Application.Run(new FormLogin());
         }
     }
 }

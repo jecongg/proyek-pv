@@ -74,12 +74,6 @@
       <DependentUpon>laporan.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Nota.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Nota.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="FormAddBarang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +134,12 @@
     <Compile Include="FormUpdateBarang.Designer.cs">
       <DependentUpon>FormUpdateBarang.cs</DependentUpon>
     </Compile>
+    <Compile Include="NotaUniqlo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotaUniqlo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FormRegister.cs">
@@ -151,10 +151,6 @@
     <EmbeddedResource Include="laporan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>laporan.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Nota.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Nota.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddBarang.resx">
       <DependentUpon>FormAddBarang.cs</DependentUpon>
@@ -188,6 +184,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateBarang.resx">
       <DependentUpon>FormUpdateBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotaUniqlo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NotaUniqlo.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
