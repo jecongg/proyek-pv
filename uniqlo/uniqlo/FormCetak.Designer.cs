@@ -88,6 +88,7 @@ namespace uniqlo
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormCetak";
             this.Text = "FormCetak";
+            this.Load += new System.EventHandler(this.FormCetak_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

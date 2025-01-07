@@ -68,12 +68,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataUniqlo.xsd</DependentUpon>
     </Compile>
-    <Compile Include="laporan.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>laporan.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="FormAddBarang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +79,12 @@
     </Compile>
     <Compile Include="FormCashier.Designer.cs">
       <DependentUpon>FormCashier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCetakLaporan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCetakLaporan.Designer.cs">
+      <DependentUpon>FormCetakLaporan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormKategori.cs">
       <SubType>Form</SubType>
@@ -134,6 +134,12 @@
     <Compile Include="FormUpdateBarang.Designer.cs">
       <DependentUpon>FormUpdateBarang.cs</DependentUpon>
     </Compile>
+    <Compile Include="LaporanUniqlo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaporanUniqlo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NotaUniqlo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -148,15 +154,14 @@
     <Compile Include="FormRegister.Designer.cs">
       <DependentUpon>FormRegister.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="laporan.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>laporan.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormAddBarang.resx">
       <DependentUpon>FormAddBarang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCashier.resx">
       <DependentUpon>FormCashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCetakLaporan.resx">
+      <DependentUpon>FormCetakLaporan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormKategori.resx">
       <DependentUpon>FormKategori.cs</DependentUpon>
@@ -184,6 +189,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateBarang.resx">
       <DependentUpon>FormUpdateBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaporanUniqlo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LaporanUniqlo.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="NotaUniqlo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

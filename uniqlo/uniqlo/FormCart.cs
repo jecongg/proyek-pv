@@ -116,14 +116,9 @@ namespace uniqlo
                 }
                 UpdateSummary();
             }
-            else if (status == "process")
-            {
-                panel1.Visible = true;
-            }
             else
             {
                 panel1.Visible = true;
-                label2.Text = "Pembayaran Cart Selesai!";
             }
         }
 

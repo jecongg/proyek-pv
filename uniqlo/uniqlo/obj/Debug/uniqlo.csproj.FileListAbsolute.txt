@@ -286,3 +286,4 @@ C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\b
 C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe.config
+C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCetakLaporan.resources

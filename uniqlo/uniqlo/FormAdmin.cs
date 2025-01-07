@@ -256,5 +256,13 @@ namespace uniqlo
             FormKategori f = new FormKategori();
             f.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormCetakLaporan form = new FormCetakLaporan();
+            form.ShowDialog();
+            this.Show();
+        }
     }
 }

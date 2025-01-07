@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Net;
 
 namespace uniqlo
 {
     public partial class FormCetak : Form
     {
-
         public FormCetak(int id_htrans)
         {
             InitializeComponent();
@@ -37,6 +37,29 @@ namespace uniqlo
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}\n{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FormCetak_Load(object sender, EventArgs e)
+        {
+            string imageUrl = "https://brandslogos.com/wp-content/uploads/images/large/uniqlo-logo.png";
+
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    byte[] imageData = client.DownloadData(imageUrl);
+
+                    using (var stream = new System.IO.MemoryStream(imageData))
+                    {
+                        pictureBox1.Image = Image.FromStream(stream);
+                        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading image: " + ex.Message);
             }
         }
     }
