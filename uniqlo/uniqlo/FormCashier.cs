@@ -95,8 +95,6 @@ namespace uniqlo
             }
         }
 
-
-
         private void UpdateSummary()
         {
             try
@@ -450,14 +448,26 @@ namespace uniqlo
 
                         using (MySqlDataReader reader = cmdGetDCart.ExecuteReader())
                         {
+                            var cartItems = new List<(int idBarang, int quantity, int harga, int diskon, int subtotal, string size)>();
+
                             while (reader.Read())
                             {
-                                int idBarang = reader.GetInt32("id_barang");
-                                int quantity = reader.GetInt32("quantity");
-                                int harga = reader.GetInt32("harga");
-                                int diskon = reader.GetInt32("diskon");
-                                int subtotal = reader.GetInt32("subtotal");
-                                string size = reader.GetString("size");
+                                cartItems.Add((
+                                    reader.GetInt32("id_barang"),
+                                    reader.GetInt32("quantity"),
+                                    reader.GetInt32("harga"),
+                                    reader.GetInt32("diskon"),
+                                    reader.GetInt32("subtotal"),
+                                    reader.GetString("size")
+                                ));
+                            }
+
+                            // Tutup DataReader
+                            reader.Close();
+
+                            foreach (var item in cartItems)
+                            {
+                                int idBarang = item.idBarang;
 
                                 // Dapatkan nama barang dari tabel barang
                                 string namaBarang = "";
@@ -477,14 +487,15 @@ namespace uniqlo
                                 cmdInsertDTrans.Parameters.AddWithValue("@idHTrans", idHTrans);
                                 cmdInsertDTrans.Parameters.AddWithValue("@idBarang", idBarang);
                                 cmdInsertDTrans.Parameters.AddWithValue("@namaBarang", namaBarang);
-                                cmdInsertDTrans.Parameters.AddWithValue("@quantity", quantity);
-                                cmdInsertDTrans.Parameters.AddWithValue("@harga", harga);
-                                cmdInsertDTrans.Parameters.AddWithValue("@diskon", diskon);
-                                cmdInsertDTrans.Parameters.AddWithValue("@subtotal", subtotal);
-                                cmdInsertDTrans.Parameters.AddWithValue("@size", size);
+                                cmdInsertDTrans.Parameters.AddWithValue("@quantity", item.quantity);
+                                cmdInsertDTrans.Parameters.AddWithValue("@harga", item.harga);
+                                cmdInsertDTrans.Parameters.AddWithValue("@diskon", item.diskon);
+                                cmdInsertDTrans.Parameters.AddWithValue("@subtotal", item.subtotal);
+                                cmdInsertDTrans.Parameters.AddWithValue("@size", item.size);
                                 cmdInsertDTrans.ExecuteNonQuery();
                             }
                         }
+
 
                         // Hapus data dari d_cart
                         MySqlCommand cmdDeleteDCart = new MySqlCommand(

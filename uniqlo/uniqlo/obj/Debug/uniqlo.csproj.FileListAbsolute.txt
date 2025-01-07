@@ -279,3 +279,10 @@ C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo
 C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe.config
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe.config
