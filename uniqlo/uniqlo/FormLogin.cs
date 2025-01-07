@@ -59,17 +59,18 @@ namespace uniqlo
                 cmd.Parameters.AddWithValue("@password", hashedPassword);
 
                 conn.Open();
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
+                using (MySqlDataReader reader = cmd.ExecuteReader())  // Using statement ensures reader is closed
                 {
-                    while (reader.Read())
+                    if (reader.HasRows)
                     {
-                        role = reader["role"].ToString();
-                        idUser = Convert.ToInt32(reader["id"].ToString());
-                        namaUser = reader["nama"].ToString();
+                        while (reader.Read())
+                        {
+                            role = reader["role"].ToString();
+                            idUser = Convert.ToInt32(reader["id"].ToString());
+                            namaUser = reader["nama"].ToString();
+                        }
                     }
-                }
+                }  
             }
 
             return role;  // Mengembalikan role

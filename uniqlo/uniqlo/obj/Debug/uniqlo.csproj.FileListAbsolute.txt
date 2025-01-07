@@ -276,3 +276,6 @@ D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniq
 D:\Univ\SMS 3\PAD\Proyek PV\clone terakhir\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.pdb
 C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCustomer.resources
 C:\Users\Puk4s\OneDrive\Documents\GitHub\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormUpdateBarang.resources
+C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe.config

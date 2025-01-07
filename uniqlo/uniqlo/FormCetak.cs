@@ -28,7 +28,7 @@ namespace uniqlo
             try
             {
                 Nota nota = new Nota(); // class nota dari Nota.rpt
-                nota.SetParameterValue("id_htrans", id_htrans); // parameter nya dari file Nota.rpt
+                nota.SetParameterValue("ID_HTrans", id_htrans); // parameter nya dari file Nota.rpt
                 crystalReportViewer1.ReportSource = nota;
                 crystalReportViewer1.Refresh();
             }

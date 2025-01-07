@@ -20,7 +20,7 @@ namespace uniqlo
         string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
         int previousQuantity;
         int idCart;
-        DataUniqlo dataUniqlo;
+        DataUniqlo dataUniqlo = new DataUniqlo();
         public FormCashier()
         {
             InitializeComponent();
@@ -30,46 +30,60 @@ namespace uniqlo
         private void LoadData()
         {
             // Koneksi ke database
-            string connectionString = "Data Source=SERVER_NAME;Initial Catalog=DATABASE_NAME;Integrated Security=True";
+            string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
 
             // Daftar nama tabel SQL yang sesuai dengan DataTable di DataSet
             string[] tableNames = { "barang", "cart", "d_cart", "d_trans", "h_trans", "kategori", "pengguna", "stok", "user" };
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                // Nonaktifkan constraints sementara
+                dataUniqlo.EnforceConstraints = false;
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     connection.Open(); // Membuka koneksi
 
                     foreach (string tableName in tableNames)
                     {
-                        // Pastikan DataTable dengan nama tabel ada di dalam DataSet
-                        if (dataUniqlo.Tables.Contains(tableName))
+                        try
                         {
-                            // Kosongkan DataTable agar data lama tidak tercampur
-                            dataUniqlo.Tables[tableName].Clear();
-
-                            // Query untuk mengambil data dari tabel SQL
-                            string query = $"SELECT * FROM {tableName}";
-
-                            // Gunakan SqlDataAdapter untuk mengisi data
-                            using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                            // Pastikan DataTable dengan nama tabel ada di dalam DataSet
+                            if (dataUniqlo.Tables.Contains(tableName))
                             {
-                                // Isi DataTable dengan data dari database
-                                adapter.Fill(dataUniqlo.Tables[tableName]);
+                                // Kosongkan DataTable agar data lama tidak tercampur
+                                dataUniqlo.Tables[tableName].Clear();
+
+                                // Query untuk mengambil data dari tabel SQL
+                                string query = $"SELECT * FROM {tableName}";
+
+                                // Gunakan MySqlDataAdapter untuk mengisi data
+                                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
+                                {
+                                    // Isi DataTable dengan data dari database
+                                    adapter.Fill(dataUniqlo.Tables[tableName]);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show($"DataTable '{tableName}' tidak ditemukan di dalam DataSet.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            MessageBox.Show($"DataTable '{tableName}' tidak ditemukan di dalam DataSet.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            // Log tabel yang bermasalah
+                            MessageBox.Show($"Error saat memproses tabel '{tableName}': {ex.Message}", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
 
+                // Aktifkan kembali constraints
+                dataUniqlo.EnforceConstraints = true;
+
                 // Pesan sukses
                 MessageBox.Show("Data dari SQL berhasil dipindahkan ke DataSet!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (SqlException sqlEx)
+            catch (MySqlException sqlEx)
             {
                 // Menangani error SQL
                 MessageBox.Show($"SQL Error: {sqlEx.Message}", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -80,6 +94,7 @@ namespace uniqlo
                 MessageBox.Show($"Error: {ex.Message}", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         private void UpdateSummary()
@@ -395,7 +410,7 @@ namespace uniqlo
             }
 
             int idCart = Convert.ToInt32(textBox1.Text);
-            string idUser = ""; // Ambil ID user yang terkait dengan cart
+            int idUser = 0; // Ambil ID user yang terkait dengan cart
             string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -416,7 +431,7 @@ namespace uniqlo
                             return;
                         }
 
-                        idUser = result.ToString();
+                        idUser = (int)result;
 
                         // Insert ke h_trans
                         MySqlCommand cmdInsertHTrans = new MySqlCommand(
