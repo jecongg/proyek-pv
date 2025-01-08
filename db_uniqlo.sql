@@ -29,64 +29,78 @@ CREATE TABLE `barang` (
   `stok_nosize` int(1) DEFAULT NULL COMMENT 'jika -1 artinya ada sizenya',
   `id_kategori` int(11) DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
-  `kode_barang` int(11) DEFAULT NULL,
   `deskripsi` text DEFAULT NULL,
+  `diskon_start` timestamp NULL DEFAULT NULL,
+  `diskon_end` timestamp NULL DEFAULT NULL,
+  `returable` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `foreign_barang_kategori` (`id_kategori`),
   CONSTRAINT `foreign_barang_kategori` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `barang` */
 
-insert  into `barang`(`id`,`nama`,`harga`,`diskon`,`url_gambar`,`stok_nosize`,`id_kategori`,`deleted_at`,`kode_barang`,`deskripsi`) values 
-(3,'AIRism Katun T-Shirt Oversize | Garis Lengan 1/2',249000,50000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461914/sub/goods_461914_sub14_3x4.jpg?width=369',-1,1,NULL,729232,'T-shirt oversized dengan desain garis lengan 1/2, nyaman digunakan untuk gaya santai sehari-hari.'),
-(4,'AIRism Cotton Oversized T-Shirt | Striped Half Sleeve',249000,59000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/461914/item/idgoods_69_461914_3x4.jpg?width=369',-1,1,NULL,29138,'T-shirt katun oversized dengan motif garis, lengan pendek, dan desain modern yang stylish.'),
-(5,'DRY-EX T-Shirt',249000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/465191/item/goods_08_465191_3x4.jpg?width=369',-1,1,NULL,290473,'T-shirt berbahan DRY-EX yang ringan dan cepat kering, cocok untuk aktivitas olahraga.'),
-(6,'Dry Color Crew Neck T-Shirt | Short Sleeve',99000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/465187/item/idgoods_55_465187_3x4.jpg?width=369',-1,1,NULL,239128,'Crew neck T-shirt sederhana dengan bahan katun yang lembut dan nyaman.'),
-(7,'Mickey Stands Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/477568/sub/goods_477568_sub14_3x4.jpg?width=369',-1,1,NULL,392433,'T-shirt kolaborasi dengan Mickey Mouse, menampilkan desain klasik karakter Disney.'),
-(8,'Mickey Stands Short Sleeve UT',199000,70000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/474199/sub/idgoods_474199_sub1_3x4.jpg?width=369',-1,3,NULL,102394,'T-shirt kolaborasi dengan Mickey Mouse, menampilkan desain unik dengan warna berbeda.'),
-(9,'Sanrio Characters Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/477942/sub/goods_477942_sub14_3x4.jpg?width=369',-1,3,NULL,204843,'T-shirt bergambar karakter Sanrio, ideal untuk para penggemar Sanrio.'),
-(10,'Sesame Street Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/474422/sub/goods_474422_sub14_3x4.jpg?width=369',-1,1,NULL,208473,'T-shirt dengan tema Sesame Street, cocok untuk gaya kasual dan penggemar karakter klasik.'),
-(11,'Sesame Street Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/478101/sub/goods_478101_sub14_3x4.jpg?width=369',-1,3,NULL,102832,'T-shirt Sesame Street lainnya dengan sentuhan desain yang berbeda.'),
-(12,'Ukiyo-E Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477298/sub/idgoods_477298_sub1_3x4.jpg?width=369',-1,3,NULL,422311,'T-shirt Ukiyo-E dengan cetakan khas seni tradisional Jepang.'),
-(13,'Ukiyo-E Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477295/sub/idgoods_477295_sub7_3x4.jpg?width=369',-1,1,NULL,124456,'T-shirt Ukiyo-E lainnya, menampilkan seni Jepang yang menarik dan unik.'),
-(14,'Zip Up Blouson',699000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475681/item/idgoods_08_475681_3x4.jpg?width=369',-1,5,NULL,314123,'Blouson dengan resleting depan, memberikan gaya casual dan praktis untuk musim dingin.'),
-(15,'KAWS + Warhol Coach Jacket',699000,200000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476316/sub/goods_476316_sub14_3x4.jpg?width=369',-1,5,NULL,394365,'Jaket Coach kolaborasi KAWS + Warhol, dengan desain artistik dan stylish.'),
-(16,'Hoodie SpongeBob Sweat Hoodie',699000,200000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476551/sub/goods_476551_sub14_3x4.jpg?width=369',-1,5,NULL,927189,'Sweat hoodie kolaborasi SpongeBob, menampilkan desain karakter ikonik.'),
-(17,'Windproof Stand Blouson (Water-Repellent)',899000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464918/sub/goods_464918_sub13_3x4.jpg?width=369',-1,5,NULL,103247,'Blouson tahan angin dan tahan air, cocok untuk musim dingin atau cuaca ekstrem.'),
-(18,'Seamless Down Parka',1990000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/470077/item/idgoods_09_470077_3x4.jpg?width=369',-1,5,NULL,193745,'Parka tanpa jahitan dengan fitur down, nyaman dan hangat untuk musim dingin.'),
-(19,'Sweat Full-Zip Hoodie',599000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/475380/sub/goods_475380_sub14_3x4.jpg?width=369',-1,5,NULL,123945,'Hoodie full-zip dengan desain minimalis, cocok untuk gaya santai sehari-hari.'),
-(20,'AIRism Cotton Pique Polo Shirt',299000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475367/sub/idgoods_475367_sub7_3x4.jpg?width=369',-1,6,NULL,129374,'Polo shirt dengan bahan katun AIRism yang nyaman dan bernapas, sempurna untuk cuaca panas.'),
-(21,'Dry Pique Striped Polo Shirt',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/472592/sub/goods_472592_sub14_3x4.jpg?width=369',-1,6,NULL,397876,'Polo shirt dengan motif garis, memberikan kesan klasik dan elegan.'),
-(22,'Dry Pique Tipping Polo Shirt',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/469052/item/goods_30_469052_3x4.jpg?width=369',-1,6,NULL,982728,'Polo shirt bergaris dengan aksen tipping, menawarkan gaya preppy yang modern.'),
-(23,'Washable Milano Ribbed Crew Neck Long Sleeve Sweater',599000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/453754/sub/goods_453754_sub13_3x4.jpg?width=369',-1,7,NULL,497584,'Sweater crew neck berbahan Milano ribbed yang lembut dan nyaman untuk cuaca dingin.'),
-(24,'Extra Fine Merino Crew Neck Long Sleeve Sweater',599000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/450535/sub/goods_450535_sub14_3x4.jpg?width=369',-1,7,NULL,308243,'Sweater crew neck dengan bahan Extra Fine Merino, menawarkan kehangatan dan gaya premium.'),
-(25,'3D Knit Crew Neck Sweater',599000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475296/item/idgoods_05_475296_3x4.jpg?width=369',-1,7,NULL,492425,'Sweater 3D knit dengan detail desain yang rapi dan nyaman dipakai sehari-hari.'),
-(26,'KAWS + Warhol 2WAY Tote Bag',299000,150000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473556/item/goods_01_473556_3x4.jpg?width=369',0,11,NULL,443423,'Tote bag kolaborasi KAWS + Warhol, menampilkan desain artistik yang eksklusif.'),
-(27,'Crossbody Bag',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476641/item/goods_02_476641_3x4.jpg?width=369',49,11,NULL,234244,'Tas selempang kecil yang praktis untuk membawa kebutuhan harian.'),
-(28,'Round Mini Shoulder Bag (Water-Repellent)',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461053/item/goods_30_461053_3x4.jpg?width=369',50,11,NULL,434314,'Tas selempang mini dengan bahan tahan air, cocok untuk gaya aktif.'),
-(30,'HEATTECH Souffle Yarn Beanie',149000,50000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/471144/item/goods_08_471144_3x4.jpg?width=369',50,11,NULL,395432,'Beanie berbahan HEATTECH yang memberikan kehangatan optimal selama musim dingin.'),
-(32,'Italian Leather Garrison Belt',399000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476853/item/goods_09_476853_3x4.jpg?width=369',50,11,NULL,423533,'Ikat pinggang kulit Italia dengan desain elegan, cocok untuk acara formal.'),
-(33,'Leather Wide Mesh Belt',399000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/442224/item/goods_36_442224_3x4.jpg?width=369',62,11,NULL,865674,'Ikat pinggang kulit dengan desain mesh yang memberikan tampilan modern.'),
-(34,'Sunglasses | Wellington Folding',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/475132/item/goods_09_475132_3x4.jpg?width=369',62,11,NULL,456784,'Kacamata lipat Wellington dengan desain klasik dan portabilitas tinggi.'),
-(35,'HEATTECH Scarf',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/470021/item/goods_01_470021_3x4.jpg?width=369',77,11,NULL,759223,'Syal berbahan HEATTECH, sempurna untuk melindungi leher dari cuaca dingin.'),
-(36,'AIRism Seamless Boxer Briefs | Print',149000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/477651/item/goods_08_477651_3x4.jpg?width=369',-1,9,NULL,297432,'Celana boxer seamless dengan motif print, memberikan kenyamanan maksimal.'),
-(37,'AIRism V Neck Short Sleeve T-Shirt',149000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/454311/item/idgoods_00_454311_3x4.jpg?width=369',-1,9,NULL,846388,'T-shirt AIRism dengan potongan V-neck, memberikan kenyamanan bernapas untuk aktivitas sehari-hari.'),
-(38,'AIRism Cotton T Dress | Short Sleeve',399000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/474062/item/idgoods_30_474062_3x4.jpg?width=369',-1,14,NULL,938430,'Dress berbahan katun AIRism dengan desain santai dan elegan.'),
-(39,'Combination Dress Sleeveless',499000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/474064/sub/goods_474064_sub14_3x4.jpg?width=369',-1,14,NULL,927462,'Dress sleeveless dengan kombinasi bahan yang memberikan gaya chic.'),
-(40,'Linen Blend Relax Dress | Short Sleeve',687000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477618/item/idgoods_06_477618_3x4.jpg?width=369',-1,14,NULL,486345,'Dress linen blend yang longgar dan nyaman, sempurna untuk cuaca hangat.'),
-(41,'Ribbed Bra Dress | Sleeveless',499000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/474080/sub/idgoods_474080_sub7_3x4.jpg?width=369',-1,14,NULL,483432,'Dress sleeveless dengan bahan ribbed yang nyaman dan fleksibel.'),
-(42,'Denim Shirt Dress | Long Sleeve',699000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476150/sub/goods_476150_sub14_3x4.jpg?width=369',-1,14,NULL,639211,'Dress berbahan denim dengan lengan panjang, memberikan gaya casual yang santai.'),
-(43,'Chiffon Skirt Print',599000,100000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/475172/item/goods_69_475172_3x4.jpg?width=369',-1,14,NULL,156872,'Rok chiffon dengan motif print yang anggun dan feminin.'),
-(44,'Ultra Stretch Narrow Skirt | Denim',399000,200000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/476129/sub/idgoods_476129_sub23_3x4.jpg?width=369',-1,14,NULL,804892,'Rok denim dengan desain ultra stretch, memberikan kenyamanan dan fleksibilitas.'),
-(45,'Pleated Long Skirt',699000,300000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475399/item/idgoods_08_475399_3x4.jpg?width=369',-1,14,NULL,361108,'Rok panjang dengan detail lipit, memberikan kesan anggun dan modern.'),
-(46,'Wireless Bra | 3D Hold',299000,100000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473913/sub/goods_473913_sub13_3x4.jpg?width=369',-1,19,NULL,594084,'Bra nirkawat dengan desain 3D hold, nyaman dan mendukung bentuk tubuh.'),
-(47,'AIRism Seamless Shorts | Just Waist',99000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473945/item/goods_10_473945_3x4.jpg?width=369',-1,19,NULL,949410,'Celana pendek seamless dengan pinggang elastis yang nyaman.'),
-(48,'Hiphugger Briefs | Lace',79000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/472615/item/goods_12_472615_3x4.jpg?width=369',-1,19,NULL,959138,'Celana hiphugger dengan renda yang elegan dan feminin.'),
-(49,'HEATTECH Ultra Warm Leggings',399000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/469844/item/idgoods_03_469844_3x4.jpg?width=369',-1,19,NULL,134243,'Legging ultra hangat berbahan HEATTECH, ideal untuk musim dingin.'),
-(50,'Ultra Stretch Maternity Leggings Pants | Denim',599000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/464153/item/idgoods_68_464153_3x4.jpg?width=369',-1,19,NULL,213130,'Legging maternity ultra stretch berbahan denim, mendukung kenyamanan selama kehamilan.'),
-(51,'AIRism Cotton Relaxed Long T-Shirt | Long Sleeve',249000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477686/item/idgoods_52_477686_3x4.jpg?width=369',-1,21,NULL,121213,'T-shirt katun longgar dengan lengan panjang, cocok untuk gaya santai.'),
-(52,'Rayon Gathered Tunic | Long Sleeve',399000,100000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/473356/item/idgoods_18_473356_3x4.jpg?width=369',-1,21,NULL,132133,'Tunik berbahan rayon dengan detail gathered, memberikan tampilan yang anggun.');
+insert  into `barang`(`id`,`nama`,`harga`,`diskon`,`url_gambar`,`stok_nosize`,`id_kategori`,`deleted_at`,`deskripsi`,`diskon_start`,`diskon_end`,`returable`) values 
+(3,'AIRism Katun T-Shirt Oversize | Garis Lengan 1/2',249000,50000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461914/sub/goods_461914_sub14_3x4.jpg?width=369',-1,1,NULL,'T-shirt oversized dengan desain garis lengan 1/2, nyaman digunakan untuk gaya santai sehari-hari.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(4,'AIRism Cotton Oversized T-Shirt | Striped Half Sleeve',249000,59000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/461914/item/idgoods_69_461914_3x4.jpg?width=369',-1,1,NULL,'T-shirt katun oversized dengan motif garis, lengan pendek, dan desain modern yang stylish.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(5,'DRY-EX T-Shirt',249000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/465191/item/goods_08_465191_3x4.jpg?width=369',-1,1,NULL,'T-shirt berbahan DRY-EX yang ringan dan cepat kering, cocok untuk aktivitas olahraga.',NULL,NULL,0),
+(6,'Dry Color Crew Neck T-Shirt | Short Sleeve',99000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/465187/item/idgoods_55_465187_3x4.jpg?width=369',-1,1,NULL,'Crew neck T-shirt sederhana dengan bahan katun yang lembut dan nyaman.',NULL,NULL,1),
+(7,'Mickey Stands Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/477568/sub/goods_477568_sub14_3x4.jpg?width=369',-1,1,NULL,'T-shirt kolaborasi dengan Mickey Mouse, menampilkan desain klasik karakter Disney.',NULL,NULL,1),
+(8,'Mickey Stands Short Sleeve UT',199000,70000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/474199/sub/idgoods_474199_sub1_3x4.jpg?width=369',-1,3,NULL,'T-shirt kolaborasi dengan Mickey Mouse, menampilkan desain unik dengan warna berbeda.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(9,'Sanrio Characters Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/477942/sub/goods_477942_sub14_3x4.jpg?width=369',-1,3,NULL,'T-shirt bergambar karakter Sanrio, ideal untuk para penggemar Sanrio.',NULL,NULL,1),
+(10,'Sesame Street Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/474422/sub/goods_474422_sub14_3x4.jpg?width=369',-1,1,NULL,'T-shirt dengan tema Sesame Street, cocok untuk gaya kasual dan penggemar karakter klasik.',NULL,NULL,1),
+(11,'Sesame Street Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/478101/sub/goods_478101_sub14_3x4.jpg?width=369',-1,3,NULL,'T-shirt Sesame Street lainnya dengan sentuhan desain yang berbeda.',NULL,NULL,0),
+(12,'Ukiyo-E Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477298/sub/idgoods_477298_sub1_3x4.jpg?width=369',-1,3,NULL,'T-shirt Ukiyo-E dengan cetakan khas seni tradisional Jepang.',NULL,NULL,1),
+(13,'Ukiyo-E Short Sleeve UT',199000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477295/sub/idgoods_477295_sub7_3x4.jpg?width=369',-1,1,NULL,'T-shirt Ukiyo-E lainnya, menampilkan seni Jepang yang menarik dan unik.',NULL,NULL,1),
+(14,'Zip Up Blouson',699000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475681/item/idgoods_08_475681_3x4.jpg?width=369',-1,5,NULL,'Blouson dengan resleting depan, memberikan gaya casual dan praktis untuk musim dingin.',NULL,NULL,1),
+(15,'KAWS + Warhol Coach Jacket',699000,200000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476316/sub/goods_476316_sub14_3x4.jpg?width=369',-1,5,NULL,'Jaket Coach kolaborasi KAWS + Warhol, dengan desain artistik dan stylish.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(16,'Hoodie SpongeBob Sweat Hoodie',699000,200000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476551/sub/goods_476551_sub14_3x4.jpg?width=369',-1,5,NULL,'Sweat hoodie kolaborasi SpongeBob, menampilkan desain karakter ikonik.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(17,'Windproof Stand Blouson (Water-Repellent)',899000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464918/sub/goods_464918_sub13_3x4.jpg?width=369',-1,5,NULL,'Blouson tahan angin dan tahan air, cocok untuk musim dingin atau cuaca ekstrem.',NULL,NULL,1),
+(18,'Seamless Down Parka',1990000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/470077/item/idgoods_09_470077_3x4.jpg?width=369',-1,5,NULL,'Parka tanpa jahitan dengan fitur down, nyaman dan hangat untuk musim dingin.',NULL,NULL,1),
+(19,'Sweat Full-Zip Hoodie',599000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/475380/sub/goods_475380_sub14_3x4.jpg?width=369',-1,5,NULL,'Hoodie full-zip dengan desain minimalis, cocok untuk gaya santai sehari-hari.',NULL,NULL,1),
+(20,'AIRism Cotton Pique Polo Shirt',299000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475367/sub/idgoods_475367_sub7_3x4.jpg?width=369',-1,6,NULL,'Polo shirt dengan bahan katun AIRism yang nyaman dan bernapas, sempurna untuk cuaca panas.',NULL,NULL,1),
+(21,'Dry Pique Striped Polo Shirt',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/472592/sub/goods_472592_sub14_3x4.jpg?width=369',-1,6,NULL,'Polo shirt dengan motif garis, memberikan kesan klasik dan elegan.',NULL,NULL,1),
+(22,'Dry Pique Tipping Polo Shirt',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/469052/item/goods_30_469052_3x4.jpg?width=369',-1,6,NULL,'Polo shirt bergaris dengan aksen tipping, menawarkan gaya preppy yang modern.',NULL,NULL,1),
+(23,'Washable Milano Ribbed Crew Neck Long Sleeve Sweater',599000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/453754/sub/goods_453754_sub13_3x4.jpg?width=369',-1,7,NULL,'Sweater crew neck berbahan Milano ribbed yang lembut dan nyaman untuk cuaca dingin.',NULL,NULL,1),
+(24,'Extra Fine Merino Crew Neck Long Sleeve Sweater',599000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/450535/sub/goods_450535_sub14_3x4.jpg?width=369',-1,7,NULL,'Sweater crew neck dengan bahan Extra Fine Merino, menawarkan kehangatan dan gaya premium.',NULL,NULL,1),
+(25,'3D Knit Crew Neck Sweater',599000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475296/item/idgoods_05_475296_3x4.jpg?width=369',-1,7,NULL,'Sweater 3D knit dengan detail desain yang rapi dan nyaman dipakai sehari-hari.',NULL,NULL,1),
+(26,'KAWS + Warhol 2WAY Tote Bag',299000,150000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473556/item/goods_01_473556_3x4.jpg?width=369',0,11,NULL,'Tote bag kolaborasi KAWS + Warhol, menampilkan desain artistik yang eksklusif.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(27,'Crossbody Bag',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476641/item/goods_02_476641_3x4.jpg?width=369',38,11,NULL,'Tas selempang kecil yang praktis untuk membawa kebutuhan harian.',NULL,NULL,1),
+(28,'Round Mini Shoulder Bag (Water-Repellent)',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461053/item/goods_30_461053_3x4.jpg?width=369',50,11,NULL,'Tas selempang mini dengan bahan tahan air, cocok untuk gaya aktif.',NULL,NULL,1),
+(30,'HEATTECH Souffle Yarn Beanie',149000,50000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/471144/item/goods_08_471144_3x4.jpg?width=369',50,11,NULL,'Beanie berbahan HEATTECH yang memberikan kehangatan optimal selama musim dingin.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(32,'Italian Leather Garrison Belt',399000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476853/item/goods_09_476853_3x4.jpg?width=369',50,11,NULL,'Ikat pinggang kulit Italia dengan desain elegan, cocok untuk acara formal.',NULL,NULL,1),
+(33,'Leather Wide Mesh Belt',399000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/442224/item/goods_36_442224_3x4.jpg?width=369',62,11,NULL,'Ikat pinggang kulit dengan desain mesh yang memberikan tampilan modern.',NULL,NULL,1),
+(34,'Sunglasses | Wellington Folding',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/475132/item/goods_09_475132_3x4.jpg?width=369',62,11,NULL,'Kacamata lipat Wellington dengan desain klasik dan portabilitas tinggi.',NULL,NULL,1),
+(35,'HEATTECH Scarf',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/470021/item/goods_01_470021_3x4.jpg?width=369',77,11,NULL,'Syal berbahan HEATTECH, sempurna untuk melindungi leher dari cuaca dingin.',NULL,NULL,1),
+(36,'AIRism Seamless Boxer Briefs | Print',149000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/477651/item/goods_08_477651_3x4.jpg?width=369',-1,9,NULL,'Celana boxer seamless dengan motif print, memberikan kenyamanan maksimal.',NULL,NULL,1),
+(37,'AIRism V Neck Short Sleeve T-Shirt',149000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/454311/item/idgoods_00_454311_3x4.jpg?width=369',-1,9,NULL,'T-shirt AIRism dengan potongan V-neck, memberikan kenyamanan bernapas untuk aktivitas sehari-hari.',NULL,NULL,1),
+(38,'AIRism Cotton T Dress | Short Sleeve',399000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/474062/item/idgoods_30_474062_3x4.jpg?width=369',-1,14,NULL,'Dress berbahan katun AIRism dengan desain santai dan elegan.',NULL,NULL,1),
+(39,'Combination Dress Sleeveless',499000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/474064/sub/goods_474064_sub14_3x4.jpg?width=369',-1,14,NULL,'Dress sleeveless dengan kombinasi bahan yang memberikan gaya chic.',NULL,NULL,1),
+(40,'Linen Blend Relax Dress | Short Sleeve',687000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477618/item/idgoods_06_477618_3x4.jpg?width=369',-1,14,NULL,'Dress linen blend yang longgar dan nyaman, sempurna untuk cuaca hangat.',NULL,NULL,1),
+(41,'Ribbed Bra Dress | Sleeveless',499000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/474080/sub/idgoods_474080_sub7_3x4.jpg?width=369',-1,14,NULL,'Dress sleeveless dengan bahan ribbed yang nyaman dan fleksibel.',NULL,NULL,1),
+(42,'Denim Shirt Dress | Long Sleeve',699000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/476150/sub/goods_476150_sub14_3x4.jpg?width=369',-1,14,NULL,'Dress berbahan denim dengan lengan panjang, memberikan gaya casual yang santai.',NULL,NULL,1),
+(43,'Chiffon Skirt Print',599000,100000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/475172/item/goods_69_475172_3x4.jpg?width=369',-1,14,NULL,'Rok chiffon dengan motif print yang anggun dan feminin.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(44,'Ultra Stretch Narrow Skirt | Denim',399000,200000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/476129/sub/idgoods_476129_sub23_3x4.jpg?width=369',-1,14,NULL,'Rok denim dengan desain ultra stretch, memberikan kenyamanan dan fleksibilitas.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(45,'Pleated Long Skirt',699000,300000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/475399/item/idgoods_08_475399_3x4.jpg?width=369',-1,14,NULL,'Rok panjang dengan detail lipit, memberikan kesan anggun dan modern.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(46,'Wireless Bra | 3D Hold',299000,100000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473913/sub/goods_473913_sub13_3x4.jpg?width=369',-1,19,NULL,'Bra nirkawat dengan desain 3D hold, nyaman dan mendukung bentuk tubuh.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(47,'AIRism Seamless Shorts | Just Waist',99000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473945/item/goods_10_473945_3x4.jpg?width=369',-1,19,NULL,'Celana pendek seamless dengan pinggang elastis yang nyaman.',NULL,NULL,1),
+(48,'Hiphugger Briefs | Lace',79000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/472615/item/goods_12_472615_3x4.jpg?width=369',-1,19,NULL,'Celana hiphugger dengan renda yang elegan dan feminin.',NULL,NULL,1),
+(49,'HEATTECH Ultra Warm Leggings',399000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/469844/item/idgoods_03_469844_3x4.jpg?width=369',-1,19,NULL,'Legging ultra hangat berbahan HEATTECH, ideal untuk musim dingin.',NULL,NULL,1),
+(50,'Ultra Stretch Maternity Leggings Pants | Denim',599000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/464153/item/idgoods_68_464153_3x4.jpg?width=369',-1,19,NULL,'Legging maternity ultra stretch berbahan denim, mendukung kenyamanan selama kehamilan.',NULL,NULL,1),
+(51,'AIRism Cotton Relaxed Long T-Shirt | Long Sleeve',249000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477686/item/idgoods_52_477686_3x4.jpg?width=369',-1,21,NULL,'T-shirt katun longgar dengan lengan panjang, cocok untuk gaya santai.',NULL,NULL,1),
+(52,'Rayon Gathered Tunic | Long Sleeve',399000,100000,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/473356/item/idgoods_18_473356_3x4.jpg?width=369',-1,21,NULL,'Tunik berbahan rayon dengan detail gathered, memberikan tampilan yang anggun.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(53,'KIDS AIRism Cotton Crew Neck T-Shirt',149000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/465136/item/idgoods_30_465136_3x4.jpg?width=369',-1,27,NULL,'- Smooth \'AIRism\' fabric with the look of cotton.\r\n- Back collar seam covered with tape for comfort.\r\n- Relaxed unisex fit with a sleek cut at the shoulders to create a soft impression.\r\n- Roomy cut around the waist.\r\n- Design features side slits.\r\n- Ribbed neckline.\r\n- Dropped shoulders.\r\n- Versatile style can be worn all year round.',NULL,NULL,1),
+(54,'GIRLS Soft Ribbed Mini T-Shirt | Ringer',149000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/474773/item/idgoods_60_474773_3x4.jpg?width=369',-1,27,NULL,'- Cropped, compact silhouette works well with casual and sporty outfits.',NULL,NULL,1),
+(55,'KIDS AIRism Cotton Graphic Crew Neck T-Shirt | Ringer',149000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/474601/sub/goods_474601_sub14_3x4.jpg?width=369',-1,27,NULL,'- Relaxed silhouette is perfect for unisex wear.\r\n- A versatile wardrobe essential.',NULL,NULL,1),
+(56,'KIDS Wide Fit Straight Jeans | Zip Fly',299000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/477652/item/idgoods_01_477652_3x4.jpg?width=369',-1,26,NULL,'- Soft and comfortable 100% cotton. Authentic texture and genuine color.\r\n- To adjust the fit, pull the elastic waistband through the opening and button at the desired location.\r\n- Waist button with a hook design for easy dressing.',NULL,NULL,1),
+(57,'KIDS Fleece Full-Zip Jacket | Long Sleeve',299000,100000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/472079/sub/goods_472079_sub13_3x4.jpg?width=369',-1,25,NULL,'- Soft, warm, and lightweight fleece.\r\n- High collar and piping at the hem and sleeves help keep kids warm.\r\n- Machine-washable for easy care.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(58,'KIDS Dry Sweat Full-Zip Jacket | Line',299000,0,'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/474835/item/idgoods_66_474835_3x4.jpg?width=369',-1,25,NULL,'- With DRY technology.\r\n- Ultra Stretch fabric for comfort and easy movement.\r\n- Raglan sleeves provide freedom of movement.\r\n- Track jacket design with sporty stripes.\r\n- The back collar seam is covered with tape for comfort.',NULL,NULL,1),
+(59,'Ribbed One Piece Outfit Stripe | Long Sleeve',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/469568/item/goods_68_469568_3x4.jpg?width=369',-1,28,NULL,'- Versatile striped pattern.\r\nThis product cannot be returned.',NULL,NULL,1),
+(60,'One Piece Outfit | Long Sleeve',199000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/469567/item/goods_41_469567_3x4.jpg?width=369',-1,28,NULL,'Joy of Print is a London based independent print studio founded by the designer Cath Kidston as a new solo project, introducing a collection flowing with beauty and joy.\r\n\r\n- Animal applique at the chest.\r\nThis product cannot be returned.',NULL,NULL,1),
+(61,'Lisa Larson Bodysuit | Long Sleeve',99000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473836/item/goods_02_473836_3x4.jpg?width=369',-1,28,NULL,'Lisa Larson\r\n\r\nLisa Larson is loved around the world for her many works with unique perspectives and adorable forms, such as her cat and lion animal series. This special design is featuring with animals and gorgeous motifs, including “MIKEY,” the cat created by Lisa.\r\n\r\nLISA LARSON\r\nCeramicist / Born in 1931 in Sweden. In 1954, Lisa began working as a designer for Gustavsberg porcelain. She became a widely recognized artist in the golden age of Swedish ceramics. In 1992, she co-founded Keramikstudion Gustavsberg. She continued creating new designs for production, and unique ceramic sculptures until her death in 2024. Although she is no longer with us, her creative spirit lives on.\r\n\r\n© LISA LARSON\r\nThis product cannot be returned.',NULL,NULL,1),
+(62,'Dry Crew Neck T-Shirt | Short Sleeve',149000,50000,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464604/item/goods_42_464604_3x4.jpg?width=369',-1,29,NULL,'- The patch pocket on the chest is embroidered with palm tree and fruit motifs.\r\n- Relaxed boxy cut.\r\n- Stretchy fabric for easy movement, with quick-drying DRY technology.\r\n- Hypoallergenic plastic snap-fasteners. *Note: May not protect against all allergies.\r\n- 70-90 cm sizes have snap button openings at the shoulders.\r\n- 100-110 cm sizes do not have snap buttons at the shoulders.\r\nThis product cannot be returned.','2025-01-07 09:34:46','2025-01-20 09:34:50',1),
+(63,'Dry Crew Neck T-Shirt Joy of Print | Short Sleeve',149000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473626/item/goods_01_473626_3x4.jpg?width=369',-1,29,NULL,'Joy of Print is a London based independent print studio founded by the designer Cath Kidston as a new solo project, introducing a collection flowing with beauty and joy.\r\n\r\n- Relaxed silhouette.\r\nThis product cannot be returned.',NULL,NULL,1),
+(64,'Lisa Larson Pajamas Long Sleeve',299000,0,'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/473886/item/goods_13_473886_3x4.jpg?width=369',-1,29,NULL,'Lisa Larson\r\n\r\nLisa Larson is loved around the world for her many works with unique perspectives and adorable forms, such as her cat and lion animal series. This special design is featuring with animals and gorgeous motifs, including “MIKEY,” the cat created by Lisa.\r\n\r\nLISA LARSON\r\nCeramicist / Born in 1931 in Sweden. In 1954, Lisa began working as a designer for Gustavsberg porcelain. She became a widely recognized artist in the golden age of Swedish ceramics. In 1992, she co-founded Keramikstudion Gustavsberg. She continued creating new designs for production, and unique ceramic sculptures until her death in 2024. Although she is no longer with us, her creative spirit lives on.\r\n\r\n© LISA LARSON\r\nThis product cannot be returned.',NULL,NULL,1);
 
 /*Table structure for table `cart` */
 
@@ -96,17 +110,16 @@ CREATE TABLE `cart` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `status` enum('pending','paid') DEFAULT 'pending',
+  `status` enum('pending','process') DEFAULT 'pending',
   PRIMARY KEY (`id`),
   KEY `foreign_cart_user` (`id_user`),
   CONSTRAINT `foreign_cart_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `cart` */
 
 insert  into `cart`(`id`,`id_user`,`created_at`,`status`) values 
-(2,1,'2025-01-01 00:21:02','pending'),
-(3,2,'2025-01-02 19:06:38','pending');
+(10,7,'2025-01-08 11:39:50','pending');
 
 /*Table structure for table `d_cart` */
 
@@ -126,14 +139,9 @@ CREATE TABLE `d_cart` (
   KEY `foreign_dcart_barang` (`id_barang`),
   CONSTRAINT `foreign_dcart_barang` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`),
   CONSTRAINT `foreign_dcart_cart` FOREIGN KEY (`id_cart`) REFERENCES `cart` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `d_cart` */
-
-insert  into `d_cart`(`id`,`id_cart`,`id_barang`,`quantity`,`harga`,`diskon`,`subtotal`,`size`) values 
-(1,2,3,3,249000,50000,597000,'S'),
-(3,2,27,1,299000,0,299000,'NO'),
-(4,3,5,1,249000,0,249000,'S');
 
 /*Table structure for table `d_trans` */
 
@@ -154,9 +162,13 @@ CREATE TABLE `d_trans` (
   KEY `foreign_dtrans_htrans` (`id_htrans`),
   CONSTRAINT `foreign_dtrans_barang` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`),
   CONSTRAINT `foreign_dtrans_htrans` FOREIGN KEY (`id_htrans`) REFERENCES `h_trans` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `d_trans` */
+
+insert  into `d_trans`(`id`,`id_htrans`,`id_barang`,`nama_barang`,`quantity`,`harga`,`diskon`,`subtotal`,`size`) values 
+(1,1,5,'dvefvger',1213,2432423,213423,213424,'XL'),
+(10,6,5,'DRY-EX T-Shirt',3,249000,0,747000,'S');
 
 /*Table structure for table `h_trans` */
 
@@ -166,10 +178,16 @@ CREATE TABLE `h_trans` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`id`),
+  KEY `foreign_htrans_user` (`id_user`),
+  CONSTRAINT `foreign_htrans_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `h_trans` */
+
+insert  into `h_trans`(`id`,`id_user`,`created_at`) values 
+(1,1,'2025-01-07 13:19:28'),
+(6,7,'2025-01-08 10:05:01');
 
 /*Table structure for table `kategori` */
 
@@ -182,7 +200,7 @@ CREATE TABLE `kategori` (
   PRIMARY KEY (`id`),
   KEY `id_jenis_kategori` (`id_pengguna`),
   CONSTRAINT `foreign_kategori_pengguna` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `kategori` */
 
@@ -210,7 +228,12 @@ insert  into `kategori`(`id`,`nama`,`id_pengguna`) values
 (21,'Modest Wear',1),
 (22,'SPORT UTILITY WEAR',1),
 (23,'UT Graphic T-Shirts',1),
-(24,'Blouses',1);
+(24,'Blouses',1),
+(25,'Outerwear',3),
+(26,'Bottoms',3),
+(27,'T-Shirt',3),
+(28,'Newborn (0 - 1 Years)',4),
+(29,'Toddler (1 - 4 Years)',4);
 
 /*Table structure for table `pengguna` */
 
@@ -242,7 +265,7 @@ CREATE TABLE `stok` (
   PRIMARY KEY (`id`),
   KEY `foreign_stok_barang` (`id_barang`),
   CONSTRAINT `foreign_stok_barang` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=268 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=309 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `stok` */
 
@@ -251,7 +274,7 @@ insert  into `stok`(`id`,`id_barang`,`size`,`stok`) values
 (2,3,'S',0),
 (3,3,'M',6),
 (4,3,'L',1),
-(5,3,'XL',3),
+(5,3,'XL',2),
 (6,3,'XXL',0),
 (7,3,'3XL',0),
 (8,4,'XS',0),
@@ -261,8 +284,8 @@ insert  into `stok`(`id`,`id_barang`,`size`,`stok`) values
 (12,4,'XL',0),
 (13,4,'XXL',0),
 (14,4,'3XL',0),
-(15,5,'XS',50),
-(16,5,'S',49),
+(15,5,'XS',0),
+(16,5,'S',45),
 (17,5,'M',50),
 (18,5,'L',50),
 (19,5,'XL',50),
@@ -283,7 +306,7 @@ insert  into `stok`(`id`,`id_barang`,`size`,`stok`) values
 (34,7,'XXL',50),
 (35,7,'3XL',50),
 (36,8,'XS',50),
-(37,8,'S',50),
+(37,8,'S',49),
 (38,8,'M',50),
 (39,8,'L',50),
 (40,8,'XL',50),
@@ -317,7 +340,7 @@ insert  into `stok`(`id`,`id_barang`,`size`,`stok`) values
 (68,12,'XL',50),
 (69,12,'XXL',50),
 (70,12,'3XL',50),
-(71,13,'XS',50),
+(71,13,'XS',45),
 (72,13,'S',50),
 (73,13,'M',50),
 (74,13,'L',50),
@@ -513,7 +536,48 @@ insert  into `stok`(`id`,`id_barang`,`size`,`stok`) values
 (264,52,'M',50),
 (265,52,'L',50),
 (266,52,'XL',50),
-(267,52,'XXL',50);
+(267,52,'XXL',50),
+(268,53,'XS',50),
+(269,53,'S',50),
+(270,53,'M',50),
+(271,53,'L',47),
+(272,54,'XS',50),
+(273,54,'S',50),
+(274,54,'M',50),
+(275,54,'L',50),
+(276,55,'XS',50),
+(277,55,'S',50),
+(278,55,'M',50),
+(279,55,'L',50),
+(280,56,'XS',50),
+(281,56,'S',50),
+(282,56,'M',50),
+(283,56,'L',50),
+(284,57,'XS',50),
+(285,57,'S',50),
+(286,57,'M',50),
+(287,57,'L',50),
+(288,57,'XL',50),
+(289,58,'XS',50),
+(290,58,'S',50),
+(291,58,'M',50),
+(292,58,'L',50),
+(293,58,'XL',50),
+(294,59,'XS',50),
+(295,59,'S',50),
+(296,60,'XS',50),
+(297,60,'S',50),
+(298,61,'XS',50),
+(299,61,'S',50),
+(300,62,'XS',50),
+(301,62,'S',50),
+(302,62,'M',50),
+(303,63,'XS',50),
+(304,63,'S',50),
+(305,63,'M',50),
+(306,64,'XS',50),
+(307,64,'S',50),
+(308,64,'M',50);
 
 /*Table structure for table `user` */
 
@@ -526,13 +590,61 @@ CREATE TABLE `user` (
   `password` varchar(255) DEFAULT NULL,
   `role` enum('Admin','Customer','Cashier') DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
 
 insert  into `user`(`id`,`nama`,`username`,`password`,`role`) values 
 (1,'Jason','123','123','Customer'),
-(2,'Jason','321','321','Customer');
+(2,'Jason','321','321','Customer'),
+(3,'prit','abc','abc','Admin'),
+(4,'prit','cba','cba','Cashier'),
+(5,'prit','idk','c6e5e46c59267114f91d64df0e069b0dae176f9a134656820bba1e6164318980','Admin'),
+(6,'tr','111','f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae','Cashier'),
+(7,'vis','tr','7817bb812e82168bd48fe1ea6783078d42be37e8db9bdaafdac5c45804aca64f','Customer');
+
+/* Trigger structure for table `d_cart` */
+
+DELIMITER $$
+
+/*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `after_delete_d_cart` */$$
+
+/*!50003 CREATE */ /*!50017 DEFINER = 'root'@'localhost' */ /*!50003 TRIGGER `after_delete_d_cart` AFTER DELETE ON `d_cart` FOR EACH ROW BEGIN
+		IF OLD.size = 'NO' THEN
+		-- Kembalikan stok barang di tabel 'barang'
+		UPDATE barang
+		SET stok_nosize = stok_nosize + OLD.quantity
+		WHERE id = OLD.id_barang;
+	    ELSE
+		-- Kembalikan stok barang di tabel 'stok' berdasarkan ukuran
+		UPDATE stok
+		SET stok = stok + OLD.quantity
+		WHERE id_barang = OLD.id_barang AND size = OLD.size;
+	    END IF;
+    END */$$
+
+
+DELIMITER ;
+
+/*!50106 set global event_scheduler = 1*/;
+
+/* Event structure for event `delete_cart` */
+
+/*!50106 DROP EVENT IF EXISTS `delete_cart`*/;
+
+DELIMITER $$
+
+/*!50106 CREATE DEFINER=`root`@`localhost` EVENT `delete_cart` ON SCHEDULE EVERY 1 DAY STARTS '2025-01-09 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+	    DELETE FROM d_cart
+	    WHERE cart_id IN (
+		SELECT id FROM cart WHERE created_at < NOW() - INTERVAL 1 DAY
+	    );
+
+	    -- Hapus data di cart yang expired
+	    DELETE FROM cart
+	    WHERE created_at < NOW() - INTERVAL 1 DAY;
+	END */$$
+DELIMITER ;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
