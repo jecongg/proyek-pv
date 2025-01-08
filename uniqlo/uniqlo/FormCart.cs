@@ -263,8 +263,9 @@ namespace uniqlo
 
                         // Hapus baris dari DataGridView
                         dataGridView1.Rows.RemoveAt(e.RowIndex);
-
+                        UpdateSummary();
                         MessageBox.Show($"Barang '{namaBarang}' dengan ukuran '{size}' telah dihapus dan stok diperbarui.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
                     }
                 }
                 catch (Exception ex)
