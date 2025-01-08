@@ -295,3 +295,5 @@ D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe.config
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCetakLaporan.resources
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRetur.resources
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormLaporanStok.resources
+C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormLaporanStok.resources
+C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRetur.resources
