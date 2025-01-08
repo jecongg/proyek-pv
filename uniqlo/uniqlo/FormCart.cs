@@ -247,7 +247,6 @@ namespace uniqlo
                 int idBarang = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value);
                 string namaBarang = dataGridView1.Rows[e.RowIndex].Cells["Nama Barang"].Value.ToString();
                 string size = dataGridView1.Rows[e.RowIndex].Cells["Ukuran"].Value.ToString();
-                int quantity = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Quantity"].Value);
 
                 try
                 {
@@ -261,23 +260,6 @@ namespace uniqlo
                         deleteCmd.Parameters.AddWithValue("@idBarang", idBarang);
                         deleteCmd.Parameters.AddWithValue("@size", size);
                         deleteCmd.ExecuteNonQuery();
-
-                        // Kembalikan stok barang
-                        if (size == "NO")
-                        {
-                            MySqlCommand updateStockCmd = new MySqlCommand("UPDATE barang SET stok_nosize = stok_nosize + @quantity WHERE id = @idBarang", conn);
-                            updateStockCmd.Parameters.AddWithValue("@quantity", quantity);
-                            updateStockCmd.Parameters.AddWithValue("@idBarang", idBarang);
-                            updateStockCmd.ExecuteNonQuery();
-                        }
-                        else
-                        {
-                            MySqlCommand updateStockCmd = new MySqlCommand("UPDATE stok SET stok = stok + @quantity WHERE id_barang = @idBarang AND size = @size", conn);
-                            updateStockCmd.Parameters.AddWithValue("@quantity", quantity);
-                            updateStockCmd.Parameters.AddWithValue("@idBarang", idBarang);
-                            updateStockCmd.Parameters.AddWithValue("@size", size);
-                            updateStockCmd.ExecuteNonQuery();
-                        }
 
                         // Hapus baris dari DataGridView
                         dataGridView1.Rows.RemoveAt(e.RowIndex);
