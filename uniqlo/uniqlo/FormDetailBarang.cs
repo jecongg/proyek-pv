@@ -38,7 +38,7 @@ namespace uniqlo
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT * FROM barang WHERE id = @id";
+                string query = "SELECT *, CASE WHEN NOW() BETWEEN diskon_start AND diskon_end THEN diskon ELSE 0 END AS jumlah_diskon FROM barang WHERE id = @id";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@id", idBarang);
 
@@ -49,7 +49,7 @@ namespace uniqlo
                         // Contoh: Tampilkan data barang di kontrol
                         label7.Text = reader["nama"].ToString();
                         harga = int.Parse(reader["harga"].ToString());
-                        diskon = int.Parse(reader["diskon"].ToString());
+                        diskon = int.Parse(reader["jumlah_diskon"].ToString());
                         labelHarga.Text = $"Rp{harga:N0}";
                         if (diskon != 0)
                         {
@@ -183,7 +183,7 @@ namespace uniqlo
                 }
                 
                 conn.Close();
-                LoadDetailBarang();
+                this.Dispose();
                 MessageBox.Show("Barang berhasil ditambahkan ke cart!");
             }
         }

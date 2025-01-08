@@ -78,6 +78,13 @@ namespace uniqlo
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.dateEnd = new System.Windows.Forms.DateTimePicker();
+            this.dateStart = new System.Windows.Forms.DateTimePicker();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.checkRetur = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numStokNoSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStokXXXL)).BeginInit();
@@ -195,7 +202,7 @@ namespace uniqlo
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(286, 278);
+            this.buttonSearch.Location = new System.Drawing.Point(272, 370);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch.TabIndex = 91;
@@ -205,7 +212,7 @@ namespace uniqlo
             // 
             // textGambar
             // 
-            this.textGambar.Location = new System.Drawing.Point(126, 279);
+            this.textGambar.Location = new System.Drawing.Point(112, 371);
             this.textGambar.Name = "textGambar";
             this.textGambar.Size = new System.Drawing.Size(152, 20);
             this.textGambar.TabIndex = 90;
@@ -473,7 +480,7 @@ namespace uniqlo
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(161, 547);
+            this.comboBox2.Location = new System.Drawing.Point(147, 639);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(156, 21);
             this.comboBox2.TabIndex = 67;
@@ -483,7 +490,7 @@ namespace uniqlo
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(74, 546);
+            this.label6.Location = new System.Drawing.Point(60, 638);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 19);
             this.label6.TabIndex = 66;
@@ -492,7 +499,7 @@ namespace uniqlo
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(161, 587);
+            this.comboBox1.Location = new System.Drawing.Point(147, 679);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(156, 21);
             this.comboBox1.TabIndex = 65;
@@ -501,7 +508,7 @@ namespace uniqlo
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(51, 589);
+            this.label5.Location = new System.Drawing.Point(37, 681);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 19);
             this.label5.TabIndex = 64;
@@ -519,7 +526,7 @@ namespace uniqlo
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(96, 311);
+            this.pictureBox1.Location = new System.Drawing.Point(82, 403);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 213);
             this.pictureBox1.TabIndex = 62;
@@ -528,7 +535,7 @@ namespace uniqlo
             // btnAddBarang
             // 
             this.btnAddBarang.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBarang.Location = new System.Drawing.Point(129, 787);
+            this.btnAddBarang.Location = new System.Drawing.Point(115, 879);
             this.btnAddBarang.Name = "btnAddBarang";
             this.btnAddBarang.Size = new System.Drawing.Size(126, 47);
             this.btnAddBarang.TabIndex = 61;
@@ -540,7 +547,7 @@ namespace uniqlo
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(58, 281);
+            this.label4.Location = new System.Drawing.Point(44, 373);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 19);
             this.label4.TabIndex = 60;
@@ -618,7 +625,7 @@ namespace uniqlo
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(135, 634);
+            this.textBox1.Location = new System.Drawing.Point(121, 726);
             this.textBox1.Margin = new System.Windows.Forms.Padding(1);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -629,11 +636,80 @@ namespace uniqlo
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(58, 634);
+            this.label19.Location = new System.Drawing.Point(44, 726);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(73, 19);
             this.label19.TabIndex = 99;
             this.label19.Text = "Deskripsi :";
+            // 
+            // dateEnd
+            // 
+            this.dateEnd.Enabled = false;
+            this.dateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateEnd.Location = new System.Drawing.Point(272, 291);
+            this.dateEnd.Name = "dateEnd";
+            this.dateEnd.Size = new System.Drawing.Size(103, 20);
+            this.dateEnd.TabIndex = 106;
+            // 
+            // dateStart
+            // 
+            this.dateStart.Enabled = false;
+            this.dateStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateStart.Location = new System.Drawing.Point(90, 291);
+            this.dateStart.Name = "dateStart";
+            this.dateStart.Size = new System.Drawing.Size(93, 20);
+            this.dateStart.TabIndex = 105;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(192, 311);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(33, 19);
+            this.label23.TabIndex = 104;
+            this.label23.Text = "End";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(191, 289);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(73, 19);
+            this.label24.TabIndex = 103;
+            this.label24.Text = "Potongan :";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(11, 311);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(38, 19);
+            this.label22.TabIndex = 102;
+            this.label22.Text = "Start";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(11, 289);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(73, 19);
+            this.label21.TabIndex = 101;
+            this.label21.Text = "Potongan :";
+            // 
+            // checkRetur
+            // 
+            this.checkRetur.AutoSize = true;
+            this.checkRetur.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkRetur.Location = new System.Drawing.Point(139, 342);
+            this.checkRetur.Name = "checkRetur";
+            this.checkRetur.Size = new System.Drawing.Size(86, 23);
+            this.checkRetur.TabIndex = 107;
+            this.checkRetur.Text = "Returable";
+            this.checkRetur.UseVisualStyleBackColor = true;
             // 
             // FormUpdateBarang
             // 
@@ -641,6 +717,13 @@ namespace uniqlo
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(386, 841);
+            this.Controls.Add(this.checkRetur);
+            this.Controls.Add(this.dateEnd);
+            this.Controls.Add(this.dateStart);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
@@ -760,5 +843,12 @@ namespace uniqlo
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DateTimePicker dateEnd;
+        private System.Windows.Forms.DateTimePicker dateStart;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.CheckBox checkRetur;
     }
 }

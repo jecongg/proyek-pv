@@ -36,7 +36,7 @@ namespace uniqlo
             conn.Open();
 
             // Query dasar untuk mengambil data barang
-            string query = "SELECT *, p.nama 'pengguna' FROM barang b " +
+            string query = "SELECT b.*, p.nama 'pengguna', CASE WHEN NOW() BETWEEN diskon_start AND diskon_end THEN b.diskon ELSE 0 END AS jumlah_diskon FROM barang b " +
                            "JOIN kategori k ON b.id_kategori = k.id " +
                            "JOIN pengguna p ON k.id_pengguna = p.id";
 
@@ -188,7 +188,7 @@ namespace uniqlo
                     TabIndex = 36
                 };
                 string id = dt.Rows[i]["id"].ToString();
-                int diskon = int.Parse(dt.Rows[i]["diskon"].ToString());
+                int diskon = int.Parse(dt.Rows[i]["jumlah_diskon"].ToString());
                 if (diskon != 0)
                 {
                     Label hargaAkhir = new Label()

@@ -34,14 +34,14 @@ namespace uniqlo
 
         private void loadBarang(int id)
         {
-            int idbrg = 0, id_pengguna = 0, harga = 0, diskon = 0, stok_nosize = 0, id_kategori = 0;
+            int idbrg = 0, id_pengguna = 0, harga = 0, diskon = 0, stok_nosize = 0, id_kategori = 0, returable=0;
             string nama = "", url_gambar = "", namaKategori = "", namaPengguna = "", deskripsi = "";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
 
-                string query = "SELECT b.id, b.nama, b.harga, b.diskon, b.url_gambar, b.stok_nosize, k.nama as nama_kategori, k.id as id_kategori, p.nama as nama_pengguna, p.id as id_pengguna, b.deskripsi FROM barang b join kategori k ON b.id_kategori = k.id join pengguna p ON k.id_pengguna = p.id WHERE b.id = @id";
+                string query = "SELECT b.id, b.nama, b.harga, b.returable, b.diskon, b.url_gambar, b.stok_nosize, k.nama as nama_kategori, k.id as id_kategori, p.nama as nama_pengguna, p.id as id_pengguna, b.deskripsi FROM barang b join kategori k ON b.id_kategori = k.id join pengguna p ON k.id_pengguna = p.id WHERE b.id = @id";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
@@ -57,6 +57,7 @@ namespace uniqlo
                             diskon = reader.GetInt32("diskon");
                             url_gambar = reader.GetString("url_gambar");
                             stok_nosize = reader.GetInt32("stok_nosize");
+                            returable = reader.GetInt32("returable");
                             namaKategori = reader.GetString("nama_kategori");
                             namaPengguna = reader.GetString("nama_pengguna");
                             id_kategori = reader.GetInt32("id_kategori");
@@ -154,7 +155,10 @@ namespace uniqlo
             {
                 checkBoxDiskon.Checked = false;
             }
-            
+            if (returable == 1)
+            {
+                checkRetur.Checked = true;
+            }
             pictureBox1.Load(url_gambar);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             comboBox2.Text = namaPengguna;
@@ -342,47 +346,59 @@ namespace uniqlo
             MySqlConnection conn = new MySqlConnection(connectionString);
             conn.Open();
             
-                MySqlCommand cmd = new MySqlCommand("update barang set nama = @nama, harga = @harga, diskon = @diskon, url_gambar = @url_gambar, stok_nosize = @stok, id_kategori = @id_kategori, deskripsi = @deskripsi where id = @id", conn);
-                cmd.Parameters.AddWithValue("@nama", textNama.Text);
-                cmd.Parameters.AddWithValue("@harga", numHarga.Value);
-                cmd.Parameters.AddWithValue("@url_gambar", textGambar.Text);
+            MySqlCommand cmd = new MySqlCommand("update barang set nama = @nama, harga = @harga, diskon = @diskon, url_gambar = @url_gambar, stok_nosize = @stok, id_kategori = @id_kategori, deskripsi = @deskripsi, diskon_start = @start, diskon_end = @end, returable = @k where id = @id", conn);
+            cmd.Parameters.AddWithValue("@nama", textNama.Text);
+            cmd.Parameters.AddWithValue("@harga", numHarga.Value);
+            cmd.Parameters.AddWithValue("@url_gambar", textGambar.Text);
             cmd.Parameters.AddWithValue("@deskripsi", textBox1.Text);
-                if (checkBoxDiskon.Checked)
+            if (checkBoxDiskon.Checked)
+            {
+                cmd.Parameters.AddWithValue("@diskon", numDiskon.Value);
+                cmd.Parameters.AddWithValue("@start", dateStart.Value);
+                cmd.Parameters.AddWithValue("@end", dateEnd.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@diskon", 0);
+                cmd.Parameters.AddWithValue("@start", null);
+                cmd.Parameters.AddWithValue("@end", null);
+            }
+            if (radioNoSize.Checked)
+            {
+                cmd.Parameters.AddWithValue("@stok", numStokNoSize.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@stok", -1);
+            }
+            if (checkRetur.Checked)
+            {
+                cmd.Parameters.AddWithValue("@k", 1);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@k", 0);
+            }
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@id_kategori", comboBox1.SelectedValue);
+            cmd.ExecuteNonQuery();
+            if (radioSize.Checked)
+            {
+                for (int i = 0; i < listCheck.Count; i++)
                 {
-                    cmd.Parameters.AddWithValue("@diskon", numDiskon.Value);
-                }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@diskon", 0);
-                }
-                if (radioNoSize.Checked)
-                {
-                    cmd.Parameters.AddWithValue("@stok", numStokNoSize.Value);
-                }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@stok", -1);
-                }
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@id_kategori", comboBox1.SelectedValue);
-                cmd.ExecuteNonQuery();
-                if (radioSize.Checked)
-                {
-                    for (int i = 0; i < listCheck.Count; i++)
+                    if (listCheck[i].Checked)
                     {
-                        if (listCheck[i].Checked)
-                        {
-                            cmd = new MySqlCommand("update stok set stok = @stok where id_barang = @id AND size = @size", conn);
-                            cmd.Parameters.AddWithValue("@id", id);
-                            cmd.Parameters.AddWithValue("@size", listCheck[i].Text);
-                            cmd.Parameters.AddWithValue("@stok", listSize[i].Value);
-                            cmd.ExecuteNonQuery();
-                        }
+                        cmd = new MySqlCommand("update stok set stok = @stok where id_barang = @id AND size = @size", conn);
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@size", listCheck[i].Text);
+                        cmd.Parameters.AddWithValue("@stok", listSize[i].Value);
+                        cmd.ExecuteNonQuery();
                     }
                 }
+            }
 
-                conn.Close();
-                MessageBox.Show("Berhasil Update Barang");
+            conn.Close();
+            MessageBox.Show("Berhasil Update Barang");
             
             
         }

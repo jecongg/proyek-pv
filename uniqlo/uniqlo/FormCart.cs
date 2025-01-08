@@ -99,6 +99,7 @@ namespace uniqlo
                 dataGridView1.Columns["Quantity"].ReadOnly = false; // Izinkan edit hanya di kolom Quantity
                 dataGridView1.Columns["ID"].ReadOnly = true; // Kolom lainnya read-only
                 dataGridView1.Columns["Nama Barang"].ReadOnly = true;
+                dataGridView1.Columns["Nama Barang"].Width = 200;
                 dataGridView1.Columns["Harga Awal"].ReadOnly = true;
                 dataGridView1.Columns["Harga Akhir"].ReadOnly = true;
                 dataGridView1.Columns["Ukuran"].ReadOnly = true;
@@ -113,6 +114,13 @@ namespace uniqlo
                         UseColumnTextForButtonValue = true
                     };
                     dataGridView1.Columns.Add(deleteButton);
+                }
+                foreach (DataGridViewColumn column in dataGridView1.Columns)
+                {
+                    if (column.Name != "Nama Barang")
+                    {
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    }
                 }
                 UpdateSummary();
             }

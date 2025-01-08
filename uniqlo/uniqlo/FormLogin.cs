@@ -83,6 +83,9 @@ namespace uniqlo
             string username = textUsername.Text;
             string password = textPassword.Text;
 
+            textUsername.Text = "";
+            textPassword.Text = "";
+
             // Memanggil CekLogin
             string role = CekLogin(username, password);
             if (role != null)
@@ -142,6 +145,14 @@ namespace uniqlo
         {
             FormRegister fr = new FormRegister();
             fr.ShowDialog();
+        }
+
+        private void FormLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonLogin_Click(sender, e);
+            }
         }
     }
 }

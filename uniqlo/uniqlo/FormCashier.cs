@@ -97,7 +97,6 @@ namespace uniqlo
                 reset();
                 return;
             }
-
             if (status == "process")
             {
                 groupBox2.Visible = true;
@@ -459,6 +458,14 @@ namespace uniqlo
                     }
                 }
             }
+        }
+
+        private void buttonRetur_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormRetur form = new FormRetur();
+            form.ShowDialog();
+            this.Show();
         }
     }
 }

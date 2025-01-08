@@ -26,7 +26,7 @@ namespace uniqlo
         {
             MySqlConnection conn = new MySqlConnection(connectionString);
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand("select *, p.nama 'pengguna' from barang b join kategori k on b.id_kategori=k.id join pengguna p on k.id_pengguna=p.id where b.deleted_at is null", conn);
+            MySqlCommand cmd = new MySqlCommand("select b.*, CASE WHEN NOW() BETWEEN diskon_start AND diskon_end THEN b.diskon ELSE 0 END AS jumlah_diskon, p.nama 'pengguna' from barang b join kategori k on b.id_kategori=k.id join pengguna p on k.id_pengguna=p.id where b.deleted_at is null", conn);
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
@@ -84,7 +84,7 @@ namespace uniqlo
                     Text = dt.Rows[i]["nama"].ToString()
                 };
                 int angka = int.Parse(dt.Rows[i]["harga"].ToString());
-                int diskon = int.Parse(dt.Rows[i]["diskon"].ToString());
+                int diskon = int.Parse(dt.Rows[i]["jumlah_diskon"].ToString());
                 Label harga = new Label()
                 {
                     AutoSize = true,

@@ -73,16 +73,20 @@ namespace uniqlo
         {
             MySqlConnection conn = new MySqlConnection(connectionString);
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand("insert into barang (nama, harga, diskon, url_gambar, stok_nosize, id_kategori, kode_barang, deskripsi) VALUES (@a , @b , @c , @d , @e , @f, @g, @h )", conn);
+            MySqlCommand cmd = new MySqlCommand("insert into barang (nama, harga, diskon, url_gambar, stok_nosize, id_kategori, kode_barang, deskripsi, diskon_start, diskon_end, returable) VALUES (@a , @b , @c , @d , @e , @f, @g, @h, @i, @j, @k)", conn);
             cmd.Parameters.AddWithValue("@a", textNama.Text);
             cmd.Parameters.AddWithValue("@b", numHarga.Value);
             if (checkBoxDiskon.Checked)
             {
                 cmd.Parameters.AddWithValue("@c", numDiskon.Value);
+                cmd.Parameters.AddWithValue("@i", dateStart.Value);
+                cmd.Parameters.AddWithValue("@j", dateEnd.Value);
             }
             else
             {
                 cmd.Parameters.AddWithValue("@c", 0);
+                cmd.Parameters.AddWithValue("@i", null);
+                cmd.Parameters.AddWithValue("@j", null);
             }
             cmd.Parameters.AddWithValue("@d", textGambar.Text);
             if (radioNoSize.Checked)
@@ -92,6 +96,14 @@ namespace uniqlo
             else
             {
                 cmd.Parameters.AddWithValue("@e", -1);
+            }
+            if (checkRetur.Checked)
+            {
+                cmd.Parameters.AddWithValue("@k", 1);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@k", 0);
             }
             cmd.Parameters.AddWithValue("@f", comboBox1.SelectedValue);
             cmd.Parameters.AddWithValue("@g", textBox2.Text);
@@ -257,10 +269,14 @@ namespace uniqlo
             if (checkBoxDiskon.Checked)
             {
                 numDiskon.Enabled = true;
+                dateStart.Enabled = true;
+                dateEnd.Enabled = true;
             }
             else
             {
                 numDiskon.Enabled = false;
+                dateEnd.Enabled = false;
+                dateStart.Enabled = false;
             }
         }
 
