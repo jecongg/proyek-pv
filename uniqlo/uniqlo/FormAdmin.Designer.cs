@@ -36,6 +36,7 @@ namespace uniqlo
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnKategori = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnStok = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,10 +44,9 @@ namespace uniqlo
             // 
             this.btnAddBrg.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddBrg.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAddBrg.Location = new System.Drawing.Point(819, 29);
-            this.btnAddBrg.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnAddBrg.Location = new System.Drawing.Point(190, 12);
             this.btnAddBrg.Name = "btnAddBrg";
-            this.btnAddBrg.Size = new System.Drawing.Size(309, 88);
+            this.btnAddBrg.Size = new System.Drawing.Size(116, 37);
             this.btnAddBrg.TabIndex = 0;
             this.btnAddBrg.Text = "Add Barang";
             this.btnAddBrg.UseVisualStyleBackColor = true;
@@ -55,10 +55,9 @@ namespace uniqlo
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(2120, 41);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnLogout.Location = new System.Drawing.Point(795, 17);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(237, 76);
+            this.btnLogout.Size = new System.Drawing.Size(89, 32);
             this.btnLogout.TabIndex = 3;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -66,38 +65,37 @@ namespace uniqlo
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(21, 169);
-            this.panel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panel1.Location = new System.Drawing.Point(8, 71);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2392, 1257);
+            this.panel1.Size = new System.Drawing.Size(897, 527);
             this.panel1.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(136, 48);
+            this.label1.Location = new System.Drawing.Point(51, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(228, 69);
+            this.label1.Size = new System.Drawing.Size(94, 29);
             this.label1.TabIndex = 5;
             this.label1.Text = "ADMIN";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(29, 29);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(101, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(38, 42);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // btnKategori
             // 
             this.btnKategori.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKategori.Location = new System.Drawing.Point(1181, 29);
-            this.btnKategori.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnKategori.Location = new System.Drawing.Point(312, 12);
             this.btnKategori.Name = "btnKategori";
-            this.btnKategori.Size = new System.Drawing.Size(309, 88);
+            this.btnKategori.Size = new System.Drawing.Size(116, 37);
             this.btnKategori.TabIndex = 1;
             this.btnKategori.Text = "Kategori";
             this.btnKategori.UseVisualStyleBackColor = true;
@@ -106,20 +104,31 @@ namespace uniqlo
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1537, 29);
-            this.button1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.button1.Location = new System.Drawing.Point(434, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(382, 88);
+            this.button1.Size = new System.Drawing.Size(143, 37);
             this.button1.TabIndex = 7;
             this.button1.Text = "Laporan Penjualan";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnStok
+            // 
+            this.btnStok.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStok.Location = new System.Drawing.Point(583, 12);
+            this.btnStok.Name = "btnStok";
+            this.btnStok.Size = new System.Drawing.Size(143, 37);
+            this.btnStok.TabIndex = 8;
+            this.btnStok.Text = "Laporan Stok";
+            this.btnStok.UseVisualStyleBackColor = true;
+            this.btnStok.Click += new System.EventHandler(this.btnStok_Click);
+            // 
             // FormAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2445, 1476);
+            this.ClientSize = new System.Drawing.Size(914, 499);
+            this.Controls.Add(this.btnStok);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
@@ -127,7 +136,6 @@ namespace uniqlo
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnKategori);
             this.Controls.Add(this.btnAddBrg);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "FormAdmin";
             this.Text = "FormAdmin";
             this.Load += new System.EventHandler(this.FormAdmin_Load);
@@ -146,5 +154,6 @@ namespace uniqlo
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnKategori;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnStok;
     }
 }

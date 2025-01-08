@@ -289,3 +289,9 @@ C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\o
 C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCetakLaporan.resources
 C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCetakLaporan.resources
 C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRetur.resources
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.exe.config
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormCetakLaporan.resources
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRetur.resources
+D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormLaporanStok.resources

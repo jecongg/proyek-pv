@@ -264,5 +264,11 @@ namespace uniqlo
             form.ShowDialog();
             this.Show();
         }
+
+        private void btnStok_Click(object sender, EventArgs e)
+        {
+            FormLaporanStok f = new FormLaporanStok();
+            f.ShowDialog();
+        }
     }
 }

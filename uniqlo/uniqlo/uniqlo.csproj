@@ -122,6 +122,12 @@
     <Compile Include="FormDetailBarang.Designer.cs">
       <DependentUpon>FormDetailBarang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLaporanStok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLaporanStok.Designer.cs">
+      <DependentUpon>FormLaporanStok.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,12 @@
     </Compile>
     <Compile Include="FormUpdateBarang.Designer.cs">
       <DependentUpon>FormUpdateBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LaporanStok.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaporanStok.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="LaporanUniqlo.cs">
       <AutoGen>True</AutoGen>
@@ -187,6 +199,9 @@
     <EmbeddedResource Include="FormDetailBarang.resx">
       <DependentUpon>FormDetailBarang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLaporanStok.resx">
+      <DependentUpon>FormLaporanStok.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +213,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateBarang.resx">
       <DependentUpon>FormUpdateBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaporanStok.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LaporanStok.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="LaporanUniqlo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
