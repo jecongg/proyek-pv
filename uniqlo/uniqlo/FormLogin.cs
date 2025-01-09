@@ -16,7 +16,6 @@ namespace uniqlo
 {
     public partial class FormLogin : Form
     {
-        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         private int idUser;
         private string namaUser;
         public FormLogin()
@@ -52,7 +51,7 @@ namespace uniqlo
 
             // Cek login ke database
             string query = "SELECT * FROM user WHERE username = @username AND password = @password";
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@username", username);

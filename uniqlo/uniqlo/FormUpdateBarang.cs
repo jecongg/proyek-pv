@@ -13,7 +13,6 @@ namespace uniqlo
 {
     public partial class FormUpdateBarang : Form
     {
-        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         List<CheckBox> listCheck;
         List<NumericUpDown> listSize;
         public int id;
@@ -37,7 +36,7 @@ namespace uniqlo
             int idbrg = 0, id_pengguna = 0, harga = 0, diskon = 0, stok_nosize = 0, id_kategori = 0, returable=0;
             string nama = "", url_gambar = "", namaKategori = "", namaPengguna = "", deskripsi = "";
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
             {
                 conn.Open();
 
@@ -172,7 +171,7 @@ namespace uniqlo
         private void loadCheckBox()
         {
 
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             MySqlDataAdapter adapter = new MySqlDataAdapter("select * from pengguna", conn);
 
             DataTable dt = new DataTable();
@@ -187,7 +186,7 @@ namespace uniqlo
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox1.DataSource = null;
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             MySqlCommand cmd = new MySqlCommand("select * from kategori where id_pengguna= @a", conn);
             cmd.Parameters.AddWithValue("@a", comboBox2.SelectedValue);
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -343,7 +342,7 @@ namespace uniqlo
 
         private void updateBarang()
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             conn.Open();
             
             MySqlCommand cmd = new MySqlCommand("update barang set nama = @nama, harga = @harga, diskon = @diskon, url_gambar = @url_gambar, stok_nosize = @stok, id_kategori = @id_kategori, deskripsi = @deskripsi, diskon_start = @start, diskon_end = @end, returable = @k where id = @id", conn);
@@ -405,7 +404,7 @@ namespace uniqlo
 
         private bool cekBarangValid()
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("select count(*) from barang where nama = @a and id_kategori = @b", conn);
             cmd.Parameters.AddWithValue("@a", textNama.Text);

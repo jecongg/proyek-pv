@@ -14,7 +14,6 @@ namespace uniqlo
 {
     public partial class FormCustomer : Form
     {
-        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         private int idUser;
         private string namaUser;
         public FormCustomer(int idUser, string namaUser)
@@ -32,7 +31,7 @@ namespace uniqlo
 
         private DataTable ambilData(string kategoriPengguna = null, string idKategori = null, string searchText = null)
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             conn.Open();
 
             // Query dasar untuk mengambil data barang
@@ -267,7 +266,25 @@ namespace uniqlo
 
         private void FormCashier_Load(object sender, EventArgs e)
         {
-            
+            string imageUrl = "https://brandslogos.com/wp-content/uploads/images/large/uniqlo-logo.png";
+
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    byte[] imageData = client.DownloadData(imageUrl);
+
+                    using (var stream = new System.IO.MemoryStream(imageData))
+                    {
+                        pictureBox1.Image = Image.FromStream(stream);
+                        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading image: " + ex.Message);
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -290,7 +307,7 @@ namespace uniqlo
 
         private void LoadComboBoxPengguna()
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             MySqlDataAdapter adapter = new MySqlDataAdapter("select * from pengguna", conn);
 
             DataTable dt = new DataTable();
@@ -317,7 +334,7 @@ namespace uniqlo
                     string idPengguna = selectedItem["id"].ToString();  // Get the id of the selected pengguna
 
                     // Fetch new data for ComboBox2 based on ComboBox1 selection
-                    MySqlConnection conn = new MySqlConnection(connectionString);
+                    MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
                     MySqlCommand cmd = new MySqlCommand("SELECT * FROM kategori WHERE id_pengguna = @a", conn);
                     cmd.Parameters.AddWithValue("@a", idPengguna);  // Use id_pengguna from ComboBox1 selection
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);

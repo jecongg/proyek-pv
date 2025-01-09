@@ -13,7 +13,6 @@ namespace uniqlo
 {
     public partial class FormKategori : Form
     {
-        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
 
         public FormKategori()
         {
@@ -23,7 +22,7 @@ namespace uniqlo
 
         private void load()
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             MySqlDataAdapter adapter = new MySqlDataAdapter("select * from pengguna", conn);
 
             DataTable dt = new DataTable();
@@ -43,7 +42,7 @@ namespace uniqlo
             }
             else
             {
-                MySqlConnection conn = new MySqlConnection(connectionString);
+                MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand("select count(*) from kategori where nama= @a and id_pengguna= @b", conn);
                 cmd.Parameters.AddWithValue("@a", textBox1.Text);

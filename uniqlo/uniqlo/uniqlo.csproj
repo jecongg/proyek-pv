@@ -66,6 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseConfig.cs" />
     <Compile Include="DataUniqlo.cs">
       <DependentUpon>DataUniqlo.xsd</DependentUpon>
     </Compile>

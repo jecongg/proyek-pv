@@ -17,7 +17,6 @@ namespace uniqlo
 {
     public partial class FormCashier : Form
     {
-        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         int previousQuantity;
         int idCart;
         DataUniqlo dataUniqlo = new DataUniqlo();
@@ -80,7 +79,7 @@ namespace uniqlo
         private void button1_Click(object sender, EventArgs e)
         {
             idCart = Convert.ToInt32(textBox1.Text);
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             conn.Open();
 
             MySqlCommand cekStatus = new MySqlCommand("SELECT status FROM cart WHERE id = @a", conn);
@@ -150,7 +149,7 @@ namespace uniqlo
             // Jika pengguna memilih 'Yes'
             if (result == DialogResult.Yes)
             {
-                MySqlConnection conn = new MySqlConnection(connectionString);
+                MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
                 conn.Open();
                 MySqlCommand updateCartStatus = new MySqlCommand("UPDATE cart SET status = 'pending' WHERE id = @idCart", conn);
                 updateCartStatus.Parameters.AddWithValue("@idCart", idCart);
@@ -179,7 +178,7 @@ namespace uniqlo
                 
                 try
                 {
-                    using (MySqlConnection conn = new MySqlConnection(connectionString))
+                    using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
                     {
                         conn.Open();
 
@@ -236,7 +235,7 @@ namespace uniqlo
 
                 try
                 {
-                    using (MySqlConnection conn = new MySqlConnection(connectionString))
+                    using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
                     {
                         conn.Open();
                         int idBarang = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["ID"].Value.ToString());
@@ -340,7 +339,7 @@ namespace uniqlo
             int idCart = Convert.ToInt32(textBox1.Text);
             int idUser = 0; // Ambil ID user yang terkait dengan cart
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
             {
                 conn.Open();
                 using (MySqlTransaction transaction = conn.BeginTransaction())

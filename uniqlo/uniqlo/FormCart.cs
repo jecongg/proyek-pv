@@ -15,7 +15,6 @@ namespace uniqlo
     public partial class FormCart : Form
     {
         private int idUser, idCart, previousQuantity;
-        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         public FormCart(int idUser)
         {
             InitializeComponent();
@@ -44,7 +43,7 @@ namespace uniqlo
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
                 {
                     conn.Open();
 
@@ -90,7 +89,7 @@ namespace uniqlo
 
         private void FormCart_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             conn.Open();
 
             MySqlCommand selectIdCart = new MySqlCommand("select id from cart where id_user= @a", conn);
@@ -172,7 +171,7 @@ namespace uniqlo
 
                 try
                 {
-                    using (MySqlConnection conn = new MySqlConnection(connectionString))
+                    using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
                     {
                         conn.Open();
                         int idBarang = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["ID"].Value.ToString());
@@ -270,7 +269,7 @@ namespace uniqlo
 
                 try
                 {
-                    using (MySqlConnection conn = new MySqlConnection(connectionString))
+                    using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
                     {
                         conn.Open();
 
@@ -305,7 +304,7 @@ namespace uniqlo
             // Jika pengguna memilih 'Yes'
             if (result == DialogResult.Yes)
             {
-                MySqlConnection conn = new MySqlConnection(connectionString);
+                MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
                 conn.Open();
                 MySqlCommand updateCartStatus = new MySqlCommand("UPDATE cart SET status = 'pending' WHERE id = @idCart", conn);
                 updateCartStatus.Parameters.AddWithValue("@idCart", idCart);

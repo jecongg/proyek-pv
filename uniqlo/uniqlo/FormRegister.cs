@@ -43,7 +43,6 @@ namespace uniqlo
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
             string username = textUsername.Text;
             string password = textPassword.Text;
             string nama = textNama.Text;
@@ -59,7 +58,7 @@ namespace uniqlo
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(DatabaseConfig.ConnectionString))
                 {
                     connection.Open();
 

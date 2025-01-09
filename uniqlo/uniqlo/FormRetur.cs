@@ -14,7 +14,6 @@ namespace uniqlo
     public partial class FormRetur : Form
     {
         int idNota;
-        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         public FormRetur()
         {
             InitializeComponent();
@@ -76,7 +75,7 @@ namespace uniqlo
                 return;
             }
             
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             try
             {
                 conn.Open();
@@ -197,7 +196,7 @@ namespace uniqlo
 
                     try
                     {
-                        using (MySqlConnection conn = new MySqlConnection(connectionString))
+                        using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
                         {
                             conn.Open();
 

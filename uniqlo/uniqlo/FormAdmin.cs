@@ -15,7 +15,6 @@ namespace uniqlo
 {
     public partial class FormAdmin : Form
     {
-        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         public FormAdmin()
         {
             InitializeComponent();
@@ -24,7 +23,7 @@ namespace uniqlo
 
         private DataTable ambilData()
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("select b.*, CASE WHEN NOW() BETWEEN diskon_start AND diskon_end THEN b.diskon ELSE 0 END AS jumlah_diskon, p.nama 'pengguna' from barang b join kategori k on b.id_kategori=k.id join pengguna p on k.id_pengguna=p.id where b.deleted_at is null", conn);
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -198,7 +197,7 @@ namespace uniqlo
                                         "Konfirmasi Hapus", MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
                 {
                     conn.Open();
                     MySqlCommand cmd = new MySqlCommand("UPDATE barang SET deleted_at = NOW() WHERE id = @id", conn);

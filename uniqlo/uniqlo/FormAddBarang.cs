@@ -13,7 +13,6 @@ namespace uniqlo
 {
     public partial class FormAddBarang : Form
     {
-        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         List<CheckBox> listCheck;
         List<NumericUpDown> listSize;
         public FormAddBarang()
@@ -26,7 +25,7 @@ namespace uniqlo
 
         private void load()
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             MySqlDataAdapter adapter = new MySqlDataAdapter("select * from pengguna", conn);
 
             DataTable dt = new DataTable();
@@ -55,7 +54,7 @@ namespace uniqlo
 
         private bool cekBarangValid()
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("select count(*) from barang where nama = @a and id_kategori = @b", conn);
             cmd.Parameters.AddWithValue("@a", textNama.Text);
@@ -71,7 +70,7 @@ namespace uniqlo
 
         private void insertBarang()
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("insert into barang (nama, harga, diskon, url_gambar, stok_nosize, id_kategori, deskripsi, diskon_start, diskon_end, returable) VALUES (@a , @b , @c , @d , @e , @f, @h, @i, @j, @k)", conn);
             cmd.Parameters.AddWithValue("@a", textNama.Text);
@@ -294,7 +293,7 @@ namespace uniqlo
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox1.DataSource = null;
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
             MySqlCommand cmd = new MySqlCommand("select * from kategori where id_pengguna= @a", conn);
             cmd.Parameters.AddWithValue("@a", comboBox2.SelectedValue);
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);

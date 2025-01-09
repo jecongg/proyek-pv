@@ -17,7 +17,6 @@ namespace uniqlo
     {
         private string idBarang;
         private int idUser, harga, diskon;
-        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         public FormDetailBarang(string id, int idUser)
         {
             InitializeComponent();
@@ -35,7 +34,7 @@ namespace uniqlo
         private void LoadDetailBarang()
         {
             // Contoh: Ambil data barang dari database
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
             {
                 conn.Open();
                 string query = "SELECT *, CASE WHEN NOW() BETWEEN diskon_start AND diskon_end THEN diskon ELSE 0 END AS jumlah_diskon FROM barang WHERE id = @id";
@@ -105,7 +104,7 @@ namespace uniqlo
             }
             else
             {
-                MySqlConnection conn = new MySqlConnection(connectionString);
+                MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
                 conn.Open();
 
                 // Mengecek apakah sudah ada data di tabel `cart` untuk user tertentu
@@ -297,8 +296,7 @@ namespace uniqlo
 
         private int GetStockBySize(string size)
         {
-            string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
             {
                 conn.Open();
                 string query = "SELECT stok FROM stok WHERE id_barang = @id AND size = @size";
