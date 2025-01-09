@@ -13,7 +13,7 @@ namespace uniqlo
 {
     public partial class FormAddBarang : Form
     {
-        string connectionString = "server=192.168.0.23;uid=admin_uniqlo;pwd=;database=db_uniqlo";
+        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         List<CheckBox> listCheck;
         List<NumericUpDown> listSize;
         public FormAddBarang()

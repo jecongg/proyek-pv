@@ -17,7 +17,7 @@ namespace uniqlo
     {
         private string idBarang;
         private int idUser, harga, diskon;
-        string connectionString = "server=192.168.0.23;uid=customer_uniqlo;pwd=;database=db_uniqlo";
+        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         public FormDetailBarang(string id, int idUser)
         {
             InitializeComponent();
