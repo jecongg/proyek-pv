@@ -73,7 +73,7 @@ namespace uniqlo
         {
             MySqlConnection conn = new MySqlConnection(connectionString);
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand("insert into barang (nama, harga, diskon, url_gambar, stok_nosize, id_kategori, kode_barang, deskripsi, diskon_start, diskon_end, returable) VALUES (@a , @b , @c , @d , @e , @f, @g, @h, @i, @j, @k)", conn);
+            MySqlCommand cmd = new MySqlCommand("insert into barang (nama, harga, diskon, url_gambar, stok_nosize, id_kategori, deskripsi, diskon_start, diskon_end, returable) VALUES (@a , @b , @c , @d , @e , @f, @h, @i, @j, @k)", conn);
             cmd.Parameters.AddWithValue("@a", textNama.Text);
             cmd.Parameters.AddWithValue("@b", numHarga.Value);
             if (checkBoxDiskon.Checked)
@@ -106,7 +106,6 @@ namespace uniqlo
                 cmd.Parameters.AddWithValue("@k", 0);
             }
             cmd.Parameters.AddWithValue("@f", comboBox1.SelectedValue);
-            cmd.Parameters.AddWithValue("@g", textBox2.Text);
             cmd.Parameters.AddWithValue("@h", textBox1.Text);
             cmd.ExecuteNonQuery();
             cmd = new MySqlCommand("select max(id) from barang", conn);
