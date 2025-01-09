@@ -15,7 +15,7 @@ namespace uniqlo
 {
     public partial class FormAdmin : Form
     {
-        string connectionString = "server=192.168.0.23;uid=root;pwd=admin;database=db_uniqlo";
+        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         public FormAdmin()
         {
             InitializeComponent();
