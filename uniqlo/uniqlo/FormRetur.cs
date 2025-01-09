@@ -14,7 +14,7 @@ namespace uniqlo
     public partial class FormRetur : Form
     {
         int idNota;
-        string connectionString = "server=localhost;uid=cashier_uniqlo;pwd=cashier;database=db_uniqlo";
+        string connectionString = "server=192.168.0.23;uid=cashier_uniqlo;pwd=cashier;database=db_uniqlo";
         public FormRetur()
         {
             InitializeComponent();

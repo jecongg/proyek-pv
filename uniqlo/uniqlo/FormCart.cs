@@ -15,7 +15,7 @@ namespace uniqlo
     public partial class FormCart : Form
     {
         private int idUser, idCart, previousQuantity;
-        string connectionString = "server=localhost;uid=customer_uniqlo;pwd=customer;database=db_uniqlo";
+        string connectionString = "server=192.168.0.23;uid=customer_uniqlo;pwd=customer;database=db_uniqlo";
         public FormCart(int idUser)
         {
             InitializeComponent();

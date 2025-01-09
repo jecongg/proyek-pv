@@ -16,7 +16,7 @@ namespace uniqlo
 {
     public partial class FormLogin : Form
     {
-        string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
+        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         private int idUser;
         private string namaUser;
         public FormLogin()

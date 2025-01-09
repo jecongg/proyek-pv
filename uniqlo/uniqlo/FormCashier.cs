@@ -17,7 +17,7 @@ namespace uniqlo
 {
     public partial class FormCashier : Form
     {
-        string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
+        string connectionString = "server=192.168.0.23;uid=root;pwd=;database=db_uniqlo";
         int previousQuantity;
         int idCart;
         DataUniqlo dataUniqlo = new DataUniqlo();
