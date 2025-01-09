@@ -14,7 +14,7 @@ namespace uniqlo
 {
     public partial class FormCustomer : Form
     {
-        string connectionString = "server=192.168.0.23;uid=customer_uniqlo;pwd=customer;database=db_uniqlo";
+        string connectionString = "server=192.168.0.23;uid=root;pwd=customer;database=db_uniqlo";
         private int idUser;
         private string namaUser;
         public FormCustomer(int idUser, string namaUser)
