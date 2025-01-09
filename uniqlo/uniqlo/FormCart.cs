@@ -8,17 +8,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ZXing;
 
 namespace uniqlo
 {
     public partial class FormCart : Form
     {
         private int idUser, idCart, previousQuantity;
-        string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
+        string connectionString = "server=localhost;uid=customer_uniqlo;pwd=customer;database=db_uniqlo";
         public FormCart(int idUser)
         {
             InitializeComponent();
             this.idUser = idUser;
+        }
+
+        private Bitmap GenerateBarcode(string text)
+        {
+            // Create a BarcodeWriter object
+            BarcodeWriter writer = new BarcodeWriter
+            {
+                Format = BarcodeFormat.CODE_128, // Specify the barcode format
+                Options = new ZXing.Common.EncodingOptions
+                {
+                    Width = 300,     // Width of the barcode
+                    Height = 100,    // Height of the barcode
+                    Margin = 10      // Margin around the barcode
+                }
+            };
+
+            // Generate the barcode as a Bitmap
+            return writer.Write(text);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -126,6 +145,7 @@ namespace uniqlo
             }
             else
             {
+                pictureBox2.Image = GenerateBarcode(idCart.ToString());
                 panel1.Visible = true;
             }
         }

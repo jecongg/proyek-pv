@@ -297,3 +297,8 @@ D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRetur.re
 D:\Univ\SMS 3\PAD\Proyek PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormLaporanStok.resources
 C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormLaporanStok.resources
 C:\Users\ASUS\OneDrive\Desktop\KULIAH\SEMS 3\PAD\PROYEK\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormRetur.resources
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\obj\Debug\uniqlo.FormLaporanStok.resources
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\zxing.dll
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\zxing.presentation.dll
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\zxing.xml
+C:\Users\LATITUDE\OneDrive\Desktop\Kuliah\Semester 3\PV\proyekpv\uniqlo\uniqlo\bin\Debug\zxing.presentation.xml

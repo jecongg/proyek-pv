@@ -13,7 +13,7 @@ namespace uniqlo
 {
     public partial class FormKategori : Form
     {
-        string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
+        string connectionString = "server=localhost;uid=admin_uniqlo;pwd=admin;database=db_uniqlo";
 
         public FormKategori()
         {
