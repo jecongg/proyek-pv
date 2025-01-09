@@ -339,7 +339,6 @@ namespace uniqlo
 
             int idCart = Convert.ToInt32(textBox1.Text);
             int idUser = 0; // Ambil ID user yang terkait dengan cart
-            string connectionString = "server=localhost;uid=root;pwd=;database=db_uniqlo";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
