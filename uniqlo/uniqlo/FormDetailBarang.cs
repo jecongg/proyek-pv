@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 using System.Net;
 using MySql.Data.MySqlClient;
 
@@ -107,6 +106,36 @@ namespace uniqlo
                 MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString);
                 conn.Open();
 
+                // Mengecek stok yang tersedia
+                if (selectedSize != "NO")
+                {
+                    MySqlCommand checkStock = new MySqlCommand("SELECT stok FROM stok WHERE id_barang = @b AND size = @c", conn);
+                    checkStock.Parameters.AddWithValue("@b", idBarang);
+                    checkStock.Parameters.AddWithValue("@c", selectedSize);
+                    object stockResult = checkStock.ExecuteScalar();
+
+                    if (stockResult == null || Convert.ToInt32(stockResult) < numericUpDown1.Value)
+                    {
+                        MessageBox.Show("Stok tidak mencukupi untuk barang dengan size ini!");
+                        conn.Close();
+                        LoadDetailBarang();
+                        return;
+                    }
+                }
+                else
+                {
+                    MySqlCommand checkStockNoSize = new MySqlCommand("SELECT stok_nosize FROM barang WHERE id = @b", conn);
+                    checkStockNoSize.Parameters.AddWithValue("@b", idBarang);
+                    object stockResult = checkStockNoSize.ExecuteScalar();
+
+                    if (stockResult == null || Convert.ToInt32(stockResult) < numericUpDown1.Value)
+                    {
+                        MessageBox.Show("Stok tidak mencukupi untuk barang tanpa size ini!");
+                        conn.Close();
+                        return;
+                    }
+                }
+
                 // Mengecek apakah sudah ada data di tabel `cart` untuk user tertentu
                 MySqlCommand cmdCheck = new MySqlCommand("SELECT id FROM cart WHERE id_user = @a", conn);
                 cmdCheck.Parameters.AddWithValue("@a", idUser);
@@ -130,6 +159,7 @@ namespace uniqlo
                     // Jika sudah ada, ambil ID cart tersebut
                     idCart = Convert.ToInt32(result);
                 }
+
                 MySqlCommand checkDCart = new MySqlCommand("SELECT quantity FROM d_cart WHERE id_cart = @a AND id_barang = @b AND size = @c", conn);
                 checkDCart.Parameters.AddWithValue("@a", idCart);
                 checkDCart.Parameters.AddWithValue("@b", idBarang);
@@ -167,7 +197,7 @@ namespace uniqlo
 
                 if (selectedSize != "NO")
                 {
-                    MySqlCommand updateStok = new MySqlCommand("update stok set stok = stok - @a where id_barang = @b and size = @c", conn);
+                    MySqlCommand updateStok = new MySqlCommand("UPDATE stok SET stok = stok - @a WHERE id_barang = @b AND size = @c", conn);
                     updateStok.Parameters.AddWithValue("@a", numericUpDown1.Value);
                     updateStok.Parameters.AddWithValue("@b", idBarang);
                     updateStok.Parameters.AddWithValue("@c", selectedSize);
@@ -175,17 +205,18 @@ namespace uniqlo
                 }
                 else
                 {
-                    MySqlCommand updateStok = new MySqlCommand("update barang set stok_nosize = stok_nosize - @a where id = @b", conn);
+                    MySqlCommand updateStok = new MySqlCommand("UPDATE barang SET stok_nosize = stok_nosize - @a WHERE id = @b", conn);
                     updateStok.Parameters.AddWithValue("@a", numericUpDown1.Value);
                     updateStok.Parameters.AddWithValue("@b", idBarang);
                     updateStok.ExecuteNonQuery();
                 }
-                
+
                 conn.Close();
                 this.Dispose();
                 MessageBox.Show("Barang berhasil ditambahkan ke cart!");
             }
         }
+
 
 
         private void button1_Click(object sender, EventArgs e)

@@ -374,10 +374,10 @@ namespace uniqlo
                             "FROM d_cart WHERE id_cart = @idCart", conn, transaction);
                         cmdGetDCart.Parameters.AddWithValue("@idCart", idCart);
 
+                        var cartItems = new List<(int idBarang, int quantity, int harga, int diskon, int subtotal, string size)>();
+
                         using (MySqlDataReader reader = cmdGetDCart.ExecuteReader())
                         {
-                            var cartItems = new List<(int idBarang, int quantity, int harga, int diskon, int subtotal, string size)>();
-
                             while (reader.Read())
                             {
                                 cartItems.Add((
@@ -389,47 +389,70 @@ namespace uniqlo
                                     reader.GetString("size")
                                 ));
                             }
-
-                            // Tutup DataReader
-                            reader.Close();
-
-                            foreach (var item in cartItems)
-                            {
-                                int idBarang = item.idBarang;
-
-                                // Dapatkan nama barang dari tabel barang
-                                string namaBarang = "";
-                                MySqlCommand cmdGetBarang = new MySqlCommand(
-                                    "SELECT nama FROM barang WHERE id = @idBarang", conn, transaction);
-                                cmdGetBarang.Parameters.AddWithValue("@idBarang", idBarang);
-                                object namaResult = cmdGetBarang.ExecuteScalar();
-                                if (namaResult != null)
-                                {
-                                    namaBarang = namaResult.ToString();
-                                }
-
-                                // Insert ke d_trans
-                                MySqlCommand cmdInsertDTrans = new MySqlCommand(
-                                    "INSERT INTO d_trans (id_htrans, id_barang, nama_barang, quantity, harga, diskon, subtotal, size) " +
-                                    "VALUES (@idHTrans, @idBarang, @namaBarang, @quantity, @harga, @diskon, @subtotal, @size)", conn, transaction);
-                                cmdInsertDTrans.Parameters.AddWithValue("@idHTrans", idHTrans);
-                                cmdInsertDTrans.Parameters.AddWithValue("@idBarang", idBarang);
-                                cmdInsertDTrans.Parameters.AddWithValue("@namaBarang", namaBarang);
-                                cmdInsertDTrans.Parameters.AddWithValue("@quantity", item.quantity);
-                                cmdInsertDTrans.Parameters.AddWithValue("@harga", item.harga);
-                                cmdInsertDTrans.Parameters.AddWithValue("@diskon", item.diskon);
-                                cmdInsertDTrans.Parameters.AddWithValue("@subtotal", item.subtotal);
-                                cmdInsertDTrans.Parameters.AddWithValue("@size", item.size);
-                                cmdInsertDTrans.ExecuteNonQuery();
-                            }
                         }
 
+                        foreach (var item in cartItems)
+                        {
+                            int idBarang = item.idBarang;
+
+                            // Dapatkan nama barang dari tabel barang
+                            string namaBarang = "";
+                            MySqlCommand cmdGetBarang = new MySqlCommand(
+                                "SELECT nama FROM barang WHERE id = @idBarang", conn, transaction);
+                            cmdGetBarang.Parameters.AddWithValue("@idBarang", idBarang);
+                            object namaResult = cmdGetBarang.ExecuteScalar();
+                            if (namaResult != null)
+                            {
+                                namaBarang = namaResult.ToString();
+                            }
+
+                            // Insert ke d_trans
+                            MySqlCommand cmdInsertDTrans = new MySqlCommand(
+                                "INSERT INTO d_trans (id_htrans, id_barang, nama_barang, quantity, harga, diskon, subtotal, size) " +
+                                "VALUES (@idHTrans, @idBarang, @namaBarang, @quantity, @harga, @diskon, @subtotal, @size)", conn, transaction);
+                            cmdInsertDTrans.Parameters.AddWithValue("@idHTrans", idHTrans);
+                            cmdInsertDTrans.Parameters.AddWithValue("@idBarang", idBarang);
+                            cmdInsertDTrans.Parameters.AddWithValue("@namaBarang", namaBarang);
+                            cmdInsertDTrans.Parameters.AddWithValue("@quantity", item.quantity);
+                            cmdInsertDTrans.Parameters.AddWithValue("@harga", item.harga);
+                            cmdInsertDTrans.Parameters.AddWithValue("@diskon", item.diskon);
+                            cmdInsertDTrans.Parameters.AddWithValue("@subtotal", item.subtotal);
+                            cmdInsertDTrans.Parameters.AddWithValue("@size", item.size);
+                            cmdInsertDTrans.ExecuteNonQuery();
+                        }
 
                         // Hapus data dari d_cart
                         MySqlCommand cmdDeleteDCart = new MySqlCommand(
                             "DELETE FROM d_cart WHERE id_cart = @idCart", conn, transaction);
                         cmdDeleteDCart.Parameters.AddWithValue("@idCart", idCart);
                         cmdDeleteDCart.ExecuteNonQuery();
+
+                        // Update stok barang
+                        foreach (var item in cartItems)
+                        {
+                            int idBarang = item.idBarang;
+                            string size = item.size;
+
+                            if (size == "NO")
+                            {
+                                // Barang tanpa size, update stok di tabel barang
+                                MySqlCommand cmdUpdateStockNoSize = new MySqlCommand(
+                                    "UPDATE barang SET stok_nosize = stok_nosize - @quantity WHERE id = @idBarang", conn, transaction);
+                                cmdUpdateStockNoSize.Parameters.AddWithValue("@quantity", item.quantity);
+                                cmdUpdateStockNoSize.Parameters.AddWithValue("@idBarang", idBarang);
+                                cmdUpdateStockNoSize.ExecuteNonQuery();
+                            }
+                            else
+                            {
+                                // Barang dengan size, update stok di tabel stok
+                                MySqlCommand cmdUpdateStockWithSize = new MySqlCommand(
+                                    "UPDATE stok SET stok = stok - @quantity WHERE id_barang = @idBarang AND size = @size", conn, transaction);
+                                cmdUpdateStockWithSize.Parameters.AddWithValue("@quantity", item.quantity);
+                                cmdUpdateStockWithSize.Parameters.AddWithValue("@idBarang", idBarang);
+                                cmdUpdateStockWithSize.Parameters.AddWithValue("@size", size);
+                                cmdUpdateStockWithSize.ExecuteNonQuery();
+                            }
+                        }
 
                         // Hapus data dari cart
                         MySqlCommand cmdDeleteCart = new MySqlCommand(
@@ -457,6 +480,7 @@ namespace uniqlo
                 }
             }
         }
+
 
         private void buttonRetur_Click(object sender, EventArgs e)
         {
