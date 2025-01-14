@@ -35,12 +35,13 @@ namespace uniqlo
         {
             int idbrg = 0, id_pengguna = 0, harga = 0, diskon = 0, stok_nosize = 0, id_kategori = 0, returable=0;
             string nama = "", url_gambar = "", namaKategori = "", namaPengguna = "", deskripsi = "";
+            DateTime diskonStart, diskonEnd;
 
             using (MySqlConnection conn = new MySqlConnection(DatabaseConfig.ConnectionString))
             {
                 conn.Open();
 
-                string query = "SELECT b.id, b.nama, b.harga, b.returable, b.diskon, b.url_gambar, b.stok_nosize, k.nama as nama_kategori, k.id as id_kategori, p.nama as nama_pengguna, p.id as id_pengguna, b.deskripsi FROM barang b join kategori k ON b.id_kategori = k.id join pengguna p ON k.id_pengguna = p.id WHERE b.id = @id";
+                string query = "SELECT b.id, b.nama, b.harga, b.returable, b.diskon, b.url_gambar, b.stok_nosize, k.nama as nama_kategori, k.id as id_kategori, p.nama as nama_pengguna, p.id as id_pengguna, b.deskripsi, b.diskon_start, b.diskon_end FROM barang b join kategori k ON b.id_kategori = k.id join pengguna p ON k.id_pengguna = p.id WHERE b.id = @id";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
@@ -62,6 +63,10 @@ namespace uniqlo
                             id_kategori = reader.GetInt32("id_kategori");
                             id_pengguna = reader.GetInt32("id_pengguna");
                             deskripsi = reader.GetString("deskripsi");
+                            diskonStart = reader.GetDateTime("diskon_start");
+                            diskonEnd = reader.GetDateTime("diskon_end");
+                            dateStart.Value = diskonStart;
+                            dateEnd.Value = diskonEnd;
                         }
                     }
                 }
@@ -154,6 +159,14 @@ namespace uniqlo
             {
                 checkBoxDiskon.Checked = false;
             }
+            else
+            {
+                checkBoxDiskon.Checked = true;
+                dateEnd.Enabled = true;
+                dateStart.Enabled = true;
+            }
+
+
             if (returable == 1)
             {
                 checkRetur.Checked = true;
