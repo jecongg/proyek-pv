@@ -177,6 +177,8 @@ namespace uniqlo
             comboBox2.SelectedValue = id_pengguna;
             comboBox1.Text = namaKategori;
             comboBox1.SelectedValue = id_kategori;
+            radioNoSize.Enabled = false;
+            radioSize.Enabled = false;
 
         }
 
