@@ -246,5 +246,10 @@ namespace uniqlo
             form.ShowDialog();
             this.Show();
         }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
