@@ -63,10 +63,27 @@ namespace uniqlo
                             id_kategori = reader.GetInt32("id_kategori");
                             id_pengguna = reader.GetInt32("id_pengguna");
                             deskripsi = reader.GetString("deskripsi");
-                            diskonStart = reader.GetDateTime("diskon_start");
-                            diskonEnd = reader.GetDateTime("diskon_end");
-                            dateStart.Value = diskonStart;
-                            dateEnd.Value = diskonEnd;
+                            if (!reader.IsDBNull(reader.GetOrdinal("diskon_start")))
+                            {
+                                diskonStart = reader.GetDateTime("diskon_start");
+                                dateStart.Value = diskonStart;
+                            }
+                            else
+                            {
+                                diskonStart = DateTime.MinValue; // Atau abaikan jika tidak diperlukan
+                                dateStart.Enabled = false; // Atur logika untuk menangani nilai null
+                            }
+
+                            if (!reader.IsDBNull(reader.GetOrdinal("diskon_end")))
+                            {
+                                diskonEnd = reader.GetDateTime("diskon_end");
+                                dateEnd.Value = diskonEnd;
+                            }
+                            else
+                            {
+                                diskonEnd = DateTime.MinValue; // Atau abaikan jika tidak diperlukan
+                                dateEnd.Enabled = false; // Atur logika untuk menangani nilai null
+                            }
                         }
                     }
                 }
@@ -326,10 +343,14 @@ namespace uniqlo
             if (checkBoxDiskon.Checked)
             {
                 numDiskon.Enabled = true;
+                dateEnd.Enabled = true;
+                dateStart.Enabled = true;
             }
             else
             {
                 numDiskon.Enabled = false;
+                dateStart.Enabled = false;
+                dateEnd.Enabled = false;
             }
         }
 
