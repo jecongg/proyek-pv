@@ -121,7 +121,24 @@ namespace uniqlo
                     SizeMode = PictureBoxSizeMode.Zoom,
                     TabStop = false
                 };
-                pb.Load(dt.Rows[i]["url_gambar"].ToString());
+                string imageUrl = dt.Rows[i]["url_gambar"].ToString();
+                try
+                {
+                    pb.Load(imageUrl);
+                }
+                catch (System.Net.WebException ex) when (ex.Response is HttpWebResponse response && response.StatusCode == HttpStatusCode.NotFound)
+                {
+                    // Menangkap error 404 Not Found secara spesifik
+                    // Ganti dengan gambar default jika gambar di URL tidak ditemukan
+                    pb.Image = Properties.Resources.DefaultImage; // Pastikan Anda memiliki resource gambar default
+                    pb.Tag = "Gambar tidak ditemukan (404)";
+                }
+                catch (Exception ex)
+                {
+                    // Menangkap error jaringan lain (timeout, dll.) atau error pemrosesan gambar
+                    pb.Image = Properties.Resources.DefaultImage; // Ganti dengan gambar default
+                    pb.Tag = "Error memuat gambar: " + ex.Message;
+                }
 
                 Label pengguna = new Label()
                 {
